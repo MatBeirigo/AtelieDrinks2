@@ -1,0 +1,131 @@
+﻿@model IEnumerable<AtelieDrinks.Models.Custo_operacional>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.qtd_coordenador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.custo_coordenador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.qtd_profissionais_gerais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.custo_profissionais_gerais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.qtd_transporte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.custo_transporte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.qtd_balcoes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.custo_balcoes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.qtd_taxa_deslocamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.custo_taxa_deslocamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.qtd_impostos_federais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.custo_impostos_federais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.qtd_seguro_reserva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.custo_seguro_reserva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.qtd_taxa_operalizacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.custo_taxa_operalizacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.custo_operacional)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtd_coordenador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.custo_coordenador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtd_profissionais_gerais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.custo_profissionais_gerais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtd_transporte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.custo_transporte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtd_balcoes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.custo_balcoes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtd_taxa_deslocamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.custo_taxa_deslocamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtd_impostos_federais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.custo_impostos_federais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtd_seguro_reserva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.custo_seguro_reserva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtd_taxa_operalizacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.custo_taxa_operalizacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.custo_operacional)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_custo_operacional">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id_custo_operacional">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_custo_operacional">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,113 @@
+﻿@model AtelieDrinks.Models.Custo_operacional
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Custo_operacional</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="qtd_coordenador" class="control-label"></label>
+                <input asp-for="qtd_coordenador" class="form-control" />
+                <span asp-validation-for="qtd_coordenador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_coordenador" class="control-label"></label>
+                <input asp-for="custo_coordenador" class="form-control" />
+                <span asp-validation-for="custo_coordenador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qtd_profissionais_gerais" class="control-label"></label>
+                <input asp-for="qtd_profissionais_gerais" class="form-control" />
+                <span asp-validation-for="qtd_profissionais_gerais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_profissionais_gerais" class="control-label"></label>
+                <input asp-for="custo_profissionais_gerais" class="form-control" />
+                <span asp-validation-for="custo_profissionais_gerais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qtd_transporte" class="control-label"></label>
+                <input asp-for="qtd_transporte" class="form-control" />
+                <span asp-validation-for="qtd_transporte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_transporte" class="control-label"></label>
+                <input asp-for="custo_transporte" class="form-control" />
+                <span asp-validation-for="custo_transporte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qtd_balcoes" class="control-label"></label>
+                <input asp-for="qtd_balcoes" class="form-control" />
+                <span asp-validation-for="qtd_balcoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_balcoes" class="control-label"></label>
+                <input asp-for="custo_balcoes" class="form-control" />
+                <span asp-validation-for="custo_balcoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qtd_taxa_deslocamento" class="control-label"></label>
+                <input asp-for="qtd_taxa_deslocamento" class="form-control" />
+                <span asp-validation-for="qtd_taxa_deslocamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_taxa_deslocamento" class="control-label"></label>
+                <input asp-for="custo_taxa_deslocamento" class="form-control" />
+                <span asp-validation-for="custo_taxa_deslocamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qtd_impostos_federais" class="control-label"></label>
+                <input asp-for="qtd_impostos_federais" class="form-control" />
+                <span asp-validation-for="qtd_impostos_federais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_impostos_federais" class="control-label"></label>
+                <input asp-for="custo_impostos_federais" class="form-control" />
+                <span asp-validation-for="custo_impostos_federais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qtd_seguro_reserva" class="control-label"></label>
+                <input asp-for="qtd_seguro_reserva" class="form-control" />
+                <span asp-validation-for="qtd_seguro_reserva" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_seguro_reserva" class="control-label"></label>
+                <input asp-for="custo_seguro_reserva" class="form-control" />
+                <span asp-validation-for="custo_seguro_reserva" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qtd_taxa_operalizacao" class="control-label"></label>
+                <input asp-for="qtd_taxa_operalizacao" class="form-control" />
+                <span asp-validation-for="qtd_taxa_operalizacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_taxa_operalizacao" class="control-label"></label>
+                <input asp-for="custo_taxa_operalizacao" class="form-control" />
+                <span asp-validation-for="custo_taxa_operalizacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_operacional" class="control-label"></label>
+                <input asp-for="custo_operacional" class="form-control" />
+                <span asp-validation-for="custo_operacional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

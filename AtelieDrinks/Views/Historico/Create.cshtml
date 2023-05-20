@@ -1,0 +1,103 @@
+﻿@model AtelieDrinks.Models.Historico
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Historico</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="numero_pessoas" class="control-label"></label>
+                <input asp-for="numero_pessoas" class="form-control" />
+                <span asp-validation-for="numero_pessoas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_operacional" class="control-label"></label>
+                <input asp-for="custo_operacional" class="form-control" />
+                <span asp-validation-for="custo_operacional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_total_insumos" class="control-label"></label>
+                <input asp-for="custo_total_insumos" class="form-control" />
+                <span asp-validation-for="custo_total_insumos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_total" class="control-label"></label>
+                <input asp-for="custo_total" class="form-control" />
+                <span asp-validation-for="custo_total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="base_orcamento" class="control-label"></label>
+                <input asp-for="base_orcamento" class="form-control" />
+                <span asp-validation-for="base_orcamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="comissao_comercial" class="control-label"></label>
+                <input asp-for="comissao_comercial" class="form-control" />
+                <span asp-validation-for="comissao_comercial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="comissao_gerencia" class="control-label"></label>
+                <input asp-for="comissao_gerencia" class="form-control" />
+                <span asp-validation-for="comissao_gerencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="valor_primario" class="control-label"></label>
+                <input asp-for="valor_primario" class="form-control" />
+                <span asp-validation-for="valor_primario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_por_pessoa" class="control-label"></label>
+                <input asp-for="custo_por_pessoa" class="form-control" />
+                <span asp-validation-for="custo_por_pessoa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="valor_arredondado_pra_cima" class="control-label"></label>
+                <input asp-for="valor_arredondado_pra_cima" class="form-control" />
+                <span asp-validation-for="valor_arredondado_pra_cima" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="margem_negociacao" class="control-label"></label>
+                <input asp-for="margem_negociacao" class="form-control" />
+                <span asp-validation-for="margem_negociacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="valor_orcamento" class="control-label"></label>
+                <input asp-for="valor_orcamento" class="form-control" />
+                <span asp-validation-for="valor_orcamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="previsao_lucro" class="control-label"></label>
+                <input asp-for="previsao_lucro" class="form-control" />
+                <span asp-validation-for="previsao_lucro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qtde_convidados" class="control-label"></label>
+                <input asp-for="qtde_convidados" class="form-control" />
+                <span asp-validation-for="qtde_convidados" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qtde_drinks" class="control-label"></label>
+                <input asp-for="qtde_drinks" class="form-control" />
+                <span asp-validation-for="qtde_drinks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

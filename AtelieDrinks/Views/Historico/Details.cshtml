@@ -1,0 +1,108 @@
+﻿@model AtelieDrinks.Models.Historico
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Historico</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.numero_pessoas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.numero_pessoas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.custo_operacional)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.custo_operacional)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.custo_total_insumos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.custo_total_insumos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.custo_total)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.custo_total)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.base_orcamento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.base_orcamento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.comissao_comercial)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.comissao_comercial)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.comissao_gerencia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.comissao_gerencia)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.valor_primario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.valor_primario)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.custo_por_pessoa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.custo_por_pessoa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.valor_arredondado_pra_cima)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.valor_arredondado_pra_cima)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.margem_negociacao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.margem_negociacao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.valor_orcamento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.valor_orcamento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.previsao_lucro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.previsao_lucro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.qtde_convidados)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.qtde_convidados)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.qtde_drinks)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.qtde_drinks)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id_historico">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

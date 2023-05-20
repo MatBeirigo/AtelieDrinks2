@@ -1,0 +1,330 @@
+﻿@model IEnumerable<AtelieDrinks.Models.Orcamento>
+@{
+    ViewData["Title"] = "Index5";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/orcamento.css">
+    <script src="/js/orcamento.js"></script>
+
+    <title>Orcamento 5</title>
+</head>
+<body>
+    <div id="background-black" class="background-black" style="display:none">
+        <div class="card-Modal-card">
+            <div class="card-Modal-card2">
+
+                <div class="Modal-card">
+
+                    <div class="Modal-card-header">
+
+                        <h4>DRINKS DISPONÍVEIS</h4>
+                        <span id="fechar-Modal-card" class="fechar-Modal-card">&times;</span>
+
+                    </div>
+
+                    <div class="Modal-card-content">
+
+                        <!--Preciso de um search para filtrar a tabela-->
+                        <!--Search precisa filtrar por categorias e nome-->
+                        <div class="search-container">
+                            <form action="#">
+                                <input type="text" placeholder="Insira o nome do Drink...">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                            <!-- <a><p>ABC</p></a>
+                            <a><p>Custo</p></a> -->
+                        </div>
+
+                        <!--Lógica: drinks podem ser organizados
+                            através de ordem alfabética e preço/custo-->
+
+                        <div class="drink-container">
+
+                            <div class="content-checkbox">
+                                <label class="checkBox">
+                                    <input id="ch1" type="checkbox">
+                                    <div class="transition"></div>
+                                </label>
+                            </div> <!--fim CBox-->
+
+                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
+
+                            <div class="drink-detalhes">
+                                <p class="drink-info">Drink1</p>
+                                <p class="drink-info">Custo</p>
+                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
+                            </div>
+
+                        </div> <!--fim drinkContainer-->
+
+                        <div class="drink-container">
+
+                            <div class="content-checkbox">
+                                <label class="checkBox">
+                                    <input id="ch1" type="checkbox">
+                                    <div class="transition"></div>
+                                </label>
+                            </div> <!--fim CBox-->
+
+                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
+
+                            <div class="drink-detalhes">
+                                <p class="drink-info">Drink1</p>
+                                <p class="drink-info">Custo</p>
+                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
+                            </div>
+
+                        </div> <!--fim drinkContainer-->
+
+                        <div class="drink-container">
+
+                            <div class="content-checkbox">
+                                <label class="checkBox">
+                                    <input id="ch1" type="checkbox">
+                                    <div class="transition"></div>
+                                </label>
+                            </div> <!--fim CBox-->
+
+                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
+
+                            <div class="drink-detalhes">
+                                <p class="drink-info">Drink1</p>
+                                <p class="drink-info">Custo</p>
+                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
+                            </div>
+
+                        </div> <!--fim drinkContainer-->
+
+                        <div class="drink-container">
+
+                            <div class="content-checkbox">
+                                <label class="checkBox">
+                                    <input id="ch1" type="checkbox">
+                                    <div class="transition"></div>
+                                </label>
+                            </div> <!--fim CBox-->
+
+                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
+
+                            <div class="drink-detalhes">
+                                <p class="drink-info">Drink1</p>
+                                <p class="drink-info">Custo</p>
+                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
+                            </div>
+
+                        </div> <!--fim drinkContainer-->
+
+                        <div class="drink-container">
+
+                            <div class="content-checkbox">
+                                <label class="checkBox">
+                                    <input id="ch1" type="checkbox">
+                                    <div class="transition"></div>
+                                </label>
+                            </div> <!--fim CBox-->
+
+                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
+
+                            <div class="drink-detalhes">
+                                <p class="drink-info">Drink1</p>
+                                <p class="drink-info">Custo</p>
+                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
+                            </div>
+
+                        </div> <!--fim drinkContainer-->
+
+                        <div class="drink-container">
+
+                            <div class="content-checkbox">
+                                <label class="checkBox">
+                                    <input id="ch1" type="checkbox">
+                                    <div class="transition"></div>
+                                </label>
+                            </div> <!--fim CBox-->
+
+                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
+
+                            <div class="drink-detalhes">
+                                <p class="drink-info">Drink1</p>
+                                <p class="drink-info">Custo</p>
+                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
+                            </div>
+
+                        </div> <!--fim drinkContainer-->
+
+                        <div class="drink-container">
+
+                            <div class="content-checkbox">
+                                <label class="checkBox">
+                                    <input id="ch1" type="checkbox">
+                                    <div class="transition"></div>
+                                </label>
+                            </div> <!--fim CBox-->
+
+                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
+
+                            <div class="drink-detalhes">
+                                <p class="drink-info">Drink1</p>
+                                <p class="drink-info">Custo</p>
+                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
+                            </div>
+
+                        </div> <!--fim drinkContainer-->
+
+                        <div class="drink-container">
+
+                            <div class="content-checkbox">
+                                <label class="checkBox">
+                                    <input id="ch1" type="checkbox">
+                                    <div class="transition"></div>
+                                </label>
+                            </div> <!--fim CBox-->
+
+                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
+
+                            <div class="drink-detalhes">
+                                <p class="drink-info">Drink1</p>
+                                <p class="drink-info">Custo</p>
+                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
+                            </div>
+
+                        </div> <!--fim drinkContainer-->
+
+                        <div class="drink-container">
+
+                            <div class="content-checkbox">
+                                <label class="checkBox">
+                                    <input id="ch1" type="checkbox">
+                                    <div class="transition"></div>
+                                </label>
+                            </div> <!--fim CBox-->
+
+                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
+
+                            <div class="drink-detalhes">
+                                <p class="drink-info">Drink1</p>
+                                <p class="drink-info">Custo</p>
+                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
+                            </div>
+
+                        </div> <!--fim drinkContainer-->
+
+                        <div class="drink-container">
+
+                            <div class="content-checkbox">
+                                <label class="checkBox">
+                                    <input id="ch1" type="checkbox">
+                                    <div class="transition"></div>
+                                </label>
+                            </div> <!--fim CBox-->
+
+                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
+
+                            <div class="drink-detalhes">
+                                <p class="drink-info">Drink1</p>
+                                <p class="drink-info">Custo</p>
+                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
+                            </div>
+
+                        </div> <!--fim drinkContainer-->
+
+                        <div class="drink-container">
+
+                            <div class="content-checkbox">
+                                <label class="checkBox">
+                                    <input id="ch1" type="checkbox">
+                                    <div class="transition"></div>
+                                </label>
+                            </div> <!--fim CBox-->
+
+                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
+
+                            <div class="drink-detalhes">
+                                <p class="drink-info">Drink1</p>
+                                <p class="drink-info">Custo</p>
+                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
+                            </div>
+
+                        </div> <!--fim drinkContainer-->
+                        <!--Lógica: as checkboxes marcadas definiram quais
+                            itens serão adicionados ao clicar no botão no fim do Modal-card-->
+                        <div class="centralizar">
+                            <button class="button adicionar">Adicionar</button>
+                        </div>
+
+                    </div> <!--fim Modal-card-CONTENT-->
+
+                </div> <!--fim Modal-card-->
+
+            </div>
+        </div>
+    </div>
+    <!--hero-banner-->
+    <div class="hero-banner">
+        <h1 class="title-banner">Orcamento</h1>
+        <h3>Último Passo</h3>
+    </div>
+
+    <!--content-->
+    <div class="black-box">
+        <div class="content">
+            <!--box-->
+            <div class="content-box">
+                <div class="margin-box" style="margin: 50px 0 50px 0;">
+                    <h3>Seleção de Drinks</h3>
+                    <p style="margin-top:5px">Quais drinks serão contabilizados neste orçamento?</p>
+
+                    <div class="row-inputs">
+
+                        <div class="list-inputs">
+                            <!--fim LINHA 1-->
+                            <!--Lógica: toda vez que adicionarem um novo item,
+                            uma nova div "list-inputs será adicionada com
+                            o item selecionado e suas infos - qtd/custo_tecnico/descricao "-->
+                        </div> <!--fim LINHA 1-->
+
+                        <div class="list-inputs">
+                            <!--Lista TRANSP. Carreto-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content" style="margin-right:30px">Bebida1</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Custo</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista TRANSP. Carreto-->
+
+                    </div> <!--Fim row-inputs-->
+                </div> <!--Fim margin-box-->
+
+                <div class="button adicionar" id="myBtn">
+                    Adicionar <!--BOTÃO ADICIONAR-->
+                </div> <!--BOTÃO ADICIONAR-->
+
+            </div> <!--fim content box-->
+
+            <div class="list-buttons">
+                <button class="button excluir" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 4 })'">Voltar</button>
+                <button class="button continuar" onclick=" window.location='@Url.Action("Index", "Historico")' ">Finalizar</button>
+            </div> <!--fim lista-buttons-->
+
+        </div> <!--fim CONTENT-->
+    </div>  <!--fim BLACKBOX-->
+</body>
+</html>

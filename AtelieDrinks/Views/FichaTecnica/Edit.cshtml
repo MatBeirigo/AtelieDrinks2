@@ -1,0 +1,69 @@
+﻿@model AtelieDrinks.Models.Ficha_tecnica
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Ficha_tecnica</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id_ficha" />
+            <div class="form-group">
+                <label asp-for="nome_drink" class="control-label"></label>
+                <input asp-for="nome_drink" class="form-control" />
+                <span asp-validation-for="nome_drink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nome_base_alcoolica" class="control-label"></label>
+                <input asp-for="nome_base_alcoolica" class="form-control" />
+                <span asp-validation-for="nome_base_alcoolica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nome_insumo" class="control-label"></label>
+                <input asp-for="nome_insumo" class="form-control" />
+                <span asp-validation-for="nome_insumo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_insumo" class="control-label"></label>
+                <input asp-for="custo_insumo" class="form-control" />
+                <span asp-validation-for="custo_insumo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_base_alcoolica" class="control-label"></label>
+                <input asp-for="custo_base_alcoolica" class="form-control" />
+                <span asp-validation-for="custo_base_alcoolica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="medida" class="control-label"></label>
+                <input asp-for="medida" class="form-control" />
+                <span asp-validation-for="medida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ml_unidade" class="control-label"></label>
+                <input asp-for="ml_unidade" class="form-control" />
+                <span asp-validation-for="ml_unidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="valor_ficha" class="control-label"></label>
+                <input asp-for="valor_ficha" class="form-control" />
+                <span asp-validation-for="valor_ficha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

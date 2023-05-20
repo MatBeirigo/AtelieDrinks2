@@ -1,0 +1,167 @@
+﻿@model IEnumerable<AtelieDrinks.Models.Orcamento>
+@{
+    ViewData["Title"] = "Index4";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/orcamento.css">
+
+    <title>Orcamento 4</title>
+</head>
+<body>
+    <!--hero-banner-->
+    <div class="hero-banner">
+        <h1 class="title-banner">Orcamento</h1>
+        <h3>Passo 4</h3>
+    </div>
+
+    <!--content-->
+    <div class="black-box">
+        <div class="content">
+            <!--box-->
+            <div class="content-box">
+                <div class="margin-box" style="margin: 350px 0 50px 0;">
+                    <h3>TAXA DE DESLOCAMENTO</h3>
+                    <p style="margin-top:5px">Pedágios, carros, seguro de reserva, etc...</p>
+
+                    <div class="row-inputs">
+
+                        <div class="list-inputs">
+                            <!--Lista TRANSP. Carreto-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Carreta até 5 Freelancer</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista TRANSP. Carreto-->
+
+                        <div class="list-inputs">
+                            <!--Lista PEDAGIOS-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Pedágios</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista PEDAGIOS-->
+
+                        <div class="list-inputs">
+                            <!--Lista ALIMENTACAO-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Alimentação</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista ALIMENTACAO-->
+
+                        <div class="list-inputs">
+                            <!--Lista CARRO COLABORADORES-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Carro Colaboradores</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista CARRO COLABORADORES-->
+
+                        <div class="list-inputs">
+                            <!--Lista DIARIAS HOTEIS-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Diárias Hotéis</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista DIARIAS HOTEIS-->
+
+                        <div class="list-inputs">
+                            <!--SEGURO DE RESERVA-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Seguro de Reserva</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista SEGURO DE RESERVA-->
+
+                    </div> <!--Fim row-inputs-->
+                </div> <!--Fim margin-box-->
+            </div> <!--fim content box-->
+
+            <div class="list-buttons">
+                <button class="button excluir" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 3 })'">Voltar</button>
+                <button class="button continuar" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 5 })'">Continuar</button>
+            </div> <!--fim lista-buttons-->
+
+        </div> <!--fim CONTENT-->
+    </div>  <!--fim BLACKBOX-->
+</body>
+</html>

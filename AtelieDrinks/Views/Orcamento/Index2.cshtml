@@ -1,0 +1,170 @@
+﻿@model IEnumerable<AtelieDrinks.Models.Orcamento>
+
+@{
+    ViewData["Title"] = "Index2";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/orcamento.css">
+
+    <title>Orcamento 2</title>
+</head>
+<body>
+    <!--hero-banner-->
+    <div class="hero-banner">
+        <h1 class="title-banner">Orcamento</h1>
+        <h3>Passo 2</h3>
+    </div>
+
+    <!--content-->
+    <div class="black-box">
+        <div class="content">
+            <!--box-->
+            <div class="content-box">
+                <div style="margin: 350px 0 50px 0;" class="margin-box">
+                    <h3>CUSTOS OPERACIONAIS</h3>
+                    <p style="margin-top:5px">Profissões gerais, coordenadores, transportadores, etc...</p>
+
+                    <div class="row-inputs">
+
+                        <div class="list-inputs">
+                            <!--Lista COORDENADOR-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Coordenador</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista COORDENADOR-->
+
+                        <div class="list-inputs">
+                            <!--Lista PROFISSIONAIS GERAIS-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Profissionais Gerais</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista PROFISSIONAIS GERAIS-->
+
+                        <div class="list-inputs">
+                            <!--Lista BALCÕES-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Balcões</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista BALCÕES-->
+
+                        <div class="list-inputs">
+                            <!--Lista IMPOSTOS FEDERAIS-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Impostos Federais</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista IMPOSTOS FEDERAIS-->
+
+                        <div class="list-inputs">
+                            <!--Lista SEGURO DE RESERVA-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Seguro de Reserva</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista SEGURO DE RESERVA-->
+
+                        <div class="list-inputs">
+                            <!--Lista TAXA OP-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input type="value" required="">
+                                <label><span>QTD</span></label>
+                            </div>
+                            <p class="list-input-content">Taxa de Operacionalização</p>
+                            <div class="form-input">
+                                <!--Input Valor-->
+                                <input type="value" required="">
+                                <label><span>Valor</span></label>
+                            </div>
+                            <div class="form-input">
+                                <!--Input Total-->
+                                <input type="value" required="">
+                                <label><span>Total</span></label>
+                            </div>
+                        </div> <!--Fim lista TAXA OP-->
+
+                    </div> <!--Fim row-inputs-->
+
+                </div> <!--Fim margin-box-->
+
+            </div> <!--fim content box-->
+
+            <div class="list-buttons">
+                <button class="button excluir" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 1 })'">Voltar</button>
+                <button class="button continuar" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 3 })'">Continuar</button>
+            </div>
+
+        </div> <!--fim CONTENT-->
+    </div>  <!--fim BLACKBOX-->
+</body>
+</html>
