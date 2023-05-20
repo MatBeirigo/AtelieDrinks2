@@ -1,0 +1,81 @@
+﻿@model IEnumerable<AtelieDrinks.Models.Insumos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insumos</title>
+    
+
+    
+</head>
+<body>
+   <div class="cabecalho">
+            <div class="container">
+              <img src="~/images/coqueteis.png" alt="drinks" class="img-cabecalho"> 
+              <div class="texto"><h1>INSUMOS</h1>
+              </div>
+            </div>       
+        </div>
+        <div class="meio">
+            <h2>Insumos Gerais</h2>
+           
+                <a href="@Url.Action("Create")" class="add-btn">
+                    <div  class="add-box">
+                        <img src="~/images/icon-mais.svg" alt="mais" height="15px" width="15px">
+                    <p style="color:green" class="add-txt">Adicionar</p>
+                    </div>
+                </a>
+                
+             
+            <div class="search-box">
+                <input type="text" class="search-txt" id="search-input" placeholder="">
+                <a href="#" class="search-btn">
+                    <img src="~/images/lupa.svg" alt="lupa" height="20px" width="20px">
+                </a>
+            </div>
+        </div>
+        <div class="separa">
+        <div class="table-container">
+            <h1 class="heading">Tabela de Insumos</h1>
+            <table class="tabela" id="tabela-insumos">
+                <thead>
+                    <tr>
+                        <th scope="col">Insumo</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Editar</th>
+                    </tr>
+                </thead>
+                <tbody>@foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nome_insumo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.quantidade)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.custo_insumo)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.id_insumo"><i class="fas fa-edit"></i></a> |
+                                    <a asp-action="Details" asp-route-id="@item.id_insumo"><i class="fas fa-info-circle"></i></a> |
+                                    <a asp-action="Delete" asp-route-id="@item.id_insumo"><i class="fas fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        }
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+        
+</body>
+</html>

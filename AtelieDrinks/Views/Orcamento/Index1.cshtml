@@ -1,0 +1,61 @@
+﻿@model AtelieDrinks.Models.Orcamento
+
+
+@{
+    ViewData["Title"] = "Index1";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/orcamento.css">
+
+    <title>Orcamento 1</title>
+</head>
+<body>
+    <!--hero-banner-->
+    <div class="hero-banner">
+        <h1 class="title-banner">Orcamento</h1>
+        <h3>Passo 1</h3>
+    </div>
+
+    <!--content-->
+    <div class="black-box">
+        <div class="content">
+            <!--box-->
+            <div class="content-box" style="height:40vh;">
+                <div style="margin: 50px 0 50px 0;" class="margin-box">
+                    <h3>CONVIDADOS</h3>
+                    <p style="margin-top:5px">Insira o número de convidados:</p>
+
+                    <div class="row-inputs">
+
+                        <div class="list-inputs">
+                            <!--Lista COORDENADOR-->
+                            <div class="form-input" style="width:45px">
+                                <!--Input QTD-->
+                                <input asp-for="numero_pessoas" type="value" >
+                                <label><span>QTD</span></label>
+                            </div>
+                        </div> <!--Fim lista COORDENADOR-->
+
+                    </div> <!--Fim row-inputs-->
+
+                </div> <!--Fim margin-box-->
+
+            </div> <!--fim content box-->
+
+            <div class="list-buttons">
+                <button class="button excluir" onclick="window.location='@Url.Action("Index", "Home")'">Voltar</button>
+                <button class="button continuar" value="Createnumero_pessoas" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 2 })'">Continuar</button>
+            </div>
+
+        </div> <!--fim CONTENT-->
+    </div>  <!--fim BLACKBOX-->
+</body>
+</html>
+

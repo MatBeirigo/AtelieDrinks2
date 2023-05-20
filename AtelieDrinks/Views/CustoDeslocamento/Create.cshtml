@@ -1,0 +1,43 @@
+﻿@model AtelieDrinks.Models.Custo_deslocamento
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Custo_deslocamento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="tipo_deslocamento" class="control-label"></label>
+                <input asp-for="tipo_deslocamento" class="form-control" />
+                <span asp-validation-for="tipo_deslocamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="valor_tipo_deslocamento" class="control-label"></label>
+                <input asp-for="valor_tipo_deslocamento" class="form-control" />
+                <span asp-validation-for="valor_tipo_deslocamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="custo_tipo_deslocamento" class="control-label"></label>
+                <input asp-for="custo_tipo_deslocamento" class="form-control" />
+                <span asp-validation-for="custo_tipo_deslocamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

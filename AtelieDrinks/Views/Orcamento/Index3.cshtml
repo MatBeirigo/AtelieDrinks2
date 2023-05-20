@@ -1,0 +1,93 @@
+﻿@model IEnumerable<AtelieDrinks.Models.Orcamento>
+
+@{
+    ViewData["Title"] = "Index3";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/orcamento.css">
+
+    <title>Orcamento 3</title>
+</head>
+<body>
+    <!--hero-banner-->
+    <div class="hero-banner">
+        <h1 class="title-banner">Orcamento</h1>
+        <h3>Passo 3</h3>
+    </div>
+
+    <!--content-->
+    <div class="black-box">
+        <div class="content">
+            <!--box-->
+            <div class="content-box">
+                <div class="margin-box" style="margin: 180px 0 50px 0;">
+                    <h3>ENDEREÇO</h3>
+                    <p style="margin-top:5px">Local, complemento, CEP, etc...</p>
+
+                    <div class="row-inputs">
+                        <div class="list-inputs">
+                            <!--Lista CEP-->
+                            <div class="form-input" style="width:470px">
+                                <!--Input CEP-->
+                                <input type="value" required="">
+                                <label><span>CEP</span></label>
+                            </div>
+                        </div> <!--Fim lista CEP-->
+
+                        <div class="list-inputs">
+                            <!--Lista UF CIDADE BAIRRO-->
+                            <div class="form-input" style="width:35px">
+                                <!--Input UF-->
+                                <input type="value" required="">
+                                <label><span>UF</span></label>
+                            </div>
+                            <div class="form-input" style="width:190px">
+                                <!--Input CIDADE-->
+                                <input type="value" required="">
+                                <label><span>Cidade</span></label>
+                            </div>
+                            <div class="form-input" style="width:160px">
+                                <!--Input BAIRRO-->
+                                <input type="value" required="">
+                                <label><span>Bairro</span></label>
+                            </div>
+                        </div> <!--Fim lista UF CIDADE BAIRRO-->
+
+                        <div class="list-inputs">
+                            <!--Lista ENDERECO-->
+                            <div class="form-input" style="width:470px">
+                                <!--Input ENDERECO-->
+                                <input type="value" required="">
+                                <label><span>Endereço</span></label>
+                            </div>
+                        </div> <!--Fim lista ENDERECO-->
+
+                        <div class="list-inputs">
+                            <!--Lista COMPLEMENTO-->
+                            <div class="form-input" style="width:470px">
+                                <!--Input COMPLEMENTO-->
+                                <input type="value" required="">
+                                <label><span>Complemento</span></label>
+                            </div>
+                        </div> <!--Fim lista COMPLEMENTO-->
+
+                    </div> <!--Fim row-inputs-->
+                </div> <!--Fim margin-box-->
+            </div> <!--fim content box-->
+
+            <div class="list-buttons">
+                <button class="button excluir" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 2 })'">Voltar</button>
+                <button class="button continuar" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 4 })'">Continuar</button>
+            </div> <!--fim lista-buttons-->
+
+        </div>
+    </div>
+</body>
+</html>

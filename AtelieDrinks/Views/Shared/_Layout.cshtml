@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="@Url.Content("~/css/menulateral.css")" rel="stylesheet">
+    <!-- JS -->
+    <script src="@Url.Content("~/js/menulateral.js")" defer></script>
+
+
+    <!-- CSS e JS -->
+    <script src="@Url.Content("~/js/app.js")" defer></script>
+    <link href="@Url.Content("~/css/app.css")" rel="stylesheet">
+
+    <title>Atelier Drinks</title>
+
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="@Url.Content("~/css/sb-admin-2.css")" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="@Url.Content("~/imagens/logoad.png")">
+
+    <script src="https://kit.fontawesome.com/fd016a7d8f.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Data - Table import -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/date-1.1.2/r-2.3.0/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" defer></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/date-1.1.2/r-2.3.0/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Tela de carregamento -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+        <link rel="stylesheet" href="~/css/site.css" />
+    
+</head>
+
+
+<body>
+    <!-- ELEMENTOS DA TELA DE CARREGAMENTO -->
+    <div class="back-main">
+        <div class="pane-row">
+            <div class="back-pane al-top"></div>
+        </div>
+    </div>
+
+    <div class="back-container">
+        <div id="description">Desenvolvido por CONSELT</div>
+
+        <div id="animation">
+            <div class="rumandcoke">
+                <div class="glass"></div>
+                <div class="contents"></div>
+                <div class="straw"></div>
+                <div class="lime"></div>
+                <div class="ice">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="martini">
+                <div class="glass"></div>
+                <div class="contents"></div>
+                <div class="stem"></div>
+                <div class="olive"></div>
+                <div class="base"></div>
+            </div>
+            <div class="mug">
+                <div class="handle"></div>
+                <div class="glass">
+                    <div class="body"></div>
+                    <div class="contents">
+                        <div class="fizz">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="foam">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- FIM DOS ELEMENTOS DA TELA DE CARREGAMENTO -->
+
+    
+   
+
+    <div class="grid-container">
+    
+
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Content("~/home")">
+                    <div class="sidebar-brand-icon">
+                        <img height="75px" src="@Url.Content("~/imagens/logoad.png")" />
+                    </div>
+                </a>
+            </div>
+            <div class="header-right">
+                
+                <span class=" fas fa-sign-out-alt">Logout</span>
+            </div>
+        </header>
+        <!-- End Header -->
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <span class="material-icons-outlined menu-icon" onclick="closeSidebar()">close</span>
+            <div class="sidebar-title">
+                
+                <center>
+                    <a href="User" class="sem_sumblinhado">
+                        <img height="200px" src="/imagens/user.png" class="imageuser" alt="" />
+                        <h3>Bruno</h3>
+                    </a>
+
+                </center>
+
+                
+            </div>
+            
+            <!-- Nav Item - Página de Dashboard -->
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item">
+                    <a href="@Url.Content("~/home")" target="_self">
+                        <span class="material-icons-outlined">dashboard</span> Dashboard
+                    </a>
+                </li>
+                <!-- Nav Item - Página de Orcamento -->
+                <li class="sidebar-list-item">
+                    <a href="@Url.Content("~/Orcamento")" target="_self">
+                        <span class="material-icons-outlined">inventory_2</span> Orçamento
+                    </a>
+                </li>
+                <!-- Nav Item - Página de estoque -->
+                <li class="sidebar-list-item">
+                    <a href="@Url.Content("~/estoque")" target="_self">
+                        <span class="material-icons-outlined">fact_check</span> Estoque
+                    </a>
+                </li>
+                <!-- Nav Item - Página de Historico -->
+                <li class="sidebar-list-item">
+                    <a href="@Url.Content("~/Historico")" target="_self">
+                        <span class="material-icons-outlined">add_shopping_cart</span> Historico
+                    </a>
+                </li>
+                <!-- Nav Item - Página de Fichas Técnicas -->
+                <li class="sidebar-list-item">
+                    <a href="@Url.Content("~/fichaTecnica")" target="_self">
+                        <span class="material-icons-outlined">shopping_cart</span> Sales Orders
+                    </a>
+                </li>
+                <!-- Nav Item - Página de Insumos -->
+                <li class="sidebar-list-item">
+                    <a href="@Url.Content("~/Insumos")" target="_self">
+                        <span class="material-icons-outlined">poll</span> Insumos
+                    </a>
+                </li>
+                <li class="sidebar-list-item">
+                    <a href="#" target="_blank">
+                        <span class="material-icons-outlined">settings</span> Settings
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <!-- End Sidebar -->
+
+        
+        <!-- Main -->
+        <main class="main-container fundo_body">
+             @RenderBody()
+             @RenderSection("Scripts", required: false)
+
+         
+
+    </main>
+        <!-- End Main -->
+        
+    </div>
+
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
+
+<!-- TELA DE CARREGAMENTO -->
+<script>
+    $(function () {
+        console.log('Página pronta');
+    })
+
+
+    $(window).bind("load", function () {
+
+        var tempo = setTimeout(function () {   // remova esta linha para hospedar
+            $('.back-container').fadeOut();
+            setTimeout(function () { $('.back-pane').addClass('pane-hidden'); },);
+            setTimeout(function () { $('.back-main').hide(); },);
+        }, 650);  // remova esta linha para hospedar
+    });
+</script>
+
+
+
+
+
+
