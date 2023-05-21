@@ -52,7 +52,7 @@ namespace AtelieDrinks.Controllers
             switch (numberPage)
             {
                 case 1:
-                    return View("~/Views/Orcamento/Index1.cshtml");
+                    return View("~/Views/Numero_convidados/Create.cshtml");
                 case 2:
                     return View("~/Views/Orcamento/Index2.cshtml");
                 case 3:

@@ -18,12 +18,12 @@ background-color: transparent; /* cor da borda do scroll */
 }
 
 * {
-/*fonts*/
-font-family: 'Inter';
-letter-spacing: 0.1em;
-/*settings*/
-margin: 0;
-padding: 0;
+    /*fonts*/
+    font-family:'Inter';
+    letter-spacing: 0.1em;
+    /*settings*/
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -86,6 +86,7 @@ background-repeat: no-repeat;
 background-position: center 25%;
 }
 
+
 .title-banner {
 /* position */
 align-items: center;
@@ -123,16 +124,41 @@ margin: 50px 0px;
 border: 1px solid white;
 border-radius: 25px;
 height: 60vh;
-overflow-y: scroll;
 }
 
+.scroll {
+    overflow-y: scroll;
+}
+
+.criar-orcamento {
+    position: relative;
+    background-image: url("/imagens/atelier.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 40vh;
+    overflow-y:hidden;
+    justify-content:center;
+    align-items:start;
+    cursor:pointer;
+    padding:75px;
+    line-height:50px;
+    color:var(--escuro-software);
+
+    transition: 0.35s ease-in-out all;
+}
+.criar-orcamento:hover{
+    transform: scale(1.05,1.05);
+}
+
+
 .margin-box {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-margin: 0 auto;
-/* border: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    /* border: 1px solid blue; */
 }
 /*INPUT ANIMATION CODE*/
 .form-input {
