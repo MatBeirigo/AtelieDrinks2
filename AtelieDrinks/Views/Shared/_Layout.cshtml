@@ -1,6 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+    .menu-bar-text {
+        color: #858796;
+        text-decoration: none;
+    }
+    </style>
+
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -166,9 +173,9 @@
             <div class="sidebar-title">
                 
                 <center>
-                    <a href="User" class="sem_sumblinhado">
-                        <img height="200px" src="/imagens/user.png" class="imageuser" alt="" />
-                        <h3>Bruno</h3>
+                    <a href="User" class="menu-bar-text">
+                        <img height="150px" src="/imagens/user.png" class="imageuser" alt="" />
+                        <h4>Bruno</h4>
                     </a>
 
                 </center>
@@ -179,21 +186,22 @@
             <!-- Nav Item - Página de Dashboard -->
             <ul class="sidebar-list">
                 <li class="sidebar-list-item">
-                    <a href="@Url.Content("~/home")" target="_self">
+                    <a class="menu-bar-text" href="@Url.Content("~/home")" target="_self">
                         <span class="material-icons-outlined">dashboard</span> Dashboard
                     </a>
                 </li>
                 <!-- Nav Item - Página de Orcamento -->
                 <li class="sidebar-list-item">
-                    <a href="@Url.Content("~/Orcamento")" target="_self">
+                    <a class="menu-bar-text" href="@Url.Content("~/Orcamento/1")" target="_self">
                         <span class="material-icons-outlined">inventory_2</span> Orçamento
                     </a>
                 </li>
                 <!-- Nav Item - Página de estoque 
                 <li class="sidebar-list-item">
-                    <a href="@Url.Content("~/estoque")" target="_self">
+                    <a class="menu-bar-text" href="@Url.Content("~/estoque")" target="_self">
                         <span class="material-icons-outlined">fact_check</span> Estoque
                     </a>
+<<<<<<< HEAD
                 </li
                 -->
                 <!-- Nav Item - Página de Historico -->
@@ -202,20 +210,24 @@
                         <span class="material-icons-outlined">add_shopping_cart</span> Historico
                     </a>
                 </li>
+=======
+                </li>
+
+>>>>>>> e21045f150f56f3e14f64690b0634ab6ae6b46ef
                 <!-- Nav Item - Página de Fichas Técnicas -->
                 <li class="sidebar-list-item">
-                    <a href="@Url.Content("~/fichaTecnica")" target="_self">
-                        <span class="material-icons-outlined">shopping_cart</span> Sales Orders
+                    <a class="menu-bar-text" href="@Url.Content("~/fichaTecnica")" target="_self">
+                        <span class="material-icons-outlined">shopping_cart</span> Ficha Técnicas
                     </a>
                 </li>
                 <!-- Nav Item - Página de Insumos -->
                 <li class="sidebar-list-item">
-                    <a href="@Url.Content("~/Insumos")" target="_self">
+                    <a class="menu-bar-text" href="@Url.Content("~/Insumos")" target="_self">
                         <span class="material-icons-outlined">poll</span> Insumos
                     </a>
                 </li>
                 <li class="sidebar-list-item">
-                    <a href="#" target="_blank">
+                    <a class="menu-bar-text" href="#" target="_blank">
                         <span class="material-icons-outlined">settings</span> Settings
                     </a>
                 </li>

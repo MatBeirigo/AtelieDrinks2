@@ -1,0 +1,151 @@
+:root {
+--verde-input: #57C132;
+--azul-input: #32B0C1;
+--vermelho-input: #FF0000;
+--vermelho-software: #871F1F;
+--escuro-software: #1e1e1e;
+}
+
+
+.cards-list {
+z-index: 0;
+width: 100%;
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+}
+
+.card {
+margin: 30px auto;
+width: 300px;
+height: 300px;
+border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+cursor: pointer;
+transition: 0.4s;
+background-color: transparent;
+}
+
+.card .card_image {
+width: inherit;
+height: inherit;
+border-radius: 40px;
+}
+
+.card .card_image img {
+width: inherit;
+height: inherit;
+border-radius: 40px;
+object-fit: cover;
+}
+
+.card .card_title {
+text-align: center;
+border-radius: 0px 0px 40px 40px;
+font-family:Amaranth;
+font-size: 30px;
+margin-top: 40px;
+height: 40px;
+}
+
+.card:hover {
+transform: scale(0.9, 0.9);
+box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.cardorcamento {
+margin: 30px auto;
+width: 1000px;
+height: 300px;
+border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+cursor: pointer;
+transition: 0.4s;
+}
+
+.cardorcamento .cardorcamento_image {
+width: inherit;
+height: inherit;
+border-radius: 40px;
+}
+
+.cardorcamento .cardorcamento_image img {
+width: inherit;
+height: inherit;
+border-radius: 40px;
+object-fit: cover;
+}
+
+.cardorcamento .cardorcamento_title {
+text-align: center;
+border-radius: 0px 0px 40px 40px;
+font-family:Amaranth;
+font-size: 30px;
+margin-top: -130px;
+height: 40px;
+}
+
+.cardorcamento:hover {
+transform: scale(0.9, 0.9);
+box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+color: white;
+}
+
+.title-black {
+color: black;
+}
+
+@media all and (max-width: 500px) {
+.card-list {
+/* On small screens, we are no longer using row direction but column */
+flex-direction: column;
+}
+}
+
+.row-content {
+width:100%;
+display: flex;
+justify-content: space-between;
+margin-top:-75px;
+}
+
+.dashboard-penultimo {
+width: 225px;
+height: 225px;
+}
+.dashboard-ultimo {
+width: 225px;
+height: 225px;
+}
+.dashboard-historico {
+width: 150px;
+height: 225px;
+cursor:pointer;
+transition: 0.25s ease-in-out all;
+}
+.dashboard-historico:hover{
+transform: scale(1.05,1.05);
+
+}
+.botao-dashboard{
+text-decoration:none;
+color:var(--escuro-software);
+}
+.botao-dashboard:hover {
+text-decoration: none;
+color: var(--escuro-software);
+}
+.text-dashboard-content{
+font-weight: 600;
+}
+.a-dashboard {
+text-decoration: none;
+color: white;
+}
+.a-dashboard:hover {
+text-decoration: none;
+color:white;
+}

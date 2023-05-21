@@ -1,102 +1,53 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-   
-
-    <link href="css/stylecards.css" rel="stylesheet">
-    <link href="js/scriptdashboard.js">
-
-
-    <img height="px" width="100%" src="/imagens/selection-various-cocktails-table 1.png" class="imageuser" alt="">
-
-    <div class="cards-list">
-        <div style="margin-top:-450px;">
-
-            <h1 style="padding-top:150px; color:#fff" class="text-center">DASHBOARD</h1>
-            <a style="text-decoration: none" href="@Url.Action("Index", "Orcamento", new { numberPage = 1 })">
-                <div class="cardorcamento">
-
-                    <div class="cardorcamento_image">
-
-                        <img src="/imagens/atelier.jpg" />
-
-                    </div>
-                    <div class="cardorcamento_title title-black">
-                        <p>ORÇAMENTO</p>
-                    </div>
-                    <div class="cardorcamento_title title">
-                        <p>FAÇA O SEU</p>
-                    </div>
-                    <div class="cardorcamento_title title-black" style="font-size:100px; margin-top:-50px; margin-right: 300px;">
-                        <p>+</p>
-                    </div>
-                </div>
-
-            </a>
-
-        </div>
-    </div>
-
-    <img />
-
-    <div class="cards-list">
-
-        <div class="card 4">
-
-
-            <div class="card_title title">
-                <p>penúltimo</p>
-
-            </div><div class="card_title title-white">
-                <p>ORÇAMENTO</p>
-            </div>
-
-            <div class="card_title title">
-                <p>R$ 3.452,00 </p>
-            </div>
-
-        </div>
-
-        <div class="card 1">
-
-            <div class="card_title title">
-                <p>último</p>
-            </div>
-
-            <div class="card_title title-white">
-                <p>ORÇAMENTO</p>
-            </div>
-
-
-            <div class="card_title title">
-                <p>R$ 4.521,00</p>
-            </div>
-
-
-
-        </div>
-
-        <div class="card 3">
-            <a style="text-decoration: none" href="Historico">
-                <div class="card_title">
-                    <p>
-
-                    </p>
-                </div>
-                <div class="card_title title-white">
-                    <p>
-                        HISTÓRICO
-                    </p>
-                </div>
-        </div>
-        <a>
-
-
-
-    </div>
-
-
-
-
-
 }
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="/css/orcamento.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/stylecards.css">
+    <script src="/js/scriptdashboard.js"></script>
+
+    <title>DASHBOARD</title>
+</head>
+
+<body>
+    <!--hero-banner-->
+    <div class="hero-banner dashboard-banner">
+        <h1 class="title-banner">DASHBOARD</h1>
+        <h3>Seja bem vindo(a), USUARIO</h3>
+    </div>
+
+    <!--Content-->
+    <div class="black-box">
+        <div class="content">
+            <div class="content-box criar-orcamento" href="@Url.Action("Index", "Orcamento", new { numberPage = 1 })">
+                <a class="botao-dashboard">
+                    <h4> Crie o seu <br><span class="text-dashboard-content">ORÇAMENTO</span> </h4>
+                </a>
+            </div> <!--fim content box-->
+
+            <div class="row-content">
+                <div class="content-box dashboard-penultimo">
+                    <p>penúltimo<br /><span class="text-dashboard-content">ORÇAMENTO</span><br />R$ 4.355,00</p>
+
+                </div>
+                <div class="content-box dashboard-ultimo">
+                    <p>último<br /><span class="text-dashboard-content">ORÇAMENTO</span><br />R$ 4.355,00</p>
+                </div>
+                <a class="content-box dashboard-historico a-dashboard" href="Historico">
+                    <p class="text-dashboard-content">HIS<br />TÓ<br />RI<br />CO<br /></p>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,3 +1,11 @@
+:root {
+    --verde-input: #57C132;
+    --azul-input: #32B0C1;
+    --vermelho-input: #FF0000;
+    --vermelho-software: #871F1F;
+    --escuro-software: #1e1e1e;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -563,7 +571,7 @@ h2 {
 }
 
 .table-container {
-    padding: 0 10%;
+    padding: 5% 10%;
     margin: 80px auto 0;
 }
 
@@ -646,6 +654,7 @@ h2 {
             font-size: 1rem;
         }
 
+<<<<<<< HEAD
 
 .overlay {
     position: fixed;
@@ -664,3 +673,9 @@ h2 {
         opacity: 1;
         pointer-events: auto;
     }
+=======
+.menu-bar-text{
+    color: gray;
+    text-decoration: none;
+}
+>>>>>>> e21045f150f56f3e14f64690b0634ab6ae6b46ef
