@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leova\\source\\repos\\AtelieDrinks\\AtelieDrinks\\AtelieDrinks.csproj": {}
+    "C:\\Users\\leova\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\AtelieDrinks.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leova\\source\\repos\\AtelieDrinks\\AtelieDrinks\\AtelieDrinks.csproj": {
+    "C:\\Users\\leova\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\AtelieDrinks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leova\\source\\repos\\AtelieDrinks\\AtelieDrinks\\AtelieDrinks.csproj",
+        "projectUniqueName": "C:\\Users\\leova\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\AtelieDrinks.csproj",
         "projectName": "AtelieDrinks",
-        "projectPath": "C:\\Users\\leova\\source\\repos\\AtelieDrinks\\AtelieDrinks\\AtelieDrinks.csproj",
+        "projectPath": "C:\\Users\\leova\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\AtelieDrinks.csproj",
         "packagesPath": "C:\\Users\\leova\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leova\\source\\repos\\AtelieDrinks\\AtelieDrinks\\obj\\",
+        "outputPath": "C:\\Users\\leova\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

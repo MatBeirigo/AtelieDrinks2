@@ -45,11 +45,11 @@ namespace AtelieDrinks.Models
 
         [Column("qtd_taxa_deslocamento")]
         [Display(Name = "qtd_taxa deslocamento")]
-        public int qtd_taxa_deslocamento { get; set; }
+        public Custo_deslocamento? qtd_taxa_deslocamento { get; set; }
 
         [Column("custo_taxa_deslocamento")]
         [Display(Name = "custo taxa deslocamento")]
-        public int custo_taxa_deslocamento { get; set; }
+        public Custo_deslocamento? custo_taxa_deslocamento { get; set; }
 
         [Column("qtd_impostos_federais")]
         [Display(Name = "qtd impostos federais")]

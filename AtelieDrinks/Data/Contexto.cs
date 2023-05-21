@@ -53,5 +53,7 @@ namespace AtelieDrinks.Data
                 .HasKey(d => d.id_orcamento);
 
         }
+
+        public DbSet<AtelieDrinks.Models.Numero_convidados>? Numero_convidados { get; set; }
     }
 }

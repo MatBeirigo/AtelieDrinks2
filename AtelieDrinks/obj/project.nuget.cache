@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RMjqAUs/rj6j1qF161rUUaAGMbqk4PpNd8pxDpwSfjbC/KtZKp0CoHGD5lr4GXpFcDubFocHl2HIBIbv7NC1BQ==",
+  "dgSpecHash": "pjyEV+IBOMEhOUND8mGrwkxMQROCuWx9saby8vl2pm2tGiTUfZFjfBIpW2vLhO48Kh7XMxAXOIQWWVKW2usEPA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leova\\source\\repos\\AtelieDrinks\\AtelieDrinks\\AtelieDrinks.csproj",
+  "projectFilePath": "C:\\Users\\leova\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\AtelieDrinks.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leova\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\leova\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
