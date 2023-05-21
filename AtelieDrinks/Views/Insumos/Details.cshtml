@@ -1,36 +1,94 @@
 ﻿@model AtelieDrinks.Models.Insumos
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Details</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div>
-    <h4>Insumos</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.nome_insumo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.nome_insumo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.quantidade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.quantidade)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.custo_insumo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.custo_insumo)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.id_insumo">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <link rel="stylesheet" href="/css/orcamento.css">
+
+    <title>Detalhes</title>
+</head>
+
+<body>
+    <!--hero-banner-->
+    <div class="hero-banner">
+        <h1 class="title-banner">DETALHES DOS INSUMOS</h1>
+    </div>
+
+    <!--content-->
+    <div class="black-box">
+        <div class="content">
+            <!--box-->
+            <div class="content-box">
+                <div class="margin-box" style="margin: 50px 0 50px 0;">
+                    <h3>Detalhes dos Insumos</h3>
+                    <p style="margin-top:5px">Nome, Quantidade, Custo...</p>
+                 <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="id_insumo" />
+                        <div class="row-inputs">
+                            <div class="list-inputs">
+                                <!--Lista Nome do insumo-->
+                                <div class="form-input" style="width:470px">
+                                <!--Input NOME-->
+                                <input asp-for="nome_insumo" type="value" required="" disabled>
+                                <label><span asp-validation-for="nome_insumo" style="color: var(--azul-input);
+transform: translateY(-25px)">Nome</span></label>
+                                </div>
+                            </div> <!--Fim lista Nome do insumo-->
+
+                            
+                            <div class="list-inputs">
+                                <!--Lista Quantidade-->
+                                <div class="form-input" style="width:470px">
+                                <!--Input QUANTIDADE-->
+                                <input asp-for="quantidade" type="value" required="" disabled>
+                                <label><span asp-validation-for="quantidade" style="color: var(--azul-input);
+transform: translateY(-25px)">Quantidade</span></label>
+                                </div>
+                            </div> <!--Fim lista Quantidade-->
+
+
+                            <div class="list-inputs">
+                                <!--Lista Nome do insumo-->
+                                <div class="form-input" style="width:470px">
+                                    <!--Input Nome do Insumo-->
+                                    <input asp-for="custo_insumo" type="value" required="" disabled>
+                                    <label><span asp-validation-for="custo_insumo" style="color: var(--azul-input);
+transform: translateY(-25px)">Custo</span></label>
+                                </div>
+                            </div> <!--Fim lista Nome do insumo-->
+
+
+                        </div> <!--Fim row-inputs-->
+                        <div class="list-buttonsinsu">
+
+                            <button class="button excluir" onclick="window.location='@Url.Action("Insumos")'">Voltar</button>
+                            <button class="button continuar" onclick="window.location='@Url.Action("Edit")'" >Editar</button>
+                        </div> <!--fim lista-buttons-->
+                    </form>
+                   
+                </div> <!--Fim margin-box-->
+
+            </div> <!--fim content box-->
+         
+              
+         
+        </div>
+    </div>
+</body>
+
+<style>
+    .list-buttonsinsu{
+     padding-top:20px;
+    }
+</style>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
