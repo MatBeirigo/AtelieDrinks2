@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fq7DKbt6o/VlBBvuvZVBcLtRIn23ivi2ZUDJKuNwtck=",
+  "Hash": "l2FThrwYrNenvDUpeNlUPUbt20G+CK/0CkJ/5W3Nyjo=",
   "Source": "AtelieDrinks",
   "BasePath": "_content/AtelieDrinks",
   "Mode": "Default",
@@ -1088,6 +1088,23 @@
       "OriginalItemSpec": "wwwroot\\css\\app.css"
     },
     {
+      "Identity": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\css\\dashboard.css",
+      "SourceId": "AtelieDrinks",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\",
+      "BasePath": "_content/AtelieDrinks",
+      "RelativePath": "css/dashboard.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\dashboard.css"
+    },
+    {
       "Identity": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\css\\fontawesome.min.css",
       "SourceId": "AtelieDrinks",
       "SourceType": "Discovered",
@@ -1188,6 +1205,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\stylecards.css"
+    },
+    {
+      "Identity": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\css\\user.css",
+      "SourceId": "AtelieDrinks",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\",
+      "BasePath": "_content/AtelieDrinks",
+      "RelativePath": "css/user.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\user.css"
     },
     {
       "Identity": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\favicon.ico",
@@ -1324,6 +1358,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\atelier.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\images\\bartender.jpg",
+      "SourceId": "AtelieDrinks",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\",
+      "BasePath": "_content/AtelieDrinks",
+      "RelativePath": "images/bartender.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bartender.jpg"
     },
     {
       "Identity": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\images\\bartender3.jpg",

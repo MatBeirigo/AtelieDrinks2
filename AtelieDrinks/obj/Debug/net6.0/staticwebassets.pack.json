@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
+      "Id": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\css\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\dashboard.css"
+    },
+    {
       "Id": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\css\\fontawesome.min.css",
       "PackagePath": "staticwebassets\\css\\fontawesome.min.css"
     },
@@ -31,6 +35,10 @@
     {
       "Id": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\css\\stylecards.css",
       "PackagePath": "staticwebassets\\css\\stylecards.css"
+    },
+    {
+      "Id": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\css\\user.css",
+      "PackagePath": "staticwebassets\\css\\user.css"
     },
     {
       "Id": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\favicon.ico",
@@ -63,6 +71,10 @@
     {
       "Id": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\images\\atelier.jpg",
       "PackagePath": "staticwebassets\\images\\atelier.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\images\\bartender.jpg",
+      "PackagePath": "staticwebassets\\images\\bartender.jpg"
     },
     {
       "Id": "C:\\Users\\Arthu\\source\\repos\\AtelieDrinks2\\AtelieDrinks\\wwwroot\\images\\bartender3.jpg",

@@ -654,7 +654,6 @@ h2 {
             font-size: 1rem;
         }
 
-<<<<<<< HEAD
 
 .overlay {
     position: fixed;
@@ -673,9 +672,8 @@ h2 {
         opacity: 1;
         pointer-events: auto;
     }
-=======
+
 .menu-bar-text{
     color: gray;
     text-decoration: none;
 }
->>>>>>> e21045f150f56f3e14f64690b0634ab6ae6b46ef
