@@ -9,8 +9,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Insumos</title>
-
+    <title>Historico</title>
+    <link rel="stylesheet" type="text/css" href="/css/menulateral.css" />
 
 
 </head>
@@ -23,16 +23,8 @@
             </div>
         </div>
     </div>
-    <div class="meio">
-        <h2>Todos Orçamentos</h2>
-
-        <a href="@Url.Action("Create")" class="add-btn">
-            <div class="add-box">
-                <img src="~/images/icon-mais.svg" alt="mais" height="15px" width="15px">
-                <p style="color:green" class="add-txt">Adicionar</p>
-            </div>
-        </a>
-
+    <div class="meio" >
+        <h2>Historicos Gerais</h2>
 
         <div class="search-box">
             <input type="text" class="search-txt" id="search-input" placeholder="">
@@ -43,103 +35,67 @@
     </div>
     <div class="separa">
         <div class="table-container">
-            <h1 class="heading">Tabela de Insumos</h1>
+            <h1 class="heading">Tabela de Historicos</h1>
             <div class="tabela-overflow">
                 <table class="tabela" id="tabela-insumos">
                     <thead>
                         <tr>
+
                             <th>
-                                Alterações
+                                Cliente
                             </th>
+
                             <th>
                                 @Html.DisplayNameFor(model => model.numero_pessoas)
                             </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.custo_operacional)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.custo_total_insumos)
-                            </th>
+
                             <th>
                                 @Html.DisplayNameFor(model => model.custo_total)
                             </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.base_orcamento)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.comissao_comercial)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.comissao_gerencia)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.valor_primario)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.custo_por_pessoa)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.valor_arredondado_pra_cima)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.margem_negociacao)
-                            </th>
+
                             <th>
                                 @Html.DisplayNameFor(model => model.valor_orcamento)
                             </th>
+
                             <th>
                                 @Html.DisplayNameFor(model => model.previsao_lucro)
                             </th>
+
                             <th>
                                 @Html.DisplayNameFor(model => model.qtde_convidados)
                             </th>
+
                             <th>
                                 @Html.DisplayNameFor(model => model.qtde_drinks)
                             </th>
+
+                            <th>
+                                Data
+                            </th>
+
+                            <th>
+                                Detalhes
+                            </th>
+
                         </tr>
                     </thead>
                     <tbody class="table-content">
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td class="">
-                                    <a asp-action="Edit" asp-route-id="@item.id_historico"><i class="fas fa-edit"></i></a>
-                                    <a asp-action="Details" asp-route-id="@item.id_historico"><i class="fas fa-info-circle"></i></a>
-                                    <a asp-action="Delete" asp-route-id="@item.id_historico"><i class="fas fa-trash-alt"></i></a>
+
+                                <td>
+                                    XXX
                                 </td>
+
                                 <td>
                                     @Html.DisplayFor(modelItem => item.numero_pessoas)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.custo_operacional)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.custo_total_insumos)
-                                </td>
+
                                 <td>
                                     @Html.DisplayFor(modelItem => item.custo_total)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.base_orcamento)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.comissao_comercial)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.comissao_gerencia)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.valor_primario)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.custo_por_pessoa)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.valor_arredondado_pra_cima)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.margem_negociacao)
-                                </td>
+
                                 <td>
                                     @Html.DisplayFor(modelItem => item.valor_orcamento)
                                 </td>
@@ -152,6 +108,15 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.qtde_drinks)
                                 </td>
+
+                                <td>
+                                    XXX
+                                </td>
+
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.id_historico"><i class="fas fa-info-circle"></i></a>
+                                </td>
+
 
                             </tr>
                         }
@@ -167,6 +132,7 @@
 
 
 <style>
+    
     .tabela-overflow {
         overflow: auto;
 

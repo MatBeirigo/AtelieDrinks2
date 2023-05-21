@@ -1,108 +1,104 @@
-﻿@model AtelieDrinks.Models.Historico
+﻿
+@model AtelieDrinks.Models.Historico
+
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div>
-    <h4>Historico</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.numero_pessoas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.numero_pessoas)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.custo_operacional)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.custo_operacional)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.custo_total_insumos)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.custo_total_insumos)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.custo_total)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.custo_total)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.base_orcamento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.base_orcamento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.comissao_comercial)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.comissao_comercial)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.comissao_gerencia)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.comissao_gerencia)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.valor_primario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.valor_primario)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.custo_por_pessoa)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.custo_por_pessoa)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.valor_arredondado_pra_cima)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.valor_arredondado_pra_cima)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.margem_negociacao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.margem_negociacao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.valor_orcamento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.valor_orcamento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.previsao_lucro)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.previsao_lucro)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.qtde_convidados)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.qtde_convidados)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.qtde_drinks)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.qtde_drinks)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.id_historico">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <link rel="stylesheet" href="/css/orcamento.css">
+
+    <title>Historico_Detalhes</title>
+</head>
+<body>
+    <!--hero-banner-->
+    <div class="hero-banner">
+        <h1 class="title-banner">Historico</h1>
+        <h3>Detalhes</h3>
+    </div>
+
+    <!--content-->
+    <div class="black-box">
+        <div class="content">
+            <!--box-->
+            
+            <div class="content-box">
+                <div style="margin: 350px 0 50px 0;" class="margin-box">
+                    <h3>Detalhes do Orçamento</h3>
+                    <p style="margin-top:5px">Tabela detalhada do orçamento</p>
+                    
+                    <table class="container">
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Data</th>
+                                <th>Numero de Pessoas</th>
+                                <th>Custo operacional</th>
+                                <th>Custo total de insumos</th>
+                                <th>Custo total</th>
+                                <th>Base orçamento</th>
+                                <th>Comissão Comercial</th>
+                                <th>Comissão Gerencia</th>
+                                <th>Valor primário</th>
+                                <th>Custo por pessoa</th>
+                                <th>Valor arredondado</th>
+                                <th>margem da negociação</th>
+                                <th>Valor orçamento</th>
+                                <th>Previsão de lucro</th>
+                                <th>Qtd Convidados</th>
+                                <th>Qtd Drinks</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr>
+                                    <td>XXX</td>
+                                    <td>XXX</td>
+                                    <td>@Html.DisplayFor(model => model.numero_pessoas)</td>
+                                    <td>@Html.DisplayFor(model => model.custo_operacional)</td>
+                                    <td>@Html.DisplayFor(model => model.custo_total_insumos)</td>
+                                    <td>@Html.DisplayFor(model => model.custo_total)</td>
+                                    <td>@Html.DisplayFor(model => model.base_orcamento)</td>
+                                    <td>@Html.DisplayFor(model => model.comissao_comercial)</td>
+                                    <td>@Html.DisplayFor(model => model.comissao_gerencia)</td>
+                                    <td>@Html.DisplayFor(model => model.valor_primario)</td>
+                                    <td>@Html.DisplayFor(model => model.custo_por_pessoa))</td>
+                                    <td>@Html.DisplayFor(model => model.valor_arredondado_pra_cima)</td>
+                                    <td>@Html.DisplayFor(model => model.valor_arredondado_pra_cima)</td>
+                                    <td>@Html.DisplayFor(model => model.margem_negociacao)</td>
+                                    <td>@Html.DisplayFor(model => model.valor_orcamento)</td>
+                                    <td>@Html.DisplayFor(model => model.previsao_lucro)</td>
+                                    <td>@Html.DisplayFor(model => model.qtde_convidados)</td>
+                                    <td>@Html.DisplayFor(model => model.qtde_drinks)</td>
+
+                            </tr>
+                               
+                        </tbody>
+                    </table>
+
+                </div> <!--Fim margin-box-->
+
+            </div> <!--fim content box-->
+
+            <div class="list-buttons">
+                <button class="button excluir" onclick="window.location='@Url.Action("Index", "Historico")'">Voltar</button>
+                    <a asp-action="Edit" asp-route-id="@Model.id_historico"><button class="button continuar">Editar</button></a>
+             
+            </div>
+            
+
+        </div> <!--fim CONTENT-->
+    </div>  <!--fim BLACKBOX-->
+</body>
+</html>
+
+
+

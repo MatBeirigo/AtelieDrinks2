@@ -3,6 +3,7 @@
 var sidebarOpen = false;
 var sidebar = document.getElementById("sidebar");
 
+/*
 function openSidebar() {
     if (!sidebarOpen) {
         sidebar.classList.add("sidebar-responsive");
@@ -16,7 +17,27 @@ function closeSidebar() {
         sidebarOpen = false;
     }
 }
+*/
 
+
+function openSidebar() {
+    if (!sidebarOpen) {
+        sidebar.classList.add("sidebar-responsive");
+        sidebarOpen = true;
+        document.querySelector(".overlay").classList.add("active"); // Adiciona a classe 'active' ao overlay
+    }
+}
+
+function closeSidebar() {
+    if (sidebarOpen) {
+        sidebar.classList.remove("sidebar-responsive");
+        sidebarOpen = false;
+        document.querySelector(".overlay").classList.remove("active"); // Remove a classe 'active' do overlay
+    }
+}
+
+document.querySelector(".menu-icon").addEventListener("click", openSidebar);
+document.querySelector(".overlay").addEventListener("click", closeSidebar);
 
 // ---------- CHARTS ----------
 

@@ -25,6 +25,7 @@
     <script src="@Url.Content("~/js/menulateral.js")" defer></script>
 
 
+
     <!-- CSS e JS -->
     <script src="@Url.Content("~/js/app.js")" defer></script>
     <link href="@Url.Content("~/css/app.css")" rel="stylesheet">
@@ -167,7 +168,8 @@
         <!-- End Header -->
         <!-- Sidebar -->
         <aside id="sidebar">
-            <span class="material-icons-outlined menu-icon" onclick="closeSidebar()">close</span>
+           
+            <!-- <span class="material-icons-outlined menu-icon" onclick="closeSidebar()">close</span> -->
             <div class="sidebar-title">
                 
                 <center>
@@ -194,12 +196,23 @@
                         <span class="material-icons-outlined">inventory_2</span> Orçamento
                     </a>
                 </li>
-                <!-- Nav Item - Página de estoque -->
+                <!-- Nav Item - Página de estoque 
                 <li class="sidebar-list-item">
                     <a class="menu-bar-text" href="@Url.Content("~/estoque")" target="_self">
                         <span class="material-icons-outlined">fact_check</span> Estoque
                     </a>
+
+                </li
+                -->
+                <!-- Nav Item - Página de Historico -->
+                <li class="sidebar-list-item">
+                    <a href="@Url.Content("~/Historico")" target="_self">
+                        <span class="material-icons-outlined">add_shopping_cart</span> Historico
+                    </a>
                 </li>
+
+                </li>
+
 
                 <!-- Nav Item - Página de Fichas Técnicas -->
                 <li class="sidebar-list-item">
@@ -220,6 +233,8 @@
                 </li>
             </ul>
         </aside>
+        <div class="overlay"></div>
+        
         <!-- End Sidebar -->
 
         
@@ -258,6 +273,9 @@
             setTimeout(function () { $('.back-main').hide(); },);
         }, 650);  // remova esta linha para hospedar
     });
+
+    
+
 </script>
 
 
