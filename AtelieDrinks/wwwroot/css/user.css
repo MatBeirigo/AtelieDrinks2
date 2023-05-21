@@ -1,0 +1,265 @@
+﻿/* ---------- Pagina de Usuario ---------- */
+
+:root {
+--verde-input: #57C132;
+--azul-input: #1a73e8;
+--vermelho-input: #FF0000;
+--vermelho-software: #3E111C;
+--escuro-software: #1e1e1e;
+}
+
+* {
+margin: 0;
+padding: 0;
+}
+
+html, body {
+font-family: sans-serif;
+}
+/*preview img*/
+.center {
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+padding-bottom:25px;
+}
+
+.formulario-input input {
+display: none;
+}
+
+.formulario-input label {
+display: block;
+height: 45px;
+margin-top: 30px;
+line-height: 50px;
+text-align: center;
+background: #009688;
+color: #fff;
+font-size: 15px;
+text-transform: Uppercase;
+font-weight: 600;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.formulario-input .preview {
+height: 200px;
+width: 200px;
+border: 2px dashed #222;
+border-radius: 50%;
+margin: 0 auto;
+}
+
+.formulario-input img {
+width: 100%;
+height: 200px;
+width: 200px;
+border-radius: 50%;
+display: none;
+margin-bottom: 30px;
+}
+/* edit profile form */
+.manage-profile-form {
+display: flex;
+flex-direction: column;
+gap: 1.8em;
+justify-content:center;
+align-items:center;
+}
+
+.manage-profile {
+padding-left: 75px;
+padding-right: 75px;
+}
+
+.manage-profile-title {
+text-transform: capitalize;
+font-size: 30px;
+padding-top: 30px;
+padding-bottom: 10px;
+color: #fff;
+}
+
+.manage-profile hr {
+margin-top: 25px;
+margin-bottom: 25px;
+color: #444;
+}
+
+.manage-profile-subtitle {
+text-transform: capitalize;
+font-size: 23px;
+font-weight: 600;
+color: #FFF;
+}
+
+.manage-profile-subtitle::after {
+content: "";
+display: block;
+width: 3rem;
+height: 6px;
+background: #009688;
+margin-bottom: 25px;
+border-radius: 5px;
+}
+
+.manage-profile-txt-field {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+color: #fff;
+}
+
+.manage-profile-label {
+text-transform: capitalize;
+font-size: 18px;
+font-weight: 400;
+}
+
+.manage-profile-txt-field input,
+.manage-profile-txt-field textarea {
+padding: 9px;
+border-radius: 5px;
+border: 1px solid #222;
+outline: none;
+font-size: 18px;
+}
+
+.manage-profile-txt-field input:focus,
+.manage-profile-txt-field textarea:focus {
+border: 1px solid #009688;
+}
+
+.manage-profile-txt-field textarea {
+resize: none;
+}
+
+.manage-profile-form a {
+font-size: 18px;
+background: #1e90ff;
+padding: 9px;
+text-align: center;
+text-decoration: none;
+text-transform: capitalize;
+color: #fff;
+width: 200px;
+border-radius: 5px;
+cursor: pointer;
+box-shadow: 0 0 10px rgba(0,0,0,.2); /*rtl*/
+}
+
+.manage-profile-close {
+border: 2px solid #ff9999;
+background: var(--vermelho-software);
+padding: 15px;
+border-radius: 20px;
+margin-bottom:50px;
+}
+
+.manage-profile-close p {
+color: white;
+font-weight: 200;
+padding-bottom: 20px;
+}
+
+.manage-profile-close p span {
+color: white;
+font-weight: 600;
+display: block;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.manage-profile-close .btn {
+font-size: 18px;
+background: #ff3333;
+padding: 9px;
+text-align: center;
+text-decoration: none;
+text-transform: capitalize;
+color: #fff;
+width: 200px;
+border-radius: 5px;
+cursor: pointer;
+box-shadow: 0 0 10px rgba(0,0,0,.2); /*rtl*/
+}
+.user-profile {
+width: 250px;
+}
+
+.row-inputs{
+display: flex;
+flex-direction: row;
+justify-content:space-around;
+gap:10px;
+width:100%;
+}
+
+.input-group {
+position: relative;
+}
+
+.borda-input{
+}
+.column-inputs{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:20px;
+padding:0 200px 0 200px;
+width:100%;
+}
+.input {
+border: solid 1.5px var(--vermelho-software);
+border-radius: 1rem;
+background: none;
+padding: 1rem;
+font-size: 1rem;
+font-weight: 100;
+color: white;
+transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+width:100%;
+}
+
+.user-label {
+position: absolute;
+left: 15px;
+color: #e8e8e8;
+pointer-events: none;
+transform: translateY(1rem);
+transition: 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.input:focus, input:valid {
+outline: none;
+border: 1.5px solid var(--azul-input);
+}
+
+.input:focus ~ label, input:valid ~ label {
+transform: translateY(-50%) scale(0.8);
+background-color: black;
+padding: 0 .2em;
+color: var(--azul-input);
+}
+
+.user-button {
+position: relative;
+padding: 0.8em 1.7em;
+font-weight: 400;
+font-size: 17px;
+text-transform: uppercase;
+cursor: pointer;
+border: 1px solid;
+border-radius: 0.3em;
+transition: background-color 0.5s ease;
+
+background-color: white;
+color: var(--vermelho-software);
+}
+.user-button:hover {
+background: var(--vermelho-software);
+color: white;
+}

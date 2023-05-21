@@ -11,13 +11,13 @@
 
     <link rel="stylesheet" href="/css/orcamento.css">
 
-    <title>Orcamento 3</title>
+    <title>Adicionar</title>
 </head>
 
 <body>
     <!--hero-banner-->
     <div class="hero-banner">
-        <h1 class="title-banner">Adicionar Insumo</h1>
+        <h1 class="title-banner">ADICIONAR INSUMOS</h1>
     </div>
 
     <!--content-->
@@ -25,30 +25,28 @@
         <div class="content">
             <!--box-->
             <div class="content-box">
-                <div class="margin-box" style="margin: 180px 0 50px 0;">
-                    <h3>Preencha os Campos</h3>
-                    <p style="margin-top:5px">Nome do insumo,quantidade,Custo do Insumo...</p>
+                <div class="margin-box" style="margin: 50px 0 50px 0;">
+                    <h3>Adicionar Insumos</h3>
+                    <p style="margin-top:5px">Nome, Quantidade, Custo...</p>
                  <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="row-inputs">
                             <div class="list-inputs">
                                 <!--Lista Nome do insumo-->
                                 <div class="form-input" style="width:470px">
-                                    <!--Input Nome do Insumo-->
-                                    <input asp-for="nome_insumo" />
-                                    <label><span>Nome</span></label>
-                                    <span asp-validation-for="nome_insumo" class="text-danger"></span>
+                                <!--Input NOME-->
+                                <input asp-for="nome_insumo" type="value" required="">
+                                <label><span asp-validation-for="nome_insumo">Nome</span></label>
                                 </div>
                             </div> <!--Fim lista Nome do insumo-->
 
-
+                            
                             <div class="list-inputs">
                                 <!--Lista Quantidade-->
                                 <div class="form-input" style="width:470px">
-                                    <!--Input QTD-->
-                                    <input asp-for="quantidade">
-                                    <label><span>QTD</span></label>
-                                    <span asp-validation-for="quantidade" class="text-danger"></span>
+                                <!--Input QUANTIDADE-->
+                                <input asp-for="quantidade" type="value" required="">
+                                <label><span asp-validation-for="quantidade">Quantidade</span></label>
                                 </div>
                             </div> <!--Fim lista Quantidade-->
 
@@ -57,10 +55,8 @@
                                 <!--Lista Nome do insumo-->
                                 <div class="form-input" style="width:470px">
                                     <!--Input Nome do Insumo-->
-                                    <input asp-for="custo_insumo" />
-                                    <label><span>Custo do Insumo</span></label>
-                                    
-                                    <span asp-validation-for="custo_insumo" class="text-danger"></span>
+                                    <input asp-for="custo_insumo" type="value" required="">
+                                    <label><span asp-validation-for="custo_insumo">Custo</span></label>
                                 </div>
                             </div> <!--Fim lista Nome do insumo-->
 
@@ -69,7 +65,7 @@
                         <div class="list-buttonsinsu">
 
                             <button class="button excluir" onclick="window.location='@Url.Action("Index")'">Voltar</button>
-                            <button type="submit" class="button continuar" type="submit">Continuar</button>
+                            <button type="submit" class="button continuar" type="submit">Adicionar</button>
                         </div> <!--fim lista-buttons-->
                     </form>
                    
@@ -77,7 +73,7 @@
 
             </div> <!--fim content box-->
          
-               
+              
          
         </div>
     </div>
@@ -92,4 +88,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-
