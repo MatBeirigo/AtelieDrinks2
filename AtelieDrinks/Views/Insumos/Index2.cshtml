@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<AtelieDrinks.Models.Insumos>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index2";
 }
 
 
@@ -10,24 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Insumos</title>
-   
-    <style>
-    .edit-box {
-    position: relative;
-    left: 100%;
-    background: none;
-    height: 28px;
-    padding: 10px;
-    border: 1px solid green;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.5%;
-}
-
-
-    </style>
+    
 
     
 </head>
@@ -88,17 +71,10 @@
                                 </td>
                             </tr>
                         }
-                </tbody> 
-            </table><a href="@Url.Action("Index", "Insumos", new { numberPage = 2 })" class="add-btn">
-                    <div  class="edit-box" style="margin-left:13px">
-                        <img src="~/images/icon-mais.svg" alt="mais" height="15px" width="15px">
-                    <p style="color:green" class="add-txt">Adicionar</p>
-                    </div>
-                </a>
+                </tbody>
+            </table>
         </div>
-        
         </div>
-        
 
         
 </body>
