@@ -45,11 +45,27 @@ namespace AtelieDrinks.Controllers
             return View(insumos);
         }
 
+        //private readonly Data.Contexto _context;
+        /*[Route("Insumos/{numberPage:int?}")]
+        public ActionResult Index(int? numberPage)
+        {
+            switch (numberPage)
+            {
+                case 1:
+                    return View("~/Views/Insumos/Index.cshtml");
+                case 2:
+                    return View("~/Views/Insumos/Index2.cshtml");
+                default:
+                    return NotFound(); // Retorna um erro 404 se o número da página não for válido
+            }
+        }*/
+
         // GET: Insumos/Create
         public IActionResult Create()
         {
             return View();
         }
+        
 
         // POST: Insumos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -159,5 +175,7 @@ namespace AtelieDrinks.Controllers
         {
           return (_context.Insumos?.Any(e => e.id_insumo == id)).GetValueOrDefault();
         }
+
+
     }
 }
