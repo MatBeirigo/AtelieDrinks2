@@ -1,3 +1,11 @@
+:root {
+    --verde-input: #57C132;
+    --azul-input: #32B0C1;
+    --vermelho-input: #FF0000;
+    --vermelho-software: #871F1F;
+    --escuro-software: #1e1e1e;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -457,6 +465,14 @@ element.style {
         font-size: 50px;
     }
 
+h1 {
+    position: center;
+    text-align: center;
+    font-size: 50px;
+    font-family: Amaranth;
+    text-shadow: 5px 5px 5px black;
+}
+
 h2 {
     position: absolute;
     margin: 0;
@@ -554,7 +570,7 @@ h2 {
 }
 
 .table-container {
-    padding: 0 10%;
+    padding: 5% 10%;
     margin: 80px auto 0;
 }
 
@@ -637,5 +653,7 @@ h2 {
             font-size: 1rem;
         }
 
-
-
+.menu-bar-text{
+    color: gray;
+    text-decoration: none;
+}
