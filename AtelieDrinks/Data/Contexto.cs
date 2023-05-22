@@ -10,8 +10,8 @@ namespace AtelieDrinks.Data
         }
 
         public DbSet<Base_alcoolica> Base_Alcoolica { get; set; }
-        public DbSet<Custo_deslocamento> Custo_Deslocamento { get; set; }
-        public DbSet<Custo_operacional> Custo_operacional { get; set; }
+        //public DbSet<Custo_deslocamento> Custo_Deslocamento { get; set; }
+        //public DbSet<CustoOperacional> CustoOperacional { get; set; }
         public DbSet<Deposito> Deposito { get; set; }
         public DbSet<Drinks> Drinks { get; set; }
         public DbSet<Ficha_tecnica> Ficha_tecnica { get; set; }
@@ -25,11 +25,11 @@ namespace AtelieDrinks.Data
             modelBuilder.Entity<Base_alcoolica>()
                 .HasKey(d => d.id_base_alcoolica);
 
-            modelBuilder.Entity<Custo_deslocamento>()
-                .HasKey(d => d.id_taxa_deslocamento);
+            //modelBuilder.Entity<Custo_deslocamento>()
+            //    .HasKey(d => d.id_taxa_deslocamento);
 
-            modelBuilder.Entity<Custo_operacional>()
-                .HasKey(d => d.id_custo_operacional);
+            //modelBuilder.Entity<CustoOperacional>()
+            //    .HasKey(d => d.IdCustoOperacional);
 
             modelBuilder.Entity<Deposito>()
                 .HasKey(d => d.id_item);
@@ -55,5 +55,9 @@ namespace AtelieDrinks.Data
         }
 
         public DbSet<AtelieDrinks.Models.Numero_convidados>? Numero_convidados { get; set; }
+
+        public DbSet<AtelieDrinks.Models.Custo_deslocamento>? Custo_deslocamento { get; set; }
+
+        public DbSet<AtelieDrinks.Models.CustoOperacional>? CustoOperacional { get; set; }
     }
 }

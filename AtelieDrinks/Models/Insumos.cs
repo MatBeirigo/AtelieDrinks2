@@ -9,22 +9,41 @@ namespace AtelieDrinks.Models
         [Key]
         [Column("id_insumo")]
         [Display(Name = "id_insumo")]
-        public int id_insumo { get; set; }
+        public int IdInsumo { get; set; }
 
         [Column("nome_insumo")]
         [Display(Name = "Nome do insumo")]
-        public string nome_insumo { get; set; }
+        public List<string> NomeInsumo { get; set; }
 
         [Column("quantidade")]
         [Display(Name = "Quantidade")]
-        public int quantidade { get; set; }
+        public List<int> QuantidadeInsumo { get; set; }
 
-        [Column("custo_insumo")]
+        [Column("valor")]
+        [Display(Name = "Valor")]
+        public List<decimal> ValorInsumo { get; set; }
+
+        [NotMapped]
         [Display(Name = "Custo insumo")]
-        public decimal custo_insumo { get; set; }
+        public decimal CustoTotal
+        {
+            get
+            {
+                return CustoInsumo.Sum();
+            }
+        }
 
-        [Column("id_item")]
-        [Display(Name = "id_item")]
-        public List<Deposito>? id_item { get; set; }
+        [NotMapped]
+        private List<decimal> CustoInsumo { get; set; }
+
+        public Insumos()
+        {
+            CustoInsumo = new List<decimal>();
+        }
+
+        public void CalcularCustoInsumo()
+        {
+            CustoInsumo = QuantidadeInsumo.Select((qtd, index) => qtd * ValorInsumo[index]).ToList();
+        }
     }
 }

@@ -85,7 +85,7 @@ namespace AtelieDrinks.Controllers
             }
             return View(orcamento);
         }
-        public async Task<IActionResult> Create_custosOp([Bind("custo_operacional")] Orcamento orcamento)
+        public async Task<IActionResult> Create_custosOp([Bind("CustoOperacional")] Orcamento orcamento)
         {
             if (ModelState.IsValid)
             {
@@ -145,7 +145,7 @@ namespace AtelieDrinks.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_orcamento,numero_pessoas,custo_operacional,custo_total_insumos,custo_total,base_orcamento,comissao_comercial,comissao_gerencia,valor_primario,custo_por_pessoa,valor_arredondado_pra_cima,margem_negociacao,valor_orcamento,previsao_lucro,qtde_convidados,qtde_drinks")] Orcamento orcamento)
+        public async Task<IActionResult> Create([Bind("id_orcamento,numero_pessoas,CustoOperacional,custo_total_insumos,custo_total,base_orcamento,comissao_comercial,comissao_gerencia,valor_primario,custo_por_pessoa,valor_arredondado_pra_cima,margem_negociacao,valor_orcamento,previsao_lucro,qtde_convidados,qtde_drinks")] Orcamento orcamento)
         {
             if (ModelState.IsValid)
             {
@@ -177,7 +177,7 @@ namespace AtelieDrinks.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_orcamento,numero_pessoas,custo_operacional,custo_total_insumos,custo_total,base_orcamento,comissao_comercial,comissao_gerencia,valor_primario,custo_por_pessoa,valor_arredondado_pra_cima,margem_negociacao,valor_orcamento,previsao_lucro,qtde_convidados,qtde_drinks")] Orcamento orcamento)
+        public async Task<IActionResult> Edit(int id, [Bind("id_orcamento,numero_pessoas,CustoOperacional,custo_total_insumos,custo_total,base_orcamento,comissao_comercial,comissao_gerencia,valor_primario,custo_por_pessoa,valor_arredondado_pra_cima,margem_negociacao,valor_orcamento,previsao_lucro,qtde_convidados,qtde_drinks")] Orcamento orcamento)
         {
             if (id != orcamento.id_orcamento)
             {

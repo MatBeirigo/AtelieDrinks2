@@ -9,23 +9,38 @@ namespace AtelieDrinks.Models
         [Key]
         [Column("id_drink")]
         [Display(Name = "id_drink")]
-        public int id_drink { get; set; }
+        public int IdDrink { get; set; }
 
         [Column("nome_drink")]
         [Display(Name = "Nome do drink")]
-        public string nome_drink { get; set; }
+        public string? NomeDrink { get; set; }
 
-        [Column("custo_tecnico")]
-        [Display(Name = "Custo tecnico")]
-        public decimal custo_tecnico{ get; set; }
+        [Column("custo_do_drink")]
+        [Display(Name = "Custo do drink")]
+        public List<decimal> CustoDoDrink { get; set; }
 
         [Column("quantidade")]
         [Display(Name = "Quantidade")]
-        public int quantidade { get; set; }
+        public List<int> Quantidade { get; set; }
 
-        [Column("ingredientes")]
-        [Display(Name = "Ingredientes")]
-        public string? ingredientes { get; set; }
+        [Column("ingredientes_do_drink")]
+        [Display(Name = "Ingredientes do Drink")]
+        public string? IngredientesDoDrink { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Custo total")]
+        public decimal CustoTotalDosDrinks
+        {
+            get
+            {
+                decimal custoTotal = 0;
+                for (int i = 0; i < CustoDoDrink.Count; i++)
+                {
+                    custoTotal += CustoDoDrink[i] * Quantidade[i];
+                }
+                return custoTotal;
+            }
+        }
 
     }
 }
