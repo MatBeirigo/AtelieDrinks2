@@ -3,110 +3,150 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AtelieDrinks.Models
 {
-    [Table("Custo Operacional")]
-    public class Custo_operacional
+    [Table("CustoOperacional")]
+    public class CustoOperacional
     {
         [Key]
-        [Column("id_custo_operacional")]
-        [Display(Name = "id_custo_operacional")]
-        public int id_custo_operacional { get; set; }
+        [Column("IdCustoOperacional")]
+        [Display(Name = "IdCustoOperacional")]
+        public int IdCustoOperacional { get; set; }
 
-        [Column("qtd_coordenador")]
-        [Display(Name = "qtd_coordenador")]
-        public int qtd_coordenador { get; set; }
+        [Column("QtdCoordenador")]
+        [Display(Name = "QtdCoordenador")]
+        public int QtdCoordenador { get; set; }
 
-        [Column("custo_coordenador")]
-        [Display(Name = "custo coordenador")]
-        public int custo_coordenador { get; set; }
+        [Column("valor_coordenador")]
+        [Display(Name = "valor_coordenador")]
+        public decimal ValorCoordenador { get; set; }
 
-        [Column("qtd_profissionais_gerais")]
-        [Display(Name = "qtd_profissionais_gerais")]
-        public int qtd_profissionais_gerais { get; set; }
+        [Column("ValorCoordenador")]
+        [Display(Name = "ValorCoordenador")]
+        public decimal CustoCoordenador { get; set; }
 
-        [Column("custo_profissionais_gerais ")]
-        [Display(Name = "Custo profissionais gerais ")]
-        public decimal custo_profissionais_gerais { get; set; }
+        [Column("QtdProfissionaisGerais")]
+        [Display(Name = "QtdProfissionaisGerais")]
+        public int QtdProfissionaisGerais { get; set; }
 
-        [Column("qtd_transporte")]
-        [Display(Name = "qtd_transporte")]
-        public int qtd_transporte { get; set; }
+        [Column("valor_profissionais_gerais")]
+        [Display(Name = "valor_profissionais_gerais")]
+        public decimal ValorProfissionaisGerais { get; set; }
 
-        [Column("custo_transporte")]
-        [Display(Name = "custo transporte")]
-        public int custo_transporte { get; set; }
+        [Column("ValorProfissionaisGerais")]
+        [Display(Name = "ValorProfissionaisGerais")]
+        public decimal CustoProfissionaisGerais { get; set; }
 
-        [Column("qtd_balcoes")]
-        [Display(Name = "qtd balcoes")]
-        public int qtd_balcoes { get; set; }
+        [Column("QtdTransporte")]
+        [Display(Name = "QtdTransporte")]
+        public int QtdTransporte { get; set; }
 
-        [Column("custo_balcoes")]
-        [Display(Name = "custo balcoes")]
-        public int custo_balcoes { get; set; }
+        [Column("valor_transporte")]
+        [Display(Name = "valor_transporte")]
+        public decimal ValorTransporte { get; set; }
 
-        [Column("qtd_taxa_deslocamento")]
-        [Display(Name = "qtd_taxa deslocamento")]
-        public Custo_deslocamento? qtd_taxa_deslocamento { get; set; }
+        [Column("ValorTransporte")]
+        [Display(Name = "ValorTransporte")]
+        public decimal CustoTransporte { get; set; }
 
-        [Column("custo_taxa_deslocamento")]
-        [Display(Name = "custo taxa deslocamento")]
-        public Custo_deslocamento? custo_taxa_deslocamento { get; set; }
+        [Column("QtdBalcoes")]
+        [Display(Name = "QtdBalcoes")]
+        public int QtdBalcoes { get; set; }
 
-        [Column("qtd_impostos_federais")]
-        [Display(Name = "qtd impostos federais")]
-        public int qtd_impostos_federais { get; set; }
+        [Column("valor_balcoes")]
+        [Display(Name = "valor_balcoes")]
+        public decimal ValorBalcoes { get; set; }
 
-        [Column("custo_impostos_federais")]
-        [Display(Name = "custo impostos federais")]
-        public int custo_impostos_federais { get; set; }
+        [Column("ValorBalcoes")]
+        [Display(Name = "ValorBalcoes")]
+        public decimal CustoBalcoes { get; set; }
 
-        [Column("qtd_seguro_reserva")]
-        [Display(Name = "qtd seguro reserva")]
-        public int qtd_seguro_reserva { get; set; }
+        [ForeignKey("CustoTaxaDeslocamento")]
+        [Column("Deslocamento.ValorTipoDeslocamento")]
+        [Display(Name = "Deslocamento.ValorTipoDeslocamento")]
+        public int CustoTaxaDeslocamentoId { get; set; }
 
-        [Column("custo_seguro_reserva")]
-        [Display(Name = "custo seguro reserva")]
-        public int custo_seguro_reserva { get; set; }
+        [Display(Name = "Custo Taxa Deslocamento")]
+        public Custo_deslocamento Deslocamento { get; set; }
 
-        [Column("qtd_taxa_operalizacao")]
-        [Display(Name = "qtd taxa operalizacao")]
-        public int qtd_taxa_operalizacao { get; set; }
+        [Column("QtdImpostosFederais")]
+        [Display(Name = "Qtd Impostos Federais")]
+        public int QtdImpostosFederais { get; set; }
 
-        [Column("custo_taxa_operalizacao")]
-        [Display(Name = "custo taxa operalizacao")]
-        public int custo_taxa_operalizacao { get; set; }
+        [Column("valor_impostos_federais")]
+        [Display(Name = "Valor Impostos Federais")]
+        public decimal ValorImpostosFederais { get; set; }
 
-        [Column("custo_operacional")]
-        [Display(Name = "Custo operacional")]
-        public int custo_operacional { get; set; }
+        [Column("ValorImpostosFederais")]
+        [Display(Name = "Custo Impostos Federais")]
+        public decimal CustoImpostosFederais { get; set; }
 
-        [Column("id_taxa_deslocamento")]
-        [Display(Name = "id_taxa_deslocamento")]
-        public List<Custo_deslocamento>? id_taxa_deslocamento { get; set; }
+        [Column("QtdSeguroReserva")]
+        [Display(Name = "Qtd Seguro Reserva")]
+        public int QtdSeguroReserva { get; set; }
 
+        [Column("valor_seguro_reserva")]
+        [Display(Name = "Valor Seguro Reserva")]
+        public decimal ValorSeguroReserva { get; set; }
 
-        /*
-    id_custo_operacional SERIAL NOT NULL PRIMARY KEY,
-    qtd_coordenador INTEGER NOT NULL,
-    custo_coordernador NUMERIC NOT NULL,
-    qtd_profissionais_gerais INTEGER NOT NULL,
-    custo_profissionais_gerais NUMERIC NOT NULL,
-    qtd_transporte INTEGER NOT NULL,
-    custo_transporte NUMERIC NOT NULL,
-    qtd_balcoes INTEGER NOT NULL,
-    custo_balcoes NUMERIC NOT NULL,
-    qtd_taxa_deslocamento INTEGER NOT NULL,
-    custo_taxa_deslocamento NUMERIC NOT NULL,
-    qtd_impostos_federais INTEGER NOT NULL,
-    custo_impostos_federais NUMERIC NOT NULL,
-    qtd_seguro_reserva INTEGER NOT NULL,
-    custo_seguro_reserva NUMERIC NOT NULL,
-    qtde_taxa_operalizacao INTEGER NOT NULL,
-    custo_taxa_operalizacao NUMERIC NOT NULL,
-    custo_operacional NUMERIC NOT NULL,
-    id_taxa_deslocamento INTEGER NOT NULL,
+        [Column("ValorSeguroReserva")]
+        [Display(Name = "Custo Seguro Reserva")]
+        public decimal CustoSeguroReserva { get; set; }
 
-    FOREIGN KEY(id_taxa_deslocamento) REFERENCES Custo_deslocamento(id_taxa_deslocamento)
-*/
+        [Column("qtd_taxa_operacional")]
+        [Display(Name = "Qtd Taxa Operacional")]
+        public int QtdTaxaOperacional { get; set; }
 
+        [Column("valor_taxa_operacional")]
+        [Display(Name = "Valor Taxa Operacional")]
+        public decimal ValorTaxaOperacional { get; set; }
+
+        [Column("custo_taxa_operacional")]
+        [Display(Name = "Custo Taxa Operacional")]
+        public decimal CustoTaxaOperacional { get; set; }
+
+        [Column("CustoOperacional")]
+        [Display(Name = "Custo Operacional")]
+        public decimal Custo_Operacional { get; set; }
+
+        public CustoOperacional(int qtdCoordenador, decimal valorCoordenador, int qtdProfissionaisGerais, decimal valorProfissionaisGerais,
+            int qtdTransporte, decimal valorTransporte, int qtdBalcoes, decimal valorBalcoes, int qtdImpostosFederais, decimal valorImpostosFederais,
+            int qtdSeguroReserva, decimal valorSeguroReserva, int qtdTaxaOperacional, decimal valorTaxaOperacional)
+        {
+            this.QtdCoordenador = qtdCoordenador;
+            this.ValorCoordenador = valorCoordenador;
+            this.QtdProfissionaisGerais = qtdProfissionaisGerais;
+            this.ValorProfissionaisGerais = valorProfissionaisGerais;
+            this.QtdTransporte = qtdTransporte;
+            this.ValorTransporte = valorTransporte;
+            this.QtdBalcoes = qtdBalcoes;
+            this.ValorBalcoes = valorBalcoes;
+            this.QtdImpostosFederais = qtdImpostosFederais;
+            this.ValorImpostosFederais = valorImpostosFederais;
+            this.QtdSeguroReserva = qtdSeguroReserva;
+            this.ValorSeguroReserva = valorSeguroReserva;
+            this.QtdTaxaOperacional = qtdTaxaOperacional;
+            this.ValorTaxaOperacional = valorTaxaOperacional;
+
+            CalcularCustos();
+        }
+
+        public void CalcularCustos()
+        {
+            this.CustoCoordenador = this.QtdCoordenador * this.ValorCoordenador;
+            this.CustoProfissionaisGerais = this.QtdProfissionaisGerais * this.ValorProfissionaisGerais;
+            this.CustoTransporte = this.QtdTransporte * this.ValorTransporte;
+            this.CustoBalcoes = this.QtdBalcoes * this.ValorBalcoes;
+            this.CustoImpostosFederais = this.QtdImpostosFederais * this.ValorImpostosFederais;
+            this.CustoSeguroReserva = this.QtdSeguroReserva * this.ValorSeguroReserva;
+            this.CustoTaxaOperacional = this.QtdTaxaOperacional * this.ValorTaxaOperacional;
+
+            if (this.Deslocamento != null)
+            {
+                this.Custo_Operacional = this.CustoCoordenador + this.CustoProfissionaisGerais + this.CustoTransporte + this.CustoBalcoes + this.CustoImpostosFederais + this.CustoSeguroReserva + this.CustoTaxaOperacional + this.Deslocamento.CustoTipoDeslocamento;
+            }
+            else
+            {
+                this.Custo_Operacional = this.CustoCoordenador + this.CustoProfissionaisGerais + this.CustoTransporte + this.CustoBalcoes + this.CustoImpostosFederais + this.CustoSeguroReserva + this.CustoTaxaOperacional;
+            }
+        }
     }
 }

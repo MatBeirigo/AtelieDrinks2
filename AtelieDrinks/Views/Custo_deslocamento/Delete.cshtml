@@ -12,27 +12,27 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tipo_deslocamento)
+            @Html.DisplayNameFor(model => model.QtdTipoDeslocamento)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tipo_deslocamento)
+            @Html.DisplayFor(model => model.QtdTipoDeslocamento)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.valor_tipo_deslocamento)
+            @Html.DisplayNameFor(model => model.ValorTipoDeslocamento)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.valor_tipo_deslocamento)
+            @Html.DisplayFor(model => model.ValorTipoDeslocamento)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.custo_tipo_deslocamento)
+            @Html.DisplayNameFor(model => model.CustoTipoDeslocamento)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.custo_tipo_deslocamento)
+            @Html.DisplayFor(model => model.CustoTipoDeslocamento)
         </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="id_taxa_deslocamento" />
+        <input type="hidden" asp-for="IdTaxaDeslocamento" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

@@ -34,15 +34,5 @@ namespace AtelieDrinks.Models
         [Column("descricao_observacao")]
         [Display(Name = "Descricao")]
         public string? descricao_observacao { get; set; }
-
-
-        /* id_item SERIAL NOT NULL PRIMARY KEY,
-    setor_armazenamento VARCHAR(30) NOT NULL,
-    nome_item VARCHAR(30) NOT NULL,
-    medida_de_armazenamento VARCHAR(15) NOT NULL,
-    quantidade INTEGER NOT NULL,
-    custo_deposito NUMERIC NOT NULL,
-    descricao_observacao VARCHAR(100) NOT NULL*/
-
     }
 }

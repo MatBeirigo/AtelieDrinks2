@@ -22,27 +22,27 @@ namespace AtelieDrinks.Controllers
         // GET: CustoOperacional
         public async Task<IActionResult> Index()
         {
-              return _context.Custo_operacional != null ? 
-                          View(await _context.Custo_operacional.ToListAsync()) :
-                          Problem("Entity set 'Contexto.Custo_operacional'  is null.");
+              return _context.CustoOperacional != null ? 
+                          View(await _context.CustoOperacional.ToListAsync()) :
+                          Problem("Entity set 'Contexto.CustoOperacional'  is null.");
         }
 
         // GET: CustoOperacional/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Custo_operacional == null)
+            if (id == null || _context.CustoOperacional == null)
             {
                 return NotFound();
             }
 
-            var custo_operacional = await _context.Custo_operacional
-                .FirstOrDefaultAsync(m => m.id_custo_operacional == id);
-            if (custo_operacional == null)
+            var CustoOperacional = await _context.CustoOperacional
+                .FirstOrDefaultAsync(m => m.IdCustoOperacional == id);
+            if (CustoOperacional == null)
             {
                 return NotFound();
             }
 
-            return View(custo_operacional);
+            return View(CustoOperacional);
         }
 
         // GET: CustoOperacional/Create
@@ -56,31 +56,31 @@ namespace AtelieDrinks.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_custo_operacional,qtd_coordenador,custo_coordenador,qtd_profissionais_gerais,custo_profissionais_gerais,qtd_transporte,custo_transporte,qtd_balcoes,custo_balcoes,qtd_taxa_deslocamento,custo_taxa_deslocamento,qtd_impostos_federais,custo_impostos_federais,qtd_seguro_reserva,custo_seguro_reserva,qtd_taxa_operalizacao,custo_taxa_operalizacao,custo_operacional")] Custo_operacional custo_operacional)
+        public async Task<IActionResult> Create([Bind("IdCustoOperacional,QtdCoordenador,ValorCoordenador,CustoCoordenador,QtdProfissionaisGerais,ValorProfissionaisGerais,CustoProfissionaisGerais,QtdTransporte,ValorTransporte,CustoTransporte,QtdBalcoes,ValorBalcoes,CustoBalcoes,CustoTaxaDeslocamentoId,QtdImpostosFederais,ValorImpostosFederais,CustoImpostosFederais,QtdSeguroReserva,ValorSeguroReserva,CustoSeguroReserva,QtdTaxaOperacional,ValorTaxaOperacional,CustoTaxaOperacional,CustoOperacional")] CustoOperacional CustoOperacional)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(custo_operacional);
+                _context.Add(CustoOperacional);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(custo_operacional);
+            return View(CustoOperacional);
         }
 
         // GET: CustoOperacional/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Custo_operacional == null)
+            if (id == null || _context.CustoOperacional == null)
             {
                 return NotFound();
             }
 
-            var custo_operacional = await _context.Custo_operacional.FindAsync(id);
-            if (custo_operacional == null)
+            var CustoOperacional = await _context.CustoOperacional.FindAsync(id);
+            if (CustoOperacional == null)
             {
                 return NotFound();
             }
-            return View(custo_operacional);
+            return View(CustoOperacional);
         }
 
         // POST: CustoOperacional/Edit/5
@@ -88,9 +88,9 @@ namespace AtelieDrinks.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_custo_operacional,qtd_coordenador,custo_coordenador,qtd_profissionais_gerais,custo_profissionais_gerais,qtd_transporte,custo_transporte,qtd_balcoes,custo_balcoes,qtd_taxa_deslocamento,custo_taxa_deslocamento,qtd_impostos_federais,custo_impostos_federais,qtd_seguro_reserva,custo_seguro_reserva,qtd_taxa_operalizacao,custo_taxa_operalizacao,custo_operacional")] Custo_operacional custo_operacional)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCustoOperacional,QtdCoordenador,ValorCoordenador,CustoCoordenador,QtdProfissionaisGerais,ValorProfissionaisGerais,CustoProfissionaisGerais,QtdTransporte,ValorTransporte,CustoTransporte,QtdBalcoes,ValorBalcoes,CustoBalcoes,CustoTaxaDeslocamentoId,QtdImpostosFederais,ValorImpostosFederais,CustoImpostosFederais,QtdSeguroReserva,ValorSeguroReserva,CustoSeguroReserva,QtdTaxaOperacional,ValorTaxaOperacional,CustoTaxaOperacional,CustoOperacional")] CustoOperacional CustoOperacional)
         {
-            if (id != custo_operacional.id_custo_operacional)
+            if (id != CustoOperacional.IdCustoOperacional)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace AtelieDrinks.Controllers
             {
                 try
                 {
-                    _context.Update(custo_operacional);
+                    _context.Update(CustoOperacional);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!Custo_operacionalExists(custo_operacional.id_custo_operacional))
+                    if (!CustoOperacionalExists(CustoOperacional.IdCustoOperacional))
                     {
                         return NotFound();
                     }
@@ -115,25 +115,25 @@ namespace AtelieDrinks.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(custo_operacional);
+            return View(CustoOperacional);
         }
 
         // GET: CustoOperacional/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Custo_operacional == null)
+            if (id == null || _context.CustoOperacional == null)
             {
                 return NotFound();
             }
 
-            var custo_operacional = await _context.Custo_operacional
-                .FirstOrDefaultAsync(m => m.id_custo_operacional == id);
-            if (custo_operacional == null)
+            var CustoOperacional = await _context.CustoOperacional
+                .FirstOrDefaultAsync(m => m.IdCustoOperacional == id);
+            if (CustoOperacional == null)
             {
                 return NotFound();
             }
 
-            return View(custo_operacional);
+            return View(CustoOperacional);
         }
 
         // POST: CustoOperacional/Delete/5
@@ -141,23 +141,23 @@ namespace AtelieDrinks.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Custo_operacional == null)
+            if (_context.CustoOperacional == null)
             {
-                return Problem("Entity set 'Contexto.Custo_operacional'  is null.");
+                return Problem("Entity set 'Contexto.CustoOperacional'  is null.");
             }
-            var custo_operacional = await _context.Custo_operacional.FindAsync(id);
-            if (custo_operacional != null)
+            var CustoOperacional = await _context.CustoOperacional.FindAsync(id);
+            if (CustoOperacional != null)
             {
-                _context.Custo_operacional.Remove(custo_operacional);
+                _context.CustoOperacional.Remove(CustoOperacional);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool Custo_operacionalExists(int id)
+        private bool CustoOperacionalExists(int id)
         {
-          return (_context.Custo_operacional?.Any(e => e.id_custo_operacional == id)).GetValueOrDefault();
+          return (_context.CustoOperacional?.Any(e => e.IdCustoOperacional == id)).GetValueOrDefault();
         }
     }
 }

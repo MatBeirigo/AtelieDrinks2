@@ -1,0 +1,114 @@
+﻿@model AtelieDrinks.Models.CustoOperacional
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CustoOperacional</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdCustoOperacional" />
+            <div class="form-group">
+                <label asp-for="QtdCoordenador" class="control-label"></label>
+                <input asp-for="QtdCoordenador" class="form-control" />
+                <span asp-validation-for="QtdCoordenador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorCoordenador" class="control-label"></label>
+                <input asp-for="ValorCoordenador" class="form-control" />
+                <span asp-validation-for="ValorCoordenador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QtdProfissionaisGerais" class="control-label"></label>
+                <input asp-for="QtdProfissionaisGerais" class="form-control" />
+                <span asp-validation-for="QtdProfissionaisGerais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorProfissionaisGerais" class="control-label"></label>
+                <input asp-for="ValorProfissionaisGerais" class="form-control" />
+                <span asp-validation-for="ValorProfissionaisGerais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QtdTransporte" class="control-label"></label>
+                <input asp-for="QtdTransporte" class="form-control" />
+                <span asp-validation-for="QtdTransporte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorTransporte" class="control-label"></label>
+                <input asp-for="ValorTransporte" class="form-control" />
+                <span asp-validation-for="ValorTransporte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QtdBalcoes" class="control-label"></label>
+                <input asp-for="QtdBalcoes" class="form-control" />
+                <span asp-validation-for="QtdBalcoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorBalcoes" class="control-label"></label>
+                <input asp-for="ValorBalcoes" class="form-control" />
+                <span asp-validation-for="ValorBalcoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Deslocamento.QtdTipoDeslocamento" class="control-label"></label>
+                <input asp-for="Deslocamento.QtdTipoDeslocamento" class="form-control" />
+                <span asp-validation-for="Deslocamento.QtdTipoDeslocamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Deslocamento.ValorTipoDeslocamento" class="control-label"></label>
+                <input asp-for="Deslocamento.ValorTipoDeslocamento" class="form-control" />
+                <span asp-validation-for="Deslocamento.ValorTipoDeslocamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QtdImpostosFederais" class="control-label"></label>
+                <input asp-for="QtdImpostosFederais" class="form-control" />
+                <span asp-validation-for="QtdImpostosFederais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorImpostosFederais" class="control-label"></label>
+                <input asp-for="ValorImpostosFederais" class="form-control" />
+                <span asp-validation-for="ValorImpostosFederais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QtdSeguroReserva" class="control-label"></label>
+                <input asp-for="QtdSeguroReserva" class="form-control" />
+                <span asp-validation-for="QtdSeguroReserva" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorSeguroReserva" class="control-label"></label>
+                <input asp-for="ValorSeguroReserva" class="form-control" />
+                <span asp-validation-for="ValorSeguroReserva" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QtdTaxaOperacional" class="control-label"></label>
+                <input asp-for="QtdTaxaOperacional" class="form-control" />
+                <span asp-validation-for="QtdTaxaOperacional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorTaxaOperacional" class="control-label"></label>
+                <input asp-for="ValorTaxaOperacional" class="form-control" />
+                <span asp-validation-for="ValorTaxaOperacional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Custo_Operacional" class="control-label"></label>
+                <input asp-for="Custo_Operacional" class="form-control" />
+                <span asp-validation-for="Custo_Operacional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

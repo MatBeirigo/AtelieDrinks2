@@ -50,23 +50,5 @@ namespace AtelieDrinks.Models
         [Column("id_insumo")]
         [Display(Name = "id_insumo")]
         public List<Insumos>? id_insumo { get; set; }
-
-
-        /*CREATE TABLE Ficha_tecnica(
-    id_ficha SERIAL NOT NULL PRIMARY KEY,
-    nome_drink VARCHAR(30) NOT NULL,
-    nome_base_alcoolica VARCHAR(30) NOT NULL,
-    nome_insumo VARCHAR(30) NOT NULL,
-    custo_insumo NUMERIC NOT NULL,
-    custo_base_alcoolica NUMERIC NOT NULL,
-    medida NUMERIC NOT NULL,
-    ml_unidade NUMERIC NOT NULL,
-    valor_ficha NUMERIC NOT NULL,
-    id_base_alcoolica INTEGER NOT NULL,
-    id_insumo INTEGER NOT NULL,
-    
-    FOREIGN KEY(id_insumo) REFERENCES Insumos(id_insumo),
-    FOREIGN KEY(id_base_alcoolica) REFERENCES Base_alcoolica(id_base_alcoolica)*/
-
     }
 }

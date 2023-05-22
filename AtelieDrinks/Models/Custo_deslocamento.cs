@@ -9,28 +9,25 @@ namespace AtelieDrinks.Models
         [Key]
         [Column("id_taxa_deslocamento")]
         [Display(Name = "id_taxa_deslocamento")]
-        public int id_taxa_deslocamento { get; set; }
+        public int IdTaxaDeslocamento { get; set; }
 
-        [Column("tipo_deslocamento")]
-        [Display(Name = "Tipo deslocamento")]
-        public string tipo_deslocamento { get; set; }
+        [Column("qtd_tipo_deslocamento")]
+        [Display(Name = "Quantidade do tipo deslocamento")]
+        public decimal QtdTipoDeslocamento { get; set; }
 
         [Column("valor_tipo_deslocamento")]
         [Display(Name = "Valor tipo deslocamento")]
-        public decimal valor_tipo_deslocamento { get; set; }
+        public decimal ValorTipoDeslocamento { get; set; }
 
         [Column("custo_tipo_deslocamento")]
         [Display(Name = "Custo tipo deslocamento")]
-        public decimal custo_tipo_deslocamento { get; set; }
+        public decimal CustoTipoDeslocamento { get; set; }
 
-
-
-        /*id_taxa_deslocamento SERIAL NOT NULL PRIMARY KEY,
-    tipo_deslocamento VARCHAR(30) NOT NULL,
-    valor_tipo_deslocamento NUMERIC NOT NULL,
-    custo_taxa_deslocamento NUMERIC NOT NULL */
-
-
-
+        public Custo_deslocamento(decimal qtdTipoDeslocamento, decimal valorTipoDeslocamento)
+        {
+            this.QtdTipoDeslocamento = qtdTipoDeslocamento;
+            this.ValorTipoDeslocamento = valorTipoDeslocamento;
+            this.CustoTipoDeslocamento = this.ValorTipoDeslocamento * this.QtdTipoDeslocamento;
+        }
     }
 }

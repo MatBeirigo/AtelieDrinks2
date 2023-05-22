@@ -7,16 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<Contexto>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseNpgsql(connectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<Contexto>();
-builder.Services.AddControllersWithViews();
 
-builder.Services.AddEntityFrameworkNpgsql()
-    .AddDbContext<Contexto>(options => 
-    options.UseNpgsql("Host=localhost;Port=5432;Pooling=true;Database=ATELIEDRINKS;User Id=postgres;Password=123456789;"));
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -41,6 +39,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapRazorPages();
 
 app.Run();
