@@ -36,7 +36,7 @@ namespace AtelieDrinks.Controllers
             }
 
             var insumos = await _context.Insumos
-                .FirstOrDefaultAsync(m => m.id_insumo == id);
+                .FirstOrDefaultAsync(m => m.IdInsumo == id);
             if (insumos == null)
             {
                 return NotFound();
@@ -106,7 +106,7 @@ namespace AtelieDrinks.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id_insumo,nome_insumo,quantidade,custo_insumo")] Insumos insumos)
         {
-            if (id != insumos.id_insumo)
+            if (id != insumos.IdInsumo)
             {
                 return NotFound();
             }
@@ -120,7 +120,7 @@ namespace AtelieDrinks.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InsumosExists(insumos.id_insumo))
+                    if (!InsumosExists(insumos.IdInsumo))
                     {
                         return NotFound();
                     }
@@ -143,7 +143,7 @@ namespace AtelieDrinks.Controllers
             }
 
             var insumos = await _context.Insumos
-                .FirstOrDefaultAsync(m => m.id_insumo == id);
+                .FirstOrDefaultAsync(m => m.IdInsumo == id);
             if (insumos == null)
             {
                 return NotFound();
@@ -173,7 +173,7 @@ namespace AtelieDrinks.Controllers
 
         private bool InsumosExists(int id)
         {
-          return (_context.Insumos?.Any(e => e.id_insumo == id)).GetValueOrDefault();
+          return (_context.Insumos?.Any(e => e.IdInsumo == id)).GetValueOrDefault();
         }
 
 

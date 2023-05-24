@@ -36,7 +36,7 @@ namespace AtelieDrinks.Controllers
             }
 
             var historico = await _context.Historico
-                .FirstOrDefaultAsync(m => m.id_historico == id);
+                .FirstOrDefaultAsync(m => m.IdHistorico == id);
             if (historico == null)
             {
                 return NotFound();
@@ -90,7 +90,7 @@ namespace AtelieDrinks.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id_historico,numero_pessoas,CustoOperacional,custo_total_insumos,custo_total,base_orcamento,comissao_comercial,comissao_gerencia,valor_primario,custo_por_pessoa,valor_arredondado_pra_cima,margem_negociacao,valor_orcamento,previsao_lucro,qtde_convidados,qtde_drinks")] Historico historico)
         {
-            if (id != historico.id_historico)
+            if (id != historico.IdHistorico)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace AtelieDrinks.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!HistoricoExists(historico.id_historico))
+                    if (!HistoricoExists(historico.IdHistorico))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace AtelieDrinks.Controllers
             }
 
             var historico = await _context.Historico
-                .FirstOrDefaultAsync(m => m.id_historico == id);
+                .FirstOrDefaultAsync(m => m.IdHistorico == id);
             if (historico == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace AtelieDrinks.Controllers
 
         private bool HistoricoExists(int id)
         {
-          return (_context.Historico?.Any(e => e.id_historico == id)).GetValueOrDefault();
+          return (_context.Historico?.Any(e => e.IdHistorico == id)).GetValueOrDefault();
         }
     }
 }

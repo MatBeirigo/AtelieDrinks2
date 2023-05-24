@@ -36,7 +36,7 @@ namespace AtelieDrinks.Controllers
             }
 
             var drinks = await _context.Drinks
-                .FirstOrDefaultAsync(m => m.id_drink == id);
+                .FirstOrDefaultAsync(m => m.IdDrink == id);
             if (drinks == null)
             {
                 return NotFound();
@@ -90,7 +90,7 @@ namespace AtelieDrinks.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id_drink,nome_drink,custo_tecnico,quantidade,ingredientes")] Drinks drinks)
         {
-            if (id != drinks.id_drink)
+            if (id != drinks.IdDrink)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace AtelieDrinks.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DrinksExists(drinks.id_drink))
+                    if (!DrinksExists(drinks.IdDrink))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace AtelieDrinks.Controllers
             }
 
             var drinks = await _context.Drinks
-                .FirstOrDefaultAsync(m => m.id_drink == id);
+                .FirstOrDefaultAsync(m => m.IdDrink == id);
             if (drinks == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace AtelieDrinks.Controllers
 
         private bool DrinksExists(int id)
         {
-          return (_context.Drinks?.Any(e => e.id_drink == id)).GetValueOrDefault();
+          return (_context.Drinks?.Any(e => e.IdDrink == id)).GetValueOrDefault();
         }
     }
 }
