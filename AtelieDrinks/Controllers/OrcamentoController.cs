@@ -36,7 +36,7 @@ namespace AtelieDrinks.Controllers
             }
 
             var Orcamento = await _context.Orcamento
-                .FirstOrDefaultAsync(m => m.id_orcamento == id);
+                .FirstOrDefaultAsync(m => m.IdOrcamento == id);
             if (Orcamento == null)
             {
                 return NotFound();

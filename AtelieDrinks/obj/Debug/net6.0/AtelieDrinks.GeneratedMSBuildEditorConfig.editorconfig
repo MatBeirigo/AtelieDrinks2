@@ -40,44 +40,44 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzZUFsY29vbGljYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/CustoDeslocamento/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9EZXNsb2NhbWVudG9cQ3JlYXRlLmNzaHRtbA==
+[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Custo_deslocamento/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9fZGVzbG9jYW1lbnRvXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/CustoDeslocamento/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9EZXNsb2NhbWVudG9cRGVsZXRlLmNzaHRtbA==
+[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Custo_deslocamento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9fZGVzbG9jYW1lbnRvXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/CustoDeslocamento/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9EZXNsb2NhbWVudG9cRGV0YWlscy5jc2h0bWw=
+[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Custo_deslocamento/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9fZGVzbG9jYW1lbnRvXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/CustoDeslocamento/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9EZXNsb2NhbWVudG9cRWRpdC5jc2h0bWw=
+[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Custo_deslocamento/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9fZGVzbG9jYW1lbnRvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/CustoDeslocamento/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9EZXNsb2NhbWVudG9cSW5kZXguY3NodG1s
+[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Custo_deslocamento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9fZGVzbG9jYW1lbnRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/CustoOperacional/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9PcGVyYWNpb25hbFxDcmVhdGUuY3NodG1s
+[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Custo_operacional/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9fb3BlcmFjaW9uYWxcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/CustoOperacional/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9PcGVyYWNpb25hbFxEZWxldGUuY3NodG1s
+[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Custo_operacional/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9fb3BlcmFjaW9uYWxcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/CustoOperacional/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9PcGVyYWNpb25hbFxEZXRhaWxzLmNzaHRtbA==
+[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Custo_operacional/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9fb3BlcmFjaW9uYWxcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/CustoOperacional/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9PcGVyYWNpb25hbFxFZGl0LmNzaHRtbA==
+[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Custo_operacional/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9fb3BlcmFjaW9uYWxcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/CustoOperacional/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9PcGVyYWNpb25hbFxJbmRleC5jc2h0bWw=
+[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Custo_operacional/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9fb3BlcmFjaW9uYWxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Deposito/Create.cshtml]
@@ -186,10 +186,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Insumos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdW1vc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Insumos/Index2.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdW1vc1xJbmRleDIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/bruno/source/repos/AtelieDrinks2/AtelieDrinks/Views/Marca/Create.cshtml]

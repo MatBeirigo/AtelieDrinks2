@@ -12,10 +12,10 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.numero_pessoas)
+            @Html.DisplayNameFor(model => model.NumeroPessoas)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.numero_pessoas)
+            @Html.DisplayFor(model => model.NumeroPessoas)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CustoOperacional)
@@ -24,87 +24,87 @@
             @Html.DisplayFor(model => model.CustoOperacional)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.custo_total_insumos)
+            @Html.DisplayNameFor(model => model.CustoTotalInsumos)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.custo_total_insumos)
+            @Html.DisplayFor(model => model.CustoTotalInsumos)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.custo_total)
+            @Html.DisplayNameFor(model => model.CustoTotal)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.custo_total)
+            @Html.DisplayFor(model => model.CustoTotal)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.base_orcamento)
+            @Html.DisplayNameFor(model => model.BaseOrcamento)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.base_orcamento)
+            @Html.DisplayFor(model => model.BaseOrcamento)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.comissao_comercial)
+            @Html.DisplayNameFor(model => model.ComissaoComercial)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.comissao_comercial)
+            @Html.DisplayFor(model => model.ComissaoComercial)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.comissao_gerencia)
+            @Html.DisplayNameFor(model => model.ComissaoGerencia)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.comissao_gerencia)
+            @Html.DisplayFor(model => model.ComissaoGerencia)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.valor_primario)
+            @Html.DisplayNameFor(model => model.ValorPrimario)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.valor_primario)
+            @Html.DisplayFor(model => model.ValorPrimario)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.custo_por_pessoa)
+            @Html.DisplayNameFor(model => model.CustoPorPessoa)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.custo_por_pessoa)
+            @Html.DisplayFor(model => model.CustoPorPessoa)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.valor_arredondado_pra_cima)
+            @Html.DisplayNameFor(model => model.ValorArredondadoPraCima)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.valor_arredondado_pra_cima)
+            @Html.DisplayFor(model => model.ValorArredondadoPraCima)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.margem_negociacao)
+            @Html.DisplayNameFor(model => model.MargemNegociacao)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.margem_negociacao)
+            @Html.DisplayFor(model => model.MargemNegociacao)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.valor_orcamento)
+            @Html.DisplayNameFor(model => model.ValorOrcamento)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.valor_orcamento)
+            @Html.DisplayFor(model => model.ValorOrcamento)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.previsao_lucro)
+            @Html.DisplayNameFor(model => model.PrevisaoLucro)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.previsao_lucro)
+            @Html.DisplayFor(model => model.PrevisaoLucro)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.qtde_convidados)
+            @Html.DisplayNameFor(model => model.QtdeConvidados)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.qtde_convidados)
+            @Html.DisplayFor(model => model.QtdeConvidados)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.qtde_drinks)
+            @Html.DisplayNameFor(model => model.QtdeDrinks)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.qtde_drinks)
+            @Html.DisplayFor(model => model.QtdeDrinks)
         </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="id_orcamento" />
+        <input type="hidden" asp-for="IdOrcamento" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

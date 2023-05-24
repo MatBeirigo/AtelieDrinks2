@@ -35,22 +35,22 @@ namespace AtelieDrinks.Data
                 .HasKey(d => d.id_item);
 
             modelBuilder.Entity<Drinks>()
-                .HasKey(d => d.id_drink);
+                .HasKey(d => d.IdDrink);
 
             modelBuilder.Entity<Ficha_tecnica>()
                 .HasKey(d => d.id_ficha);
 
             modelBuilder.Entity<Historico>()
-                .HasKey(d => d.id_historico);
+                .HasKey(d => d.IdHistorico);
 
             modelBuilder.Entity<Insumos>()
-                .HasKey(d => d.id_insumo);
+                .HasKey(d => d.IdInsumo);
 
             modelBuilder.Entity<Marca>()
                 .HasKey(d => d.id_marca);
 
             modelBuilder.Entity<Orcamento>()
-                .HasKey(d => d.id_orcamento);
+                .HasKey(d => d.IdOrcamento);
 
         }
 

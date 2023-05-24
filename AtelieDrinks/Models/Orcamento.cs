@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AtelieDrinks.Models
 {
+
     [Table("Orcamento")]
     public class Orcamento
     {
@@ -17,7 +18,8 @@ namespace AtelieDrinks.Models
 
         [Column("custo_operacional")]
         [Display(Name = "Custo operacional")]
-        public Custo_Operacional RespostaOperacional { get; set; }
+        public int CustoOperacional { get; set; }
+        
 
         [Column("custo_insumos")]
         [Display(Name = "Custo insumos")]
@@ -100,7 +102,7 @@ namespace AtelieDrinks.Models
 
             decimal custoTotalGeral = custoTotalInsumos + custoTotalDrinks;
 
-            CustoTotal = RespostaOperacional.CustoOperacional + custoTotalGeral;
+            CustoTotal = CustoOperacional + custoTotalGeral;
             BaseOrcamento = CustoTotal * BaseOrcamento1;
             ComissaoComercial = BaseOrcamento * TxComissaoComercial;
             ComissaoGerencia = (BaseOrcamento + ComissaoComercial) * TxComissaoGerencia;
@@ -117,7 +119,7 @@ namespace AtelieDrinks.Models
                 new Historico
                 {
                     NumeroPessoas = NumeroPessoas,
-                    CustoOperacional = RespostaOperacional.CustoOperacional,
+                    CustoOperacional = CustoOperacional,
                     CustoTotalInsumos = custoTotalInsumos,
                     CustoTotalDrinks = custoTotalDrinks,
                     CustoTotalGeral = custoTotalGeral,

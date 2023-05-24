@@ -30,14 +30,15 @@
                     <p style="margin-top:5px">Nome, Quantidade, Custo...</p>
                  <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input type="hidden" asp-for="id_insumo" />
+                        <input type="hidden" asp-for="IdInsumo" />
                         <div class="row-inputs">
                             <div class="list-inputs">
                                 <!--Lista Nome do insumo-->
                                 <div class="form-input" style="width:470px">
                                 <!--Input NOME-->
-                                <input asp-for="nome_insumo" type="value" required="" disabled>
-                                <label><span asp-validation-for="nome_insumo" style="color: var(--azul-input);
+                                    <input asp-for="NomeInsumo" type="value" required="" disabled>
+                                    <label>
+                                        <span asp-validation-for="NomeInsumo" style="color: var(--azul-input);
 transform: translateY(-25px)">Nome</span></label>
                                 </div>
                             </div> <!--Fim lista Nome do insumo-->
@@ -47,8 +48,9 @@ transform: translateY(-25px)">Nome</span></label>
                                 <!--Lista Quantidade-->
                                 <div class="form-input" style="width:470px">
                                 <!--Input QUANTIDADE-->
-                                <input asp-for="quantidade" type="value" required="" disabled>
-                                <label><span asp-validation-for="quantidade" style="color: var(--azul-input);
+                                    <input asp-for="QuantidadeInsumo" type="value" required="" disabled>
+                                    <label>
+                                        <span asp-validation-for="QuantidadeInsumo" style="color: var(--azul-input);
 transform: translateY(-25px)">Quantidade</span></label>
                                 </div>
                             </div> <!--Fim lista Quantidade-->
@@ -58,8 +60,9 @@ transform: translateY(-25px)">Quantidade</span></label>
                                 <!--Lista Nome do insumo-->
                                 <div class="form-input" style="width:470px">
                                     <!--Input Nome do Insumo-->
-                                    <input asp-for="custo_insumo" type="value" required="" disabled>
-                                    <label><span asp-validation-for="custo_insumo" style="color: var(--azul-input);
+                                    <input asp-for="ValorInsumo" type="value" required="" disabled>
+                                    <label>
+                                        <span asp-validation-for="ValorInsumo" style="color: var(--azul-input);
 transform: translateY(-25px)">Custo</span></label>
                                 </div>
                             </div> <!--Fim lista Nome do insumo-->

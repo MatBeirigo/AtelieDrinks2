@@ -58,18 +58,18 @@
                     {
                             <tr>
                                 <td>
-                                   A @Html.DisplayFor(modelItem => item.nome_insumo)
+                                A @Html.DisplayFor(modelItem => item.NomeInsumo)
                                 </td>
                                 <td>
-                                @Html.DisplayFor(modelItem => item.quantidade)
+                                @Html.DisplayFor(modelItem => item.QuantidadeInsumo)
                                 </td>
                                 <td>
-                                @Html.DisplayFor(modelItem => item.custo_insumo)
+                                @Html.DisplayFor(modelItem => item.ValorInsumo)
                                 </td>
                                 <td>
-                                    <a asp-action="Edit" asp-route-id="@item.id_insumo"><i class="fas fa-edit"></i></a> |
-                                    <a asp-action="Details" asp-route-id="@item.id_insumo"><i class="fas fa-info-circle"></i></a> |
-                                    <a asp-action="Delete" asp-route-id="@item.id_insumo"><i class="fas fa-trash-alt"></i></a>
+                                <a asp-action="Edit" asp-route-id="@item.IdInsumo"><i class="fas fa-edit"></i></a> |
+                                <a asp-action="Details" asp-route-id="@item.IdInsumo"><i class="fas fa-info-circle"></i></a> |
+                                <a asp-action="Delete" asp-route-id="@item.IdInsumo"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                     }

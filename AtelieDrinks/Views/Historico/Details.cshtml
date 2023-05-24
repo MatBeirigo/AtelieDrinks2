@@ -62,22 +62,22 @@
                             <tr>
                                     <td>XXX</td>
                                     <td>XXX</td>
-                                    <td>@Html.DisplayFor(model => model.numero_pessoas)</td>
+                                <td>@Html.DisplayFor(model => model.NumeroPessoas)</td>
                                     <td>@Html.DisplayFor(model => model.CustoOperacional)</td>
-                                    <td>@Html.DisplayFor(model => model.custo_total_insumos)</td>
-                                    <td>@Html.DisplayFor(model => model.custo_total)</td>
-                                    <td>@Html.DisplayFor(model => model.base_orcamento)</td>
-                                    <td>@Html.DisplayFor(model => model.comissao_comercial)</td>
-                                    <td>@Html.DisplayFor(model => model.comissao_gerencia)</td>
-                                    <td>@Html.DisplayFor(model => model.valor_primario)</td>
-                                    <td>@Html.DisplayFor(model => model.custo_por_pessoa))</td>
-                                    <td>@Html.DisplayFor(model => model.valor_arredondado_pra_cima)</td>
-                                    <td>@Html.DisplayFor(model => model.valor_arredondado_pra_cima)</td>
-                                    <td>@Html.DisplayFor(model => model.margem_negociacao)</td>
-                                    <td>@Html.DisplayFor(model => model.valor_orcamento)</td>
-                                    <td>@Html.DisplayFor(model => model.previsao_lucro)</td>
-                                    <td>@Html.DisplayFor(model => model.qtde_convidados)</td>
-                                    <td>@Html.DisplayFor(model => model.qtde_drinks)</td>
+                                <td>@Html.DisplayFor(model => model.CustoTotalInsumos)</td>
+                                <td>@Html.DisplayFor(model => model.CustoTotalDrinks)</td>
+                                <td>@Html.DisplayFor(model => model.BaseOrcamento)</td>
+                                <td>@Html.DisplayFor(model => model.ComissaoComercial)</td>
+                                <td>@Html.DisplayFor(model => model.ComissaoGerencia)</td>
+                                <td>@Html.DisplayFor(model => model.ValorPrimario)</td>
+                                <td>@Html.DisplayFor(model => model.CustoPorPessoa))</td>
+                                <td>@Html.DisplayFor(model => model.ValorArredondadoPraCima)</td>
+                                <td>@Html.DisplayFor(model => model.ValorArredondadoPraCima)</td>
+                                <td>@Html.DisplayFor(model => model.MargemNegociacao)</td>
+                                <td>@Html.DisplayFor(model => model.ValorOrcamento)</td>
+                                <td>@Html.DisplayFor(model => model.PrevisaoLucro)</td>
+                                <td>@Html.DisplayFor(model => model.QtdeConvidados)</td>
+                                <td>@Html.DisplayFor(model => model.QtdeDrinks)</td>
 
                             </tr>
                                
@@ -90,7 +90,7 @@
 
             <div class="list-buttons">
                 <button class="button excluir" onclick="window.location='@Url.Action("Index", "Historico")'">Voltar</button>
-                    <a asp-action="Edit" asp-route-id="@Model.id_historico"><button class="button continuar">Editar</button></a>
+                <a asp-action="Edit" asp-route-id="@Model.IdHistorico"><button class="button continuar">Editar</button></a>
              
             </div>
             
