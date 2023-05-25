@@ -171,30 +171,42 @@
 </body>
 </html>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js%22%3E"</script>
 
 
 <script>
     $(document).ready(function () {
 
-        $('.list-inputs input').on('input', function () {
+        $('.list-inputs').on('input', 'input[id^="valor"]', function () {
             var $listInputs = $(this).closest('.list-inputs');
             var qtd = parseInt($listInputs.find('input[id^="qtd"]').val());
-            var valor = parseFloat($listInputs.find('input[id^="valor"]').val().replace(',', '.'));
+            var valor = $listInputs.find('input[id^="valor"]').val();
 
-            if (!isNaN(qtd) && !isNaN(valor)) {
-                var total = qtd * valor;
-                $listInputs.find('input[id^="total"]').val(formatMoney(total));
+            var digitsOnly = valor.replace(/[^\d]/g, '');
+            if (digitsOnly === '') {
+                digitsOnly = '0';
             }
+
+            var valorFormatted = parseFloat(digitsOnly.slice(0, -2) + '.' + digitsOnly.slice(-2));
+            if (isNaN(valorFormatted)) {
+                valorFormatted = 0;
+            }
+
+            var valorFormattedString = 'R$' + valorFormatted.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+            $listInputs.find('input[id^="valor"]').val(valorFormattedString);
+            $listInputs.find('label[id^="valor-label"]').text(valorFormattedString);
+
+            var total = qtd * valorFormatted;
+            if (isNaN(total)) {
+                total = 0;
+            }
+            var totalFormattedString = 'R$' + total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+            $listInputs.find('input[id^="total"]').val(totalFormattedString);
+            $listInputs.find('label[id^="total-label"]').text(totalFormattedString);
         });
+
+
+
+
 
         $('#button_continuar').click(function () {
             var qtdCoordenador = parseInt($('#qtdCoordenador').val().replace(',', '.'));
