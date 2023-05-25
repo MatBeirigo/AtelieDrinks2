@@ -37,18 +37,18 @@
                             <!--Lista COORDENADOR-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input id="qtdCoordenador" required="">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Coordenador</p>
                             <div class="form-input" style="left: 30%">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input id="valorCoordenador" required="">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input" style="left: 30%">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input id="totalCoordenador" required="">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista COORDENADOR-->
@@ -57,18 +57,18 @@
                             <!--Lista PROFISSIONAIS GERAIS-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input id="qtdProfissionaisGerias" required="">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Profissionais Gerais</p>
                             <div class="form-input" style="left: 17%">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input id="valorProfissionaisGerias" required="">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input" style="left: 17%">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input id="totalProfissionaisGerias" required="">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista PROFISSIONAIS GERAIS-->
@@ -77,18 +77,18 @@
                             <!--Lista BALCÕES-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input id="qtdBalcoes" required="">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Balcões</p>
                             <div class="form-input" style="left: 39%">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input id="valorBalcoes" required="">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input" style="left: 39%">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input id="totalBalcoes" required="">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista BALCÕES-->
@@ -97,18 +97,18 @@
                             <!--Lista IMPOSTOS FEDERAIS-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input id="qtdImpostosFederais" required="">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Impostos Federais</p>
                             <div class="form-input" style="left: 20%">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input id="valorImpostosFederais" required="">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input" style="left: 20%">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input id="totalImpostosFederais" required="">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista IMPOSTOS FEDERAIS-->
@@ -117,18 +117,18 @@
                             <!--Lista SEGURO DE RESERVA-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input id="qtdSeguroReserva" required="">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Seguro de Reserva</p>
                             <div class="form-input" style="left: 20%">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input id="valorSeguroReserva" required="">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input" style="left: 20%">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input id="totalSeguroReserva" required="">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista SEGURO DE RESERVA-->
@@ -137,18 +137,18 @@
                             <!--Lista TAXA OP-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input id="qtdTaxaOp" required="">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Taxa de Operacionalização</p>
                             <div class="form-input" style="left: 5%">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input id="valorTaxaOp" required="">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input" style="left: 5%">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input id="totalTaxaOp" required="">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista TAXA OP-->
@@ -161,10 +161,111 @@
 
             <div class="list-buttons">
                 <button class="button excluir" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 1 })'">Voltar</button>
-                <button class="button continuar" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 3 })'">Continuar</button>
+                @*<button class="button continuar" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 3 })'">Continuar</button>*@
+                <button id="button continuar" class="button continuar">Continuar</button>
+
             </div>
 
         </div> <!--fim CONTENT-->
     </div>  <!--fim BLACKBOX-->
 </body>
 </html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js%22%3E"</script>
+
+
+<script>
+    $(document).ready(function () {
+
+        $('.list-inputs input').on('input', function () {
+            var $listInputs = $(this).closest('.list-inputs');
+            var qtd = parseInt($listInputs.find('input[id^="qtd"]').val());
+            var valor = parseFloat($listInputs.find('input[id^="valor"]').val().replace(',', '.'));
+
+            if (!isNaN(qtd) && !isNaN(valor)) {
+                var total = qtd * valor;
+                $listInputs.find('input[id^="total"]').val(formatMoney(total));
+            }
+        });
+
+        $('#button_continuar').click(function () {
+            var qtdCoordenador = parseInt($('#qtdCoordenador').val().replace(',', '.'));
+            var valorCoordenador = parseFloat($('#valorCoordenador').val().replace(',', '.'));
+            var totalCoordenador = parseFloat($('#totalCoordenador').val().replace(',', '.'));
+
+            var qtdCoordenador = parseFloat($('#qtdProfissionaisGerias').val().replace(',', '.'));
+            var valorCoordenador = parseFloat($('#valorProfissionaisGerias').val().replace(',', '.'));
+            var totalCoordenador = parseFloat($('#totalProfissionaisGerias').val().replace(',', '.'));
+
+            var qtdCoordenador = parseFloat($('#qtdBalcoes').val().replace(',', '.'));
+            var valorCoordenador = parseFloat($('#valorBalcoes').val().replace(',', '.'));
+            var totalCoordenador = parseFloat($('#totalBalcoes').val().replace(',', '.'));
+
+            var qtdCoordenador = parseFloat($('#qtdImpostosFederais').val().replace(',', '.'));
+            var valorCoordenador = parseFloat($('#valorImpostosFederais').val().replace(',', '.'));
+            var totalCoordenador = parseFloat($('#totalImpostosFederais').val().replace(',', '.'));
+
+            var qtdCoordenador = parseFloat($('#qtdSeguroReserva').val().replace(',', '.'));
+            var valorCoordenador = parseFloat($('#valorSeguroReserva').val().replace(',', '.'));
+            var totalCoordenador = parseFloat($('#totalSeguroReserva').val().replace(',', '.'));
+
+            var qtdCoordenador = parseFloat($('#qtdTaxaOp').val().replace(',', '.'));
+            var valorCoordenador = parseFloat($('#valorTaxaOp').val().replace(',', '.'));
+            var totalCoordenador = parseFloat($('#totalTaxaOp').val().replace(',', '.'));
+
+            if (!isNaN(qtdCoordenador) && !isNaN(valorCoordenador) && !isNaN(totalCoordenador)) {
+                $.post({
+                    url: '@Url.Action("Create_custosOp", "Orcamento")',
+                    data: {
+                        qtdCoordenador: qtdCoordenador,
+                        valorCoordenador: valorCoordenador,
+                        totalCoordenador: totalCoordenador,
+                        qtdProfissionaisGerais: qtdProfissionaisGerais,
+                        valorProfissionaisGerais: valorProfissionaisGerais,
+                        totalProfissionaisGerais: totalProfissionaisGerais,
+                        qtdBalcoes: qtdBalcoes,
+                        valorBalcoes: valorBalcoes,
+                        totalBalcoes: totalBalcoes,
+                        qtdImpostosFederais: qtdImpostosFederais,
+                        valorImpostosFederais: valorImpostosFederais,
+                        totalImpostosFederais: totalImpostosFederais,
+                        qtdSeguroReserva: qtdSeguroReserva,
+                        valorSeguroReserva: valorSeguroReserva,
+                        totalSeguroReserva: totalSeguroReserva,
+                        qtdTaxaOp: qtdTaxaOp,
+                        valorTaxaOp: valorTaxaOp,
+                        totalTaxaOp: totalTaxaOp
+                    },
+                    success: function () {
+                        console.log("Dados enviados com sucesso.");
+                        var url = '@Url.Action("Index", "Orcamento", new { numberPage = 3 })';
+                        window.location.href = url;
+                    },
+                    error: function () {
+                        console.log('Ocorreu um erro ao enviar os dados para a controller.');
+                    }
+                });
+            } else {
+                console.log('Preencha todos os campos obrigatórios.');
+            }
+        });
+
+        function formatMoney(value) {
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+
+            return formatter.format(value);
+        }
+    });
+
+</script>

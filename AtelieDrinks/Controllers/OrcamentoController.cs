@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AtelieDrinks.Data;
 using AtelieDrinks.Models;
+using Azure;
 
 namespace AtelieDrinks.Controllers
 {
@@ -52,7 +48,7 @@ namespace AtelieDrinks.Controllers
             switch (numberPage)
             {
                 case 1:
-                    return View("~/Views/Numero_convidados/Create.cshtml");
+                    return View("~/Views/Orcamento/Index1.cshtml");
                 case 2:
                     return View("~/Views/Orcamento/Index2.cshtml");
                 case 3:
@@ -67,187 +63,97 @@ namespace AtelieDrinks.Controllers
             }
         }
 
-         // GET: Orcamento/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Createnumero_pessoas([Bind("numero_pessoas")] Orcamento orcamento)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(orcamento);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(orcamento);
-        }
-        public async Task<IActionResult> Create_custosOp([Bind("CustoOperacional")] Orcamento orcamento)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(orcamento);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(orcamento);
-        }
-
-
-        // POST: Orcamento/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-
-
-        /*
-        public OrcamentoController(Data.Contexto context)
-        {
-            _context = context;
-        }
-
-        // GET: Orcamento
-        public async Task<IActionResult> Index()
-        {
-              return _context.Orcamento != null ? 
-                          View(await _context.Orcamento.ToListAsync()) :
-                          Problem("Entity set 'Contexto.Orcamento'  is null.");
-        }
-
-        // GET: Orcamento/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Orcamento == null)
-            {
-                return NotFound();
-            }
-
-            var orcamento = await _context.Orcamento
-                .FirstOrDefaultAsync(m => m.id_orcamento == id);
-            if (orcamento == null)
-            {
-                return NotFound();
-            }
-
-            return View(orcamento);
-        }
-
         // GET: Orcamento/Create
-        public IActionResult Create()
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
+        [HttpPost, ActionName("Createnumero_pessoas")]
+        public bool Createnumero_pessoas(int numero_pessoas)
         {
-            return View();
-        }
-
-        // POST: Orcamento/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_orcamento,numero_pessoas,CustoOperacional,custo_total_insumos,custo_total,base_orcamento,comissao_comercial,comissao_gerencia,valor_primario,custo_por_pessoa,valor_arredondado_pra_cima,margem_negociacao,valor_orcamento,previsao_lucro,qtde_convidados,qtde_drinks")] Orcamento orcamento)
-        {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(orcamento);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(orcamento);
-        }
+                Orcamento orcamento = new Orcamento();
+                orcamento.SetNumeroPessoas(numero_pessoas);
 
-        // GET: Orcamento/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Orcamento == null)
-            {
-                return NotFound();
-            }
-
-            var orcamento = await _context.Orcamento.FindAsync(id);
-            if (orcamento == null)
-            {
-                return NotFound();
-            }
-            return View(orcamento);
-        }
-
-        // POST: Orcamento/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_orcamento,numero_pessoas,CustoOperacional,custo_total_insumos,custo_total,base_orcamento,comissao_comercial,comissao_gerencia,valor_primario,custo_por_pessoa,valor_arredondado_pra_cima,margem_negociacao,valor_orcamento,previsao_lucro,qtde_convidados,qtde_drinks")] Orcamento orcamento)
-        {
-            if (id != orcamento.id_orcamento)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                if (ModelState.IsValid)
                 {
-                    _context.Update(orcamento);
-                    await _context.SaveChangesAsync();
+                    Response.Cookies.Append("NumeroPessoas", numero_pessoas.ToString());
+                    return true;
                 }
-                catch (DbUpdateConcurrencyException)
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocorreu uma exceção: {ex.Message}");
+                return false;
+            }
+        }
+
+        [HttpPost]
+        public bool Create_custosOp(string qtdCoordenador, string valorCoordenador, string totalCoordenador, string qtdProfissionaisGerias, string valorProfissionaisGerias, string totalProfissionaisGerias, string qtdBalcoes, string valorBalcoes, string totalBalcoes, string qtdImpostosFederais, string valorImpostosFederais, string totalImpostosFederais, string qtdSeguroReserva, string valorSeguroReserva, string totalSeguroReserva, string qtdTaxaOp, string valorTaxaOp, string totalTaxaOp)
+        {
+            try
+            {
+                if (ModelState.IsValid)
                 {
-                    if (!OrcamentoExists(orcamento.id_orcamento))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    decimal.TryParse(qtdCoordenador, out decimal qtdCoordenadorDecimal);
+                    decimal.TryParse(valorCoordenador, out decimal valorCoordenadorDecimal);
+                    decimal.TryParse(qtdProfissionaisGerias, out decimal qtdProfissionaisGeriasDecimal);
+                    decimal.TryParse(valorProfissionaisGerias, out decimal valorProfissionaisGeriasDecimal);
+                    decimal.TryParse(qtdBalcoes, out decimal qtdBalcoesDecimal);
+                    decimal.TryParse(valorBalcoes, out decimal valorBalcoesDecimal);
+                    decimal.TryParse(qtdImpostosFederais, out decimal qtdImpostosFederaisDecimal);
+                    decimal.TryParse(valorImpostosFederais, out decimal valorImpostosFederaisDecimal);
+                    decimal.TryParse(qtdSeguroReserva, out decimal qtdSeguroReservaDecimal);
+                    decimal.TryParse(valorSeguroReserva, out decimal valorSeguroReservaDecimal);
+                    decimal.TryParse(qtdTaxaOp, out decimal qtdTaxaOpDecimal);
+                    decimal.TryParse(valorTaxaOp, out decimal valorTaxaOpDecimal);
+
+                    decimal totalCoordenadorDecimal = qtdCoordenadorDecimal * valorCoordenadorDecimal;
+                    decimal totalProfissionaisGeriasDecimal = qtdProfissionaisGeriasDecimal * valorProfissionaisGeriasDecimal;
+                    decimal totalBalcoesDecimal = qtdBalcoesDecimal * valorBalcoesDecimal;
+                    decimal totalImpostosFederaisDecimal = qtdImpostosFederaisDecimal * valorImpostosFederaisDecimal;
+                    decimal totalSeguroReservaDecimal = qtdSeguroReservaDecimal * valorSeguroReservaDecimal;
+                    decimal totalTaxaOpDecimal = qtdTaxaOpDecimal * valorTaxaOpDecimal;
+
+                    var options = new CookieOptions();
+
+                    options.Expires = DateTime.Now.AddDays(1); 
+
+                    Response.Cookies.Append("qtdCoordenador", qtdCoordenador, options);
+                    Response.Cookies.Append("valorCoordenador", valorCoordenador, options);
+                    Response.Cookies.Append("totalCoordenador", totalCoordenadorDecimal.ToString(), options);
+                    Response.Cookies.Append("qtdProfissionaisGerias", qtdProfissionaisGerias, options);
+                    Response.Cookies.Append("valorProfissionaisGerias", valorProfissionaisGerias, options);
+                    Response.Cookies.Append("totalProfissionaisGerias", totalProfissionaisGeriasDecimal.ToString(), options);
+                    Response.Cookies.Append("qtdBalcoes", qtdBalcoes, options);
+                    Response.Cookies.Append("valorBalcoes", valorBalcoes, options);
+                    Response.Cookies.Append("totalBalcoes", totalBalcoesDecimal.ToString(), options);
+                    Response.Cookies.Append("qtdImpostosFederais", qtdImpostosFederais, options);
+                    Response.Cookies.Append("valorImpostosFederais", valorImpostosFederais, options);
+                    Response.Cookies.Append("totalImpostosFederais", totalImpostosFederaisDecimal.ToString(), options);
+                    Response.Cookies.Append("qtdSeguroReserva", qtdSeguroReserva, options);
+                    Response.Cookies.Append("valorSeguroReserva", valorSeguroReserva, options);
+                    Response.Cookies.Append("totalSeguroReserva", totalSeguroReservaDecimal.ToString(), options);
+                    Response.Cookies.Append("qtdTaxaOp", qtdTaxaOp, options);
+                    Response.Cookies.Append("valorTaxaOp", valorTaxaOp, options);
+                    Response.Cookies.Append("totalTaxaOp", totalTaxaOpDecimal.ToString(), options);
+
+                    return true;
                 }
-                return RedirectToAction(nameof(Index));
+                else
+                {
+                    return false;
+                }
             }
-            return View(orcamento);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocorreu uma exceção: {ex.Message}");
+                return false;
+            }
         }
-
-        // GET: Orcamento/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Orcamento == null)
-            {
-                return NotFound();
-            }
-
-            var orcamento = await _context.Orcamento
-                .FirstOrDefaultAsync(m => m.id_orcamento == id);
-            if (orcamento == null)
-            {
-                return NotFound();
-            }
-
-            return View(orcamento);
-        }
-
-        // POST: Orcamento/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Orcamento == null)
-            {
-                return Problem("Entity set 'Contexto.Orcamento'  is null.");
-            }
-            var orcamento = await _context.Orcamento.FindAsync(id);
-            if (orcamento != null)
-            {
-                _context.Orcamento.Remove(orcamento);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool OrcamentoExists(int id)
-        {
-          return (_context.Orcamento?.Any(e => e.id_orcamento == id)).GetValueOrDefault();
-        }*/
     }
 }
 

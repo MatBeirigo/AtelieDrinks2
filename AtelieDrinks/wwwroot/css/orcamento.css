@@ -86,13 +86,16 @@ background-repeat: no-repeat;
 background-position: center 25%;
 }
 
+.text-right {
+    float: right;
+}
 
 .title-banner {
-/* position */
-align-items: center;
-text-align: center;
-/* color */
-color: #FFFFFF;
+    /* position */
+    align-items: center;
+    text-align: center;
+    /* color */
+    color: #FFFFFF;
 }
 
 .black-box {

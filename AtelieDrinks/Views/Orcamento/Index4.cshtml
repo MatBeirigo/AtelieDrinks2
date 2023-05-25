@@ -36,18 +36,18 @@
                             <!--Lista TRANSP. Carreto-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Carreta até 5 Freelancer</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista TRANSP. Carreto-->
@@ -56,18 +56,18 @@
                             <!--Lista PEDAGIOS-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Pedágios</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista PEDAGIOS-->
@@ -76,18 +76,18 @@
                             <!--Lista ALIMENTACAO-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Alimentação</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista ALIMENTACAO-->
@@ -96,18 +96,18 @@
                             <!--Lista CARRO COLABORADORES-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Carro Colaboradores</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista CARRO COLABORADORES-->
@@ -116,18 +116,18 @@
                             <!--Lista DIARIAS HOTEIS-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Diárias Hotéis</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista DIARIAS HOTEIS-->
@@ -136,18 +136,18 @@
                             <!--SEGURO DE RESERVA-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Seguro de Reserva</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="">
+                                <input type="value" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista SEGURO DE RESERVA-->
@@ -165,3 +165,32 @@
     </div>  <!--fim BLACKBOX-->
 </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+        // Ao clicar no botão "Continuar"
+        $('.continuar').click(function () {
+            // Armazena os valores dos campos de entrada
+            var qtdCarreto = $('#qtdCarreto').val();
+            var valorCarreto = $('#valorCarreto').val();
+            var totalCarreto = $('#totalCarreto').val();
+
+            // Armazena os valores dos demais campos de entrada
+            // var qtdPedagios = $('#qtdPedagios').val();
+            // var valorPedagios = $('#valorPedagios').val();
+            // var totalPedagios = $('#totalPedagios').val();
+            // ...
+
+            // Faça algo com os valores armazenados
+            console.log(qtdCarreto);
+            console.log(valorCarreto);
+            console.log(totalCarreto);
+
+            // Faça algo com os demais valores armazenados
+            // console.log(qtdPedagios);
+            // console.log(valorPedagios);
+            // console.log(totalPedagios);
+            // ...
+        });
+    });
+</script>

@@ -1,6 +1,5 @@
 ﻿@model AtelieDrinks.Models.Orcamento
 
-
 @{
     ViewData["Title"] = "Index1";
 }
@@ -33,29 +32,62 @@
                     <p style="margin-top:5px">Insira o número de convidados:</p>
 
                     <div class="row-inputs">
-
                         <div class="list-inputs">
                             <!--Lista COORDENADOR-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input asp-for="NumeroPessoas" type="value">
+                                <input asp-for="NumeroPessoas">
                                 <label><span>QTD</span></label>
                             </div>
                         </div> <!--Fim lista COORDENADOR-->
-
                     </div> <!--Fim row-inputs-->
-
                 </div> <!--Fim margin-box-->
-
             </div> <!--fim content box-->
 
             <div class="list-buttons">
                 <button class="button excluir" onclick="window.location='@Url.Action("Index", "Home")'">Voltar</button>
-                <button class="button continuar" value="Createnumero_pessoas" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 2 })'">Continuar</button>
+                <button id="continuarButton" class="button continuar">Continuar</button>
             </div>
-
         </div> <!--fim CONTENT-->
     </div>  <!--fim BLACKBOX-->
 </body>
 </html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+
+<script>
+    $(document).ready(function () {
+        $('#continuarButton').click(function () {
+            var numeroPessoas = $('input[name="NumeroPessoas"]').val().trim();
+
+            if (numeroPessoas === '') {
+                swal("Erro", "Por favor, insira um número.", "error");
+                return;
+            }
+
+            if (isNaN(numeroPessoas)) {
+                swal("Erro", "Por favor, insira um número válido.", "error");
+                return;
+            }
+
+            $.post({
+                url: '@Url.Action("Createnumero_pessoas", "Orcamento")',
+                data: { numero_pessoas: numeroPessoas },
+                success: function () {
+                    var url = '@Url.Action("Index", "Orcamento", new { numberPage = 2 })';
+                    window.location.href = url;
+                },
+                error: function () {
+                    console.log('Ocorreu um erro ao enviar os dados para a model.');
+                }
+            });
+        });
+    });
+</script>
 
