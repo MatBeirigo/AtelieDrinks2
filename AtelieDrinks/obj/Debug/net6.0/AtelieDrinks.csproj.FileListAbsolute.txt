@@ -2394,3 +2394,4 @@ C:\Users\ppcon041\source\repos\AtelieDrinks2\AtelieDrinks\obj\Debug\net6.0\Ateli
 C:\Users\ppcon041\source\repos\AtelieDrinks2\AtelieDrinks\obj\Debug\net6.0\AtelieDrinks.genruntimeconfig.cache
 C:\Users\ppcon041\source\repos\AtelieDrinks2\AtelieDrinks\obj\Debug\net6.0\ref\AtelieDrinks.dll
 C:\Users\ppcon041\source\repos\AtelieDrinks2\AtelieDrinks\bin\Debug\net6.0\RestSharp.dll
+C:\Users\bruno\Source\Repos\AtelieDrinks2\AtelieDrinks\bin\Debug\net6.0\RestSharp.dll
