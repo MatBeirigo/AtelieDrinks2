@@ -36,18 +36,18 @@
                             <!--Lista TRANSP. Carreto-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="" class="text-right">
+                                <input id="qtdCarreto" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Carreta até 5 Freelancer</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="" class="text-right">
+                                <input id="valorCarreto" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="" class="text-right">
+                                <input id="totalCarreto" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista TRANSP. Carreto-->
@@ -56,18 +56,18 @@
                             <!--Lista PEDAGIOS-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="" class="text-right">
+                                <input id="qtdPedagios" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Pedágios</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="" class="text-right">
+                                <input id="valorPedagios" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="" class="text-right">
+                                <input id="totalPedagios" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista PEDAGIOS-->
@@ -76,18 +76,18 @@
                             <!--Lista ALIMENTACAO-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="" class="text-right">
+                                <input id="qtdAlimentacao" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Alimentação</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="" class="text-right">
+                                <input id="valorAlimentacao" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="" class="text-right">
+                                <input id="totalAlimentacao" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista ALIMENTACAO-->
@@ -96,18 +96,18 @@
                             <!--Lista CARRO COLABORADORES-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="" class="text-right">
+                                <input id="qtdCarroColab" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Carro Colaboradores</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="" class="text-right">
+                                <input id="valorCarroColab" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="" class="text-right">
+                                <input id="totalCarroColab" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista CARRO COLABORADORES-->
@@ -116,18 +116,18 @@
                             <!--Lista DIARIAS HOTEIS-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="" class="text-right">
+                                <input id="qtdHospedagem" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Diárias Hotéis</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="" class="text-right">
+                                <input id="valorHospedagem" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="" class="text-right">
+                                <input id="totalHospedagem" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista DIARIAS HOTEIS-->
@@ -136,18 +136,18 @@
                             <!--SEGURO DE RESERVA-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input type="value" required="" class="text-right">
+                                <input id="qtdReserva" required="" class="text-right">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Seguro de Reserva</p>
                             <div class="form-input">
                                 <!--Input Valor-->
-                                <input type="value" required="" class="text-right">
+                                <input id="valorReserva" required="" class="text-right">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input">
                                 <!--Input Total-->
-                                <input type="value" required="" class="text-right">
+                                <input id="totalReserva" required="" class="text-right">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista SEGURO DE RESERVA-->
@@ -158,7 +158,7 @@
 
             <div class="list-buttons">
                 <button class="button excluir" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 3 })'">Voltar</button>
-                <button class="button continuar" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 5 })'">Continuar</button>
+                <button id="button_continuar" class="button continuar">Continuar</button>
             </div> <!--fim lista-buttons-->
 
         </div> <!--fim CONTENT-->
@@ -168,29 +168,132 @@
 
 <script>
     $(document).ready(function () {
-        // Ao clicar no botão "Continuar"
-        $('.continuar').click(function () {
-            // Armazena os valores dos campos de entrada
-            var qtdCarreto = $('#qtdCarreto').val();
-            var valorCarreto = $('#valorCarreto').val();
-            var totalCarreto = $('#totalCarreto').val();
-
-            // Armazena os valores dos demais campos de entrada
-            // var qtdPedagios = $('#qtdPedagios').val();
-            // var valorPedagios = $('#valorPedagios').val();
-            // var totalPedagios = $('#totalPedagios').val();
-            // ...
-
-            // Faça algo com os valores armazenados
-            console.log(qtdCarreto);
-            console.log(valorCarreto);
-            console.log(totalCarreto);
-
-            // Faça algo com os demais valores armazenados
-            // console.log(qtdPedagios);
-            // console.log(valorPedagios);
-            // console.log(totalPedagios);
-            // ...
+        $('.list-inputs').on('input', 'input[id^="valor"]', function () {
+            updateInputs($(this));
         });
+
+        $('#button_continuar').click(function () {
+            formatValues();
+            sendDataToController();
+        });
+
+        function formatValues() {
+            $('.list-inputs').each(function () {
+                var $listInputs = $(this);
+                var valor = $listInputs.find('input[id^="valor"]').val();
+                var total = $listInputs.find('input[id^="total"]').val();
+
+                var cleanedValue = valor.replace(/[^\d,.]/g, '');
+                cleanedValue = cleanedValue.replace('R$', '');
+                var formattedValue = cleanedValue.replace('.', '');
+
+                var cleanedTotal = total.replace(/[^\d,.]/g, '');
+                cleanedTotal = cleanedTotal.replace('R$', '');
+                var formattedTotal = cleanedTotal.replace('.', '');
+
+                $listInputs.find('input[id^="valor"]').val(formattedValue);
+                $listInputs.find('input[id^="total"]').val(formattedTotal);
+            });
+        }
+
+        function updateInputs(input) {
+            var $listInputs = input.closest('.list-inputs');
+            var qtd = parseInt($listInputs.find('input[id^="qtd"]').val());
+            var valor = $listInputs.find('input[id^="valor"]').val();
+
+            var digitsOnly = valor.replace(/[^\d]/g, '');
+            if (digitsOnly === '') {
+                digitsOnly = '0';
+            }
+
+            var valorFormatted = parseFloat(digitsOnly.slice(0, -2) + '.' + digitsOnly.slice(-2));
+            if (isNaN(valorFormatted)) {
+                valorFormatted = 0;
+            }
+
+            var valorFormattedString = formatMoney(valorFormatted);
+            $listInputs.find('input[id^="valor"]').val(valorFormattedString);
+            $listInputs.find('label[id^="valor-label"]').text(valorFormattedString);
+
+            var total = qtd * valorFormatted;
+            if (isNaN(total)) {
+                total = 0;
+            }
+            var totalFormattedString = 'R$' + formatMoney(total);
+            $listInputs.find('input[id^="total"]').val(totalFormattedString);
+            $listInputs.find('label[id^="total-label"]').text(totalFormattedString);
+        }
+
+        function sendDataToController() {
+            var qtdCarreto = parseInt($('#qtdCarreto').val());
+            var valorCarreto = parseFloat($('#valorCarreto').val().replace(',', '.')).toFixed(2);
+            var totalCarreto = parseFloat($('#totalCarreto').val().replace(',', '.')).toFixed(2);
+
+            var qtdPedagios = parseInt($('#qtdPedagios').val());
+            var valorPedagios = parseFloat($('#valorPedagios').val().replace(',', '.')).toFixed(2);
+            var totalPedagios = parseFloat($('#totalPedagios').val().replace(',', '.')).toFixed(2);
+
+            var qtdAlimentacao = parseInt($('#qtdAlimentacao').val());
+            var valorAlimentacao = parseFloat($('#valorAlimentacao').val().replace(',', '.')).toFixed(2);
+            var totalAlimentacao = parseFloat($('#totalAlimentacao').val().replace(',', '.')).toFixed(2);
+
+            var qtdCarroColab = parseInt($('#qtdCarroColab').val());
+            var valorCarroColab = parseFloat($('#valorCarroColab').val().replace(',', '.')).toFixed(2);
+            var totalCarroColab = parseFloat($('#totalCarroColab').val().replace(',', '.')).toFixed(2);
+
+            var qtdHospedagem = parseInt($('#qtdHospedagem').val());
+            var valorHospedagem = parseFloat($('#valorHospedagem').val().replace(',', '.')).toFixed(2);
+            var totalHospedagem = parseFloat($('#totalHospedagem').val().replace(',', '.')).toFixed(2);
+
+            var qtdReserva = parseInt($('#qtdReserva').val());
+            var valorReserva = parseFloat($('#valorReserva').val().replace(',', '.')).toFixed(2);
+            var totalReserva = parseFloat($('#totalReserva').val().replace(',', '.')).toFixed(2);
+
+            $.post({
+                url: '@Url.Action("CreateTxDeslocamento", "Orcamento")',
+                data: {
+                    qtdCarretoParameter: qtdCarreto,
+                    valorCarretoParameter: valorCarreto,
+                    totalCarretoParameter: totalCarreto,
+
+                    qtdPedagiosParameter: qtdPedagios,  
+                    valorPedagiosParameter: valorPedagios,
+                    totalPedagiosParameter: totalPedagios,
+
+                    qtdAlimentacaoParameter: qtdAlimentacao,  
+                    valorAlimentacaoParameter: valorAlimentacao,
+                    totalAlimentacaoParameter: totalAlimentacao,
+
+                    qtdCarroColabParameter: qtdCarroColab,  
+                    valorCarroColabParameter: valorCarroColab,
+                    totalCarroColabParameter: totalCarroColab,
+
+                    qtdHospedagemParameter: qtdHospedagem,  
+                    valorHospedagemParameter: valorHospedagem,
+                    totalHospedagemParameter: totalHospedagem,
+
+                    qtdReservaParameter: qtdReserva,  
+                    valorReservaParameter: valorReserva,
+                    totalReservaParameter: totalReserva
+                },
+                success: function () {
+                    console.log("Dados enviados com sucesso.");
+                    var url = '@Url.Action("Index", "Orcamento", new { numberPage = 5 })';
+                    window.location.href = url;
+                },
+                error: function () {
+                    console.log('Ocorreu um erro ao enviar os dados para a controller.');
+                }
+            });
+        }
+
+        function formatMoney(value) {
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+
+            return formatter.format(value);
+        }
     });
 </script>

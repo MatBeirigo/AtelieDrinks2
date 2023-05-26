@@ -77,8 +77,8 @@
             }
 
             $.post({
-                url: '@Url.Action("Createnumero_pessoas", "Orcamento")',
-                data: { numero_pessoas: numeroPessoas },
+                url: '@Url.Action("CreateNumeroPessoas", "Orcamento")',
+                data: { numeroPessoasParameter: numeroPessoas },
                 success: function () {
                     var url = '@Url.Action("Index", "Orcamento", new { numberPage = 2 })';
                     window.location.href = url;

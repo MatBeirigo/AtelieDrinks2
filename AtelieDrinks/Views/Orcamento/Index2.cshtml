@@ -57,18 +57,18 @@
                             <!--Lista PROFISSIONAIS GERAIS-->
                             <div class="form-input" style="width:45px">
                                 <!--Input QTD-->
-                                <input id="qtdProfissionaisGerias" required="">
+                                <input name="qtdProfissionaisGeriasParameter" id="qtdProfissionaisGerias" required="">
                                 <label><span>QTD</span></label>
                             </div>
                             <p class="list-input-content">Profissionais Gerais</p>
                             <div class="form-input" style="left: 17%">
                                 <!--Input Valor-->
-                                <input id="valorProfissionaisGerias" required="">
+                                <input name="valorProfissionaisGeriasParameter" id="valorProfissionaisGerias" required="">
                                 <label><span>Valor</span></label>
                             </div>
                             <div class="form-input" style="left: 17%">
                                 <!--Input Total-->
-                                <input id="totalProfissionaisGerias" required="">
+                                <input name="totalProfissionaisGeriasParameter" id="totalProfissionaisGerias" required="">
                                 <label><span>Total</span></label>
                             </div>
                         </div> <!--Fim lista PROFISSIONAIS GERAIS-->
@@ -161,8 +161,7 @@
 
             <div class="list-buttons">
                 <button class="button excluir" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 1 })'">Voltar</button>
-                @*<button class="button continuar" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 3 })'">Continuar</button>*@
-                <button id="button continuar" class="button continuar">Continuar</button>
+                <button id="button_continuar" class="button continuar">Continuar</button>
 
             </div>
 
@@ -172,12 +171,38 @@
 </html>
 
 
-
 <script>
     $(document).ready(function () {
-
         $('.list-inputs').on('input', 'input[id^="valor"]', function () {
-            var $listInputs = $(this).closest('.list-inputs');
+            updateInputs($(this));
+        });
+
+        $('#button_continuar').click(function () {
+            formatValues();
+            sendDataToController();
+        });
+
+        function formatValues() {
+            $('.list-inputs').each(function () {
+                var $listInputs = $(this);
+                var valor = $listInputs.find('input[id^="valor"]').val();
+                var total = $listInputs.find('input[id^="total"]').val();
+
+                var cleanedValue = valor.replace(/[^\d,.]/g, '');
+                cleanedValue = cleanedValue.replace('R$', '');
+                var formattedValue = cleanedValue.replace('.', '');
+                
+                var cleanedTotal = total.replace(/[^\d,.]/g, '');
+                cleanedTotal = cleanedTotal.replace('R$', '');
+                var formattedTotal = cleanedTotal.replace('.', '');
+
+                $listInputs.find('input[id^="valor"]').val(formattedValue);
+                $listInputs.find('input[id^="total"]').val(formattedTotal);
+            });
+        }
+
+        function updateInputs(input) {
+            var $listInputs = input.closest('.list-inputs');
             var qtd = parseInt($listInputs.find('input[id^="qtd"]').val());
             var valor = $listInputs.find('input[id^="valor"]').val();
 
@@ -191,7 +216,7 @@
                 valorFormatted = 0;
             }
 
-            var valorFormattedString = 'R$' + valorFormatted.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+            var valorFormattedString = formatMoney(valorFormatted);
             $listInputs.find('input[id^="valor"]').val(valorFormattedString);
             $listInputs.find('label[id^="valor-label"]').text(valorFormattedString);
 
@@ -199,76 +224,77 @@
             if (isNaN(total)) {
                 total = 0;
             }
-            var totalFormattedString = 'R$' + total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+            var totalFormattedString = 'R$' + formatMoney(total);
             $listInputs.find('input[id^="total"]').val(totalFormattedString);
             $listInputs.find('label[id^="total-label"]').text(totalFormattedString);
-        });
+        }
 
+        function sendDataToController() {
+            var qtdCoordenador = parseInt($('#qtdCoordenador').val());
+            var valorCoordenador = parseFloat($('#valorCoordenador').val().replace(',', '.')).toFixed(2);
+            var totalCoordenador = parseFloat($('#totalCoordenador').val().replace(',', '.')).toFixed(2);
 
+            var qtdProfissionaisGerais = parseInt($('#qtdProfissionaisGerias').val());
+            var valorProfissionaisGerais = parseFloat($('#valorProfissionaisGerias').val().replace(',', '.')).toFixed(2);
+            var totalProfissionaisGerais = parseFloat($('#totalProfissionaisGerias').val().replace(',', '.')).toFixed(2);
 
+            var qtdBalcoes = parseInt($('#qtdBalcoes').val());
+            var valorBalcoes = parseFloat($('#valorBalcoes').val().replace(',', '.')).toFixed(2);
+            var totalBalcoes = parseFloat($('#totalBalcoes').val().replace(',', '.')).toFixed(2);
 
+            var qtdImpostosFederais = parseInt($('#qtdImpostosFederais').val());
+            var valorImpostosFederais = parseFloat($('#valorImpostosFederais').val().replace(',', '.')).toFixed(2);
+            var totalImpostosFederais = parseFloat($('#totalImpostosFederais').val().replace(',', '.')).toFixed(2);
 
-        $('#button_continuar').click(function () {
-            var qtdCoordenador = parseInt($('#qtdCoordenador').val().replace(',', '.'));
-            var valorCoordenador = parseFloat($('#valorCoordenador').val().replace(',', '.'));
-            var totalCoordenador = parseFloat($('#totalCoordenador').val().replace(',', '.'));
+            var qtdSeguroReserva = parseInt($('#qtdSeguroReserva').val());
+            var valorSeguroReserva = parseFloat($('#valorSeguroReserva').val().replace(',', '.')).toFixed(2);
+            var totalSeguroReserva = parseFloat($('#totalSeguroReserva').val().replace(',', '.')).toFixed(2);
 
-            var qtdCoordenador = parseFloat($('#qtdProfissionaisGerias').val().replace(',', '.'));
-            var valorCoordenador = parseFloat($('#valorProfissionaisGerias').val().replace(',', '.'));
-            var totalCoordenador = parseFloat($('#totalProfissionaisGerias').val().replace(',', '.'));
+            var qtdTaxaOp = parseInt($('#qtdTaxaOp').val());
+            var valorTaxaOp = parseFloat($('#valorTaxaOp').val().replace(',', '.')).toFixed(2);
+            var totalTaxaOp = parseFloat($('#totalTaxaOp').val().replace(',', '.')).toFixed(2);
 
-            var qtdCoordenador = parseFloat($('#qtdBalcoes').val().replace(',', '.'));
-            var valorCoordenador = parseFloat($('#valorBalcoes').val().replace(',', '.'));
-            var totalCoordenador = parseFloat($('#totalBalcoes').val().replace(',', '.'));
+            console.log("qtdProfissionaisGerais: ", qtdProfissionaisGerais);
+            console.log("valorProfissionaisGerais: ", valorProfissionaisGerais);
+            console.log("totalProfissionaisGerais: ", totalProfissionaisGerais);
 
-            var qtdCoordenador = parseFloat($('#qtdImpostosFederais').val().replace(',', '.'));
-            var valorCoordenador = parseFloat($('#valorImpostosFederais').val().replace(',', '.'));
-            var totalCoordenador = parseFloat($('#totalImpostosFederais').val().replace(',', '.'));
+            $.post({
+                url: '@Url.Action("CreateCustosOp", "Orcamento")',
+                data: {
+                    qtdCoordenadorParameter: qtdCoordenador,
+                    valorCoordenadorParameter: valorCoordenador,
+                    totalCoordenadorParameter: totalCoordenador,
 
-            var qtdCoordenador = parseFloat($('#qtdSeguroReserva').val().replace(',', '.'));
-            var valorCoordenador = parseFloat($('#valorSeguroReserva').val().replace(',', '.'));
-            var totalCoordenador = parseFloat($('#totalSeguroReserva').val().replace(',', '.'));
+                    qtdProfissionaisGeriasParameter: qtdProfissionaisGerais,
+                    valorProfissionaisGeriasParameter: valorProfissionaisGerais,
+                    totalProfissionaisGeriasParameter: totalProfissionaisGerais,
 
-            var qtdCoordenador = parseFloat($('#qtdTaxaOp').val().replace(',', '.'));
-            var valorCoordenador = parseFloat($('#valorTaxaOp').val().replace(',', '.'));
-            var totalCoordenador = parseFloat($('#totalTaxaOp').val().replace(',', '.'));
+                    qtdBalcoesParameter: qtdBalcoes,
+                    valorBalcoesParameter: valorBalcoes,
+                    totalBalcoesParameter: totalBalcoes,
 
-            if (!isNaN(qtdCoordenador) && !isNaN(valorCoordenador) && !isNaN(totalCoordenador)) {
-                $.post({
-                    url: '@Url.Action("Create_custosOp", "Orcamento")',
-                    data: {
-                        qtdCoordenador: qtdCoordenador,
-                        valorCoordenador: valorCoordenador,
-                        totalCoordenador: totalCoordenador,
-                        qtdProfissionaisGerais: qtdProfissionaisGerais,
-                        valorProfissionaisGerais: valorProfissionaisGerais,
-                        totalProfissionaisGerais: totalProfissionaisGerais,
-                        qtdBalcoes: qtdBalcoes,
-                        valorBalcoes: valorBalcoes,
-                        totalBalcoes: totalBalcoes,
-                        qtdImpostosFederais: qtdImpostosFederais,
-                        valorImpostosFederais: valorImpostosFederais,
-                        totalImpostosFederais: totalImpostosFederais,
-                        qtdSeguroReserva: qtdSeguroReserva,
-                        valorSeguroReserva: valorSeguroReserva,
-                        totalSeguroReserva: totalSeguroReserva,
-                        qtdTaxaOp: qtdTaxaOp,
-                        valorTaxaOp: valorTaxaOp,
-                        totalTaxaOp: totalTaxaOp
-                    },
-                    success: function () {
-                        console.log("Dados enviados com sucesso.");
-                        var url = '@Url.Action("Index", "Orcamento", new { numberPage = 3 })';
-                        window.location.href = url;
-                    },
-                    error: function () {
-                        console.log('Ocorreu um erro ao enviar os dados para a controller.');
-                    }
-                });
-            } else {
-                console.log('Preencha todos os campos obrigatórios.');
-            }
-        });
+                    qtdImpostosFederaisParameter: qtdImpostosFederais,
+                    valorImpostosFederaisParameter: valorImpostosFederais,
+                    totalImpostosFederaisParameter: totalImpostosFederais,
+
+                    qtdSeguroReservaParameter: qtdSeguroReserva,
+                    valorSeguroReservaParameter: valorSeguroReserva,
+                    totalSeguroReservaParameter: totalSeguroReserva,
+
+                    qtdTaxaOpParameter: qtdTaxaOp,
+                    valorTaxaOpParameter: valorTaxaOp,
+                    totalTaxaOpParameter: totalTaxaOp
+                },
+                success: function () {
+                    console.log("Dados enviados com sucesso.");
+                    var url = '@Url.Action("Index", "Orcamento", new { numberPage = 3 })';
+                    window.location.href = url;
+                },
+                error: function () {
+                    console.log('Ocorreu um erro ao enviar os dados para a controller.');
+                }
+            });
+        }
 
         function formatMoney(value) {
             var formatter = new Intl.NumberFormat('pt-BR', {
