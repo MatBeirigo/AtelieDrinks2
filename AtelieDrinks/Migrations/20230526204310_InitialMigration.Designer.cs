@@ -13,8 +13,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AtelieDrinks.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230524201301_InicialMigration")]
-    partial class InicialMigration
+    [Migration("20230526204310_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -264,9 +264,8 @@ namespace AtelieDrinks.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("IdDrink"));
 
-                    b.Property<List<decimal>>("CustoDoDrink")
-                        .IsRequired()
-                        .HasColumnType("numeric[]")
+                    b.Property<decimal>("CustoDoDrink")
+                        .HasColumnType("numeric")
                         .HasColumnName("custo_do_drink");
 
                     b.Property<string>("IngredientesDoDrink")
@@ -277,9 +276,8 @@ namespace AtelieDrinks.Migrations
                         .HasColumnType("text")
                         .HasColumnName("nome_drink");
 
-                    b.Property<List<int>>("Quantidade")
-                        .IsRequired()
-                        .HasColumnType("integer[]")
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("integer")
                         .HasColumnName("quantidade");
 
                     b.HasKey("IdDrink");

@@ -261,9 +261,8 @@ namespace AtelieDrinks.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("IdDrink"));
 
-                    b.Property<List<decimal>>("CustoDoDrink")
-                        .IsRequired()
-                        .HasColumnType("numeric[]")
+                    b.Property<decimal>("CustoDoDrink")
+                        .HasColumnType("numeric")
                         .HasColumnName("custo_do_drink");
 
                     b.Property<string>("IngredientesDoDrink")
@@ -274,9 +273,8 @@ namespace AtelieDrinks.Migrations
                         .HasColumnType("text")
                         .HasColumnName("nome_drink");
 
-                    b.Property<List<int>>("Quantidade")
-                        .IsRequired()
-                        .HasColumnType("integer[]")
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("integer")
                         .HasColumnName("quantidade");
 
                     b.HasKey("IdDrink");

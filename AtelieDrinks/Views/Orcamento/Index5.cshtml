@@ -1,330 +1,212 @@
-﻿@model IEnumerable<AtelieDrinks.Models.Orcamento>
-@{
-    ViewData["Title"] = "Index5";
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="/css/orcamento.css">
-    <script src="/js/orcamento.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Orcamento 5</title>
+    <style>
+        .drink-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .drink-table th,
+            .drink-table td {
+                padding: 5px;
+                text-align: left;
+                border-bottom: 1px solid #666;
+            }
+
+            .drink-table th {
+                color: white;
+            }
+    </style>
 </head>
 <body>
-    <div id="background-black" class="background-black" style="display:none">
+    <div id="background-black" class="background-black">
         <div class="card-Modal-card">
-            <div class="card-Modal-card2">
-
-                <div class="Modal-card">
-
-                    <div class="Modal-card-header">
-
-                        <h4>DRINKS DISPONÍVEIS</h4>
-                        <span id="fechar-Modal-card" class="fechar-Modal-card">&times;</span>
-
-                    </div>
-
-                    <div class="Modal-card-content">
-
-                        <!--Preciso de um search para filtrar a tabela-->
-                        <!--Search precisa filtrar por categorias e nome-->
-                        <div class="search-container">
-                            <form action="#">
-                                <input type="text" placeholder="Insira o nome do Drink...">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                            <!-- <a><p>ABC</p></a>
-                            <a><p>Custo</p></a> -->
-                        </div>
-
-                        <!--Lógica: drinks podem ser organizados
-                            através de ordem alfabética e preço/custo-->
-
-                        <div class="drink-container">
-
-                            <div class="content-checkbox">
-                                <label class="checkBox">
-                                    <input id="ch1" type="checkbox">
-                                    <div class="transition"></div>
-                                </label>
-                            </div> <!--fim CBox-->
-
-                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
-
-                            <div class="drink-detalhes">
-                                <p class="drink-info">Drink1</p>
-                                <p class="drink-info">Custo</p>
-                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
-                            </div>
-
-                        </div> <!--fim drinkContainer-->
-
-                        <div class="drink-container">
-
-                            <div class="content-checkbox">
-                                <label class="checkBox">
-                                    <input id="ch1" type="checkbox">
-                                    <div class="transition"></div>
-                                </label>
-                            </div> <!--fim CBox-->
-
-                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
-
-                            <div class="drink-detalhes">
-                                <p class="drink-info">Drink1</p>
-                                <p class="drink-info">Custo</p>
-                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
-                            </div>
-
-                        </div> <!--fim drinkContainer-->
-
-                        <div class="drink-container">
-
-                            <div class="content-checkbox">
-                                <label class="checkBox">
-                                    <input id="ch1" type="checkbox">
-                                    <div class="transition"></div>
-                                </label>
-                            </div> <!--fim CBox-->
-
-                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
-
-                            <div class="drink-detalhes">
-                                <p class="drink-info">Drink1</p>
-                                <p class="drink-info">Custo</p>
-                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
-                            </div>
-
-                        </div> <!--fim drinkContainer-->
-
-                        <div class="drink-container">
-
-                            <div class="content-checkbox">
-                                <label class="checkBox">
-                                    <input id="ch1" type="checkbox">
-                                    <div class="transition"></div>
-                                </label>
-                            </div> <!--fim CBox-->
-
-                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
-
-                            <div class="drink-detalhes">
-                                <p class="drink-info">Drink1</p>
-                                <p class="drink-info">Custo</p>
-                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
-                            </div>
-
-                        </div> <!--fim drinkContainer-->
-
-                        <div class="drink-container">
-
-                            <div class="content-checkbox">
-                                <label class="checkBox">
-                                    <input id="ch1" type="checkbox">
-                                    <div class="transition"></div>
-                                </label>
-                            </div> <!--fim CBox-->
-
-                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
-
-                            <div class="drink-detalhes">
-                                <p class="drink-info">Drink1</p>
-                                <p class="drink-info">Custo</p>
-                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
-                            </div>
-
-                        </div> <!--fim drinkContainer-->
-
-                        <div class="drink-container">
-
-                            <div class="content-checkbox">
-                                <label class="checkBox">
-                                    <input id="ch1" type="checkbox">
-                                    <div class="transition"></div>
-                                </label>
-                            </div> <!--fim CBox-->
-
-                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
-
-                            <div class="drink-detalhes">
-                                <p class="drink-info">Drink1</p>
-                                <p class="drink-info">Custo</p>
-                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
-                            </div>
-
-                        </div> <!--fim drinkContainer-->
-
-                        <div class="drink-container">
-
-                            <div class="content-checkbox">
-                                <label class="checkBox">
-                                    <input id="ch1" type="checkbox">
-                                    <div class="transition"></div>
-                                </label>
-                            </div> <!--fim CBox-->
-
-                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
-
-                            <div class="drink-detalhes">
-                                <p class="drink-info">Drink1</p>
-                                <p class="drink-info">Custo</p>
-                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
-                            </div>
-
-                        </div> <!--fim drinkContainer-->
-
-                        <div class="drink-container">
-
-                            <div class="content-checkbox">
-                                <label class="checkBox">
-                                    <input id="ch1" type="checkbox">
-                                    <div class="transition"></div>
-                                </label>
-                            </div> <!--fim CBox-->
-
-                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
-
-                            <div class="drink-detalhes">
-                                <p class="drink-info">Drink1</p>
-                                <p class="drink-info">Custo</p>
-                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
-                            </div>
-
-                        </div> <!--fim drinkContainer-->
-
-                        <div class="drink-container">
-
-                            <div class="content-checkbox">
-                                <label class="checkBox">
-                                    <input id="ch1" type="checkbox">
-                                    <div class="transition"></div>
-                                </label>
-                            </div> <!--fim CBox-->
-
-                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
-
-                            <div class="drink-detalhes">
-                                <p class="drink-info">Drink1</p>
-                                <p class="drink-info">Custo</p>
-                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
-                            </div>
-
-                        </div> <!--fim drinkContainer-->
-
-                        <div class="drink-container">
-
-                            <div class="content-checkbox">
-                                <label class="checkBox">
-                                    <input id="ch1" type="checkbox">
-                                    <div class="transition"></div>
-                                </label>
-                            </div> <!--fim CBox-->
-
-                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
-
-                            <div class="drink-detalhes">
-                                <p class="drink-info">Drink1</p>
-                                <p class="drink-info">Custo</p>
-                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
-                            </div>
-
-                        </div> <!--fim drinkContainer-->
-
-                        <div class="drink-container">
-
-                            <div class="content-checkbox">
-                                <label class="checkBox">
-                                    <input id="ch1" type="checkbox">
-                                    <div class="transition"></div>
-                                </label>
-                            </div> <!--fim CBox-->
-
-                            <label for="drink1"><img src="/images/coqueteis.jpg" alt="Drink 1" class="drink-image"></label>
-
-                            <div class="drink-detalhes">
-                                <p class="drink-info">Drink1</p>
-                                <p class="drink-info">Custo</p>
-                                <p class="drink-info descricao">ITEM1/ITEM2/ITEM3/ITEM4/ITEM5/ITEM6/ITEM7/ITEM8</p>
-                            </div>
-
-                        </div> <!--fim drinkContainer-->
-                        <!--Lógica: as checkboxes marcadas definiram quais
-                            itens serão adicionados ao clicar no botão no fim do Modal-card-->
-                        <div class="centralizar">
-                            <button class="button adicionar">Adicionar</button>
-                        </div>
-
-                    </div> <!--fim Modal-card-CONTENT-->
-
-                </div> <!--fim Modal-card-->
-
+            <div class="Modal-card-header">
+                <h4>DRINKS DISPONÍVEIS</h4>
+                <span id="fechar-Modal-card" class="fechar-Modal-card">&times;</span>
+            </div>
+            <div class="Modal-card-content">
+                <div class="search-container">
+                    <form id="search-form" action="#">
+                        <input id="search-input" type="text" placeholder="Insira o nome do Drink...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="drink-container">
+                    <table class="drink-table">
+                        <tr class="header-row">
+                            <th style="text-align: center;">Selecionar</th>
+                            <th>Nome</th>
+                            <th>Custo</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="centralizar">
+                <button id="button_finalizar" class="button adicionar">Adicionar</button>
             </div>
         </div>
     </div>
-    <!--hero-banner-->
+
     <div class="hero-banner orcamento-banner">
         <h1 class="title-banner">Orcamento</h1>
         <h3>Último Passo</h3>
     </div>
 
-    <!--content-->
     <div class="black-box">
         <div class="content">
-            <!--box-->
             <div class="content-box scroll">
                 <div class="margin-box" style="margin: 50px 0 50px 0;">
                     <h3>Seleção de Drinks</h3>
                     <p style="margin-top:5px">Quais drinks serão contabilizados neste orçamento?</p>
-
                     <div class="row-inputs">
-
-                        <div class="list-inputs">
-                            <!--fim LINHA 1-->
-                            <!--Lógica: toda vez que adicionarem um novo item,
-                            uma nova div "list-inputs será adicionada com
-                            o item selecionado e suas infos - qtd/custo_tecnico/descricao "-->
-                        </div> <!--fim LINHA 1-->
-
-                        <div class="list-inputs">
-                            <!--Lista TRANSP. Carreto-->
-                            <div class="form-input" style="width:45px">
-                                <!--Input QTD-->
-                                <input type="value" required="">
-                                <label><span>QTD</span></label>
-                            </div>
-                            <p class="list-input-content" style="margin-right:30px">Bebida1</p>
-                            <div class="form-input">
-                                <!--Input Valor-->
-                                <input type="value" required="">
-                                <label><span>Custo</span></label>
-                            </div>
-                            <div class="form-input">
-                                <!--Input Total-->
-                                <input type="value" required="">
-                                <label><span>Total</span></label>
-                            </div>
-                        </div> <!--Fim lista TRANSP. Carreto-->
-
-                    </div> <!--Fim row-inputs-->
-                </div> <!--Fim margin-box-->
-
-                <div class="button adicionar" id="myBtn">
-                    Adicionar <!--BOTÃO ADICIONAR-->
-                </div> <!--BOTÃO ADICIONAR-->
-
-            </div> <!--fim content box-->
-
+                        <div class="list-inputs"></div>
+                        <div class="list-inputs"></div>
+                    </div>
+                </div>
+                <div id="abrir_modal" class="button adicionar">Adicionar</div>
+            </div>
             <div class="list-buttons">
                 <button class="button excluir" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 4 })'">Voltar</button>
-                <button class="button continuar" onclick=" window.location='@Url.Action("Index", "Historico")' ">Finalizar</button>
-            </div> <!--fim lista-buttons-->
-
-        </div> <!--fim CONTENT-->
-    </div>  <!--fim BLACKBOX-->
+                <button class="button continuar" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 6 })'">Continuar</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+        //TODO: sempre que carrega a página ele abre o modal junto, necessita corrigir
+        $('#abrir_modal').on('click', function () {
+            abrirModal();
+        });
+
+        //TODO: Clicar fora do modal não fecha, necessita corrigir
+        $('#fechar-Modal-card').on('click', function () {
+            fecharModal();
+        });
+
+        $('#search-form').on('submit', function (e) {
+            e.preventDefault();
+            searchDrinks($('#search-input').val());
+        });
+
+        $('#button_finalizar').on('click', function () {
+            var selectedDrinks = $('.drink-checkbox:checked');
+            var totalValue = 0;
+
+            selectedDrinks.each(function () {
+                var checkbox = $(this);
+                var row = checkbox.closest('tr');
+                var costCell = row.find('td:nth-child(3)');
+                var cost = parseFloat(costCell.text());
+
+                totalValue += cost;
+
+                console.log("totalValue: ", totalValue);
+            });
+
+            enviarValorTotal(totalValue);
+        });
+
+        //TODO: Adicionar loading enquanto carrega os drinks 
+        function abrirModal() {
+            $('#background-black').fadeIn();
+
+            $.get('/Drinks/ListarDrinks', function (data) {
+                var drinkContainer = $('.drink-container');
+                var table = drinkContainer.find('.drink-table');
+                var headerRow = table.find('.header-row');
+                table.empty();
+
+                var headerRow = $('<tr></tr>');
+                headerRow.append($('<th></th>').text('Selecionar').css('text-align', 'center'));
+                headerRow.append($('<th></th>').text('Nome'));
+                headerRow.append($('<th></th>').text('Custo'));
+                headerRow.append($('<th></th>').text('Descrição'));
+                table.append(headerRow);
+
+                if (data && data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        var drink = data[i];
+
+                        var checkboxCell = $('<td></td>').css('text-align', 'center').append(
+                            $('<input>').attr('type', 'checkbox').attr('id', 'drink' + i).addClass('drink-checkbox')
+                        );
+                        var nameCell = $('<td></td>').text(drink.nomeDrink);
+                        var costCell = $('<td></td>').text(drink.custoTotalDosDrinks.toFixed(2));
+                        var descriptionCell = $('<td></td>').text(drink.ingredientesDoDrink);
+
+                        var row = $('<tr></tr>');
+                        row.append(checkboxCell);
+                        row.append(nameCell);
+                        row.append(costCell);
+                        row.append(descriptionCell);
+
+                        table.append(row);
+                    }
+                } else {
+                    table.append($('<tr></tr>').append($('<td></td>').attr('colspan', '4').text('Nenhum drink disponível.')));
+                }
+            }).fail(function () {
+                console.error('Ocorreu um erro ao buscar os dados dos drinks.');
+            });
+        }
+
+        function enviarValorTotal(valor_Drinks) {
+
+            var valorCorrigido = valor_Drinks.toString().replace('.', ',');
+
+            $.post({
+                url: '@Url.Action("ValorTotalDrinks", "Orcamento")',
+                data: { valorDrinksParameter: valorCorrigido },
+                success: function (result) {
+                    if (result) {
+                        console.log('Valor total dos drinks enviado com sucesso.');
+                        fecharModal();
+                    } else {
+                        console.error('Ocorreu um erro ao enviar o valor total dos drinks.');
+                    }
+                },
+                error: function () {
+                    console.error('Ocorreu um erro na requisição para enviar o valor total dos drinks.');
+                }
+            });
+        }
+
+        function fecharModal() {
+            $('#background-black').fadeOut();
+        }
+
+        function searchDrinks(keyword) {
+            var drinkContainer = $('.drink-container');
+            var table = drinkContainer.find('.drink-table');
+            var rows = table.find('tr');
+
+            if (keyword) {
+                rows.each(function () {
+                    var row = $(this);
+                    var nameCell = row.find('td:nth-child(2)');
+                    var name = nameCell.text();
+
+                    if (name.toLowerCase().indexOf(keyword.toLowerCase()) === -1) {
+                        row.hide();
+                    } else {
+                        row.show();
+                    }
+                });
+            } else {
+                rows.show();
+            }
+        }
+    });
+</script>

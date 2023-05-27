@@ -5,6 +5,7 @@ using AtelieDrinks.Models;
 using Azure;
 using System.Globalization;
 using Microsoft.Extensions.Options;
+using System.Web;
 
 namespace AtelieDrinks.Controllers
 {
@@ -164,6 +165,28 @@ namespace AtelieDrinks.Controllers
             }
         }
 
+        /// <summary>
+        /// Método da página Index 4 para guardar os valores da página em um cookie
+        /// </summary>
+        /// <param name="qtdCarretoParameter"></param>
+        /// <param name="valorCarretoParameter"></param>
+        /// <param name="totalCarretoParameter"></param>
+        /// <param name="qtdPedagiosParameter"></param>
+        /// <param name="valorPedagiosParameter"></param>
+        /// <param name="totalPedagiosParameter"></param>
+        /// <param name="qtdAlimentacaoParameter"></param>
+        /// <param name="valorAlimentacaoParameter"></param>
+        /// <param name="totalAlimentacaoParameter"></param>
+        /// <param name="qtdCarroColabParameter"></param>
+        /// <param name="valorCarroColabParameter"></param>
+        /// <param name="totalCarroColabParameter"></param>
+        /// <param name="qtdHospedagemParameter"></param>
+        /// <param name="valorHospedagemParameter"></param>
+        /// <param name="totalHospedagemParameter"></param>
+        /// <param name="qtdReservaParameter"></param>
+        /// <param name="valorReservaParameter"></param>
+        /// <param name="totalReservaParameter"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("CreateTxDeslocamento")]
         public bool CreateTxDeslocamento(string qtdCarretoParameter, string valorCarretoParameter, string totalCarretoParameter, string qtdPedagiosParameter, string valorPedagiosParameter, string totalPedagiosParameter, string qtdAlimentacaoParameter, string valorAlimentacaoParameter, string totalAlimentacaoParameter, string qtdCarroColabParameter, string valorCarroColabParameter, string totalCarroColabParameter, string qtdHospedagemParameter, string valorHospedagemParameter, string totalHospedagemParameter, string qtdReservaParameter, string valorReservaParameter, string totalReservaParameter)
         {
@@ -234,6 +257,36 @@ namespace AtelieDrinks.Controllers
                 Response.Cookies.Append("totalReserva", totalReservaParameter, options);
 
                 return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocorreu uma exceção: {ex.Message}");
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Método para calcular o valor total de drinks
+        /// </summary>
+        /// <param name="valorDrinks"></param>
+        /// <returns></returns>
+        [HttpPost, ActionName("ValorTotalDrinks")]
+        public bool ValorTotalDrinks(string valorDrinksParameter)
+        {
+            try
+            {
+                //TODO: número está errado no cookie
+                if (ModelState.IsValid)
+                {
+                    decimal valorDrinks;
+                    decimal.TryParse(valorDrinksParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorDrinks); 
+
+                    Response.Cookies.Append("ValorTotalDrinks", valorDrinksParameter);
+
+                    return true;
+                }
+
+                return false;
             }
             catch (Exception ex)
             {

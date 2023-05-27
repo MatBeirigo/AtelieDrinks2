@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AtelieDrinks.Migrations
 {
     /// <inheritdoc />
-    public partial class InicialMigration : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -52,8 +52,8 @@ namespace AtelieDrinks.Migrations
                     id_drink = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     nome_drink = table.Column<string>(type: "text", nullable: true),
-                    custo_do_drink = table.Column<List<decimal>>(type: "numeric[]", nullable: false),
-                    quantidade = table.Column<List<int>>(type: "integer[]", nullable: false),
+                    custo_do_drink = table.Column<decimal>(type: "numeric", nullable: false),
+                    quantidade = table.Column<int>(type: "integer", nullable: false),
                     ingredientes_do_drink = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>

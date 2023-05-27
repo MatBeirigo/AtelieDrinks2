@@ -17,11 +17,11 @@ namespace AtelieDrinks.Models
 
         [Column("custo_do_drink")]
         [Display(Name = "Custo do drink")]
-        public List<decimal> CustoDoDrink { get; set; }
+        public decimal CustoDoDrink { get; set; }
 
         [Column("quantidade")]
         [Display(Name = "Quantidade")]
-        public List<int> Quantidade { get; set; }
+        public int Quantidade { get; set; }
 
         [Column("ingredientes_do_drink")]
         [Display(Name = "Ingredientes do Drink")]
@@ -33,12 +33,7 @@ namespace AtelieDrinks.Models
         {
             get
             {
-                decimal custoTotal = 0;
-                for (int i = 0; i < CustoDoDrink.Count; i++)
-                {
-                    custoTotal += CustoDoDrink[i] * Quantidade[i];
-                }
-                return custoTotal;
+                return CustoDoDrink * Quantidade;
             }
         }
 

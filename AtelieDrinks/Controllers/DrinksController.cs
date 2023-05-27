@@ -19,7 +19,6 @@ namespace AtelieDrinks.Controllers
             _context = context;
         }
 
-        // GET: Drinks
         public async Task<IActionResult> Index()
         {
               return _context.Drinks != null ? 
@@ -27,7 +26,25 @@ namespace AtelieDrinks.Controllers
                           Problem("Entity set 'Contexto.Drinks'  is null.");
         }
 
-        // GET: Drinks/Details/5
+        /// <summary>
+        /// Método usado para listar todos os drinks cadastrados
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet, ActionName("ListarDrinks")]
+        public async Task<List<Drinks>> ListarDrinks()
+        {
+            try
+            {
+                var drinks = await _context.Drinks.ToListAsync();
+                return drinks;
+            }
+            catch (Exception ex)
+            {
+                Problem("Ocorreu um erro ao buscar os dados da tabela de Drinks: " + ex.Message);
+                return null;
+            }
+        }
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Drinks == null)
@@ -45,17 +62,12 @@ namespace AtelieDrinks.Controllers
             return View(drinks);
         }
 
-        // GET: Drinks/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Drinks/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_drink,nome_drink,custo_tecnico,quantidade,ingredientes")] Drinks drinks)
         {
             if (ModelState.IsValid)
@@ -67,7 +79,6 @@ namespace AtelieDrinks.Controllers
             return View(drinks);
         }
 
-        // GET: Drinks/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Drinks == null)
@@ -83,11 +94,7 @@ namespace AtelieDrinks.Controllers
             return View(drinks);
         }
 
-        // POST: Drinks/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id_drink,nome_drink,custo_tecnico,quantidade,ingredientes")] Drinks drinks)
         {
             if (id != drinks.IdDrink)
@@ -118,7 +125,6 @@ namespace AtelieDrinks.Controllers
             return View(drinks);
         }
 
-        // GET: Drinks/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Drinks == null)
@@ -136,9 +142,7 @@ namespace AtelieDrinks.Controllers
             return View(drinks);
         }
 
-        // POST: Drinks/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Drinks == null)
