@@ -23,39 +23,18 @@
             .drink-table th {
                 color: white;
             }
+
+        .drink-quantity {
+            width: 50px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <div id="background-black" class="background-black">
-        <div class="card-Modal-card">
-            <div class="Modal-card-header">
-                <h4>DRINKS DISPONÍVEIS</h4>
-                <span id="fechar-Modal-card" class="fechar-Modal-card">&times;</span>
-            </div>
-            <div class="Modal-card-content">
-                <div class="search-container">
-                    <form id="search-form" action="#">
-                        <input id="search-input" type="text" placeholder="Insira o nome do Drink...">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
-                <div class="drink-container">
-                    <table class="drink-table">
-                        <tr class="header-row">
-                            <th style="text-align: center;">Selecionar</th>
-                            <th>Nome</th>
-                            <th>Custo</th>
-                            <th>Descrição</th>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="centralizar">
-                <button id="button_finalizar" class="button adicionar">Adicionar</button>
-            </div>
-        </div>
-    </div>
-
     <div class="hero-banner orcamento-banner">
         <h1 class="title-banner">Orcamento</h1>
         <h3>Último Passo</h3>
@@ -76,137 +55,195 @@
             </div>
             <div class="list-buttons">
                 <button class="button excluir" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 4 })'">Voltar</button>
-                <button class="button continuar" onclick="window.location='@Url.Action("Index", "Orcamento", new { numberPage = 6 })'">Continuar</button>
+                <button class="button continuar" id="button_concluir_operacao">Finalizar</button>
             </div>
         </div>
     </div>
-</body>
-</html>
 
-<script>
-    $(document).ready(function () {
-        //TODO: sempre que carrega a página ele abre o modal junto, necessita corrigir
-        $('#abrir_modal').on('click', function () {
-            abrirModal();
-        });
+    <div id="background-black" class="background-black">
+        <div class="card-Modal-card">
+            <div class="Modal-card-header">
+                <h4>DRINKS DISPONÍVEIS</h4>
+                <span id="fechar-Modal-card" class="fechar-Modal-card">&times;</span>
+            </div>
+            <div class="Modal-card-content">
+                <div class="search-container">
+                    <form id="search-form" action="#">
+                        <input id="search-input" type="text" placeholder="Insira o nome do Drink...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="drink-container">
+                    <table class="drink-table">
+                        <tr class="header-row">
+                            <th style="text-align: center;">Selecionar</th>
+                            <th>Nome</th>
+                            <th>Custo</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="centralizar">
+                <button class="button continuar" id="button_finalizar">Adicionar</button>
+            </div>
+        </div>
+    </div>
 
-        //TODO: Clicar fora do modal não fecha, necessita corrigir
-        $('#fechar-Modal-card').on('click', function () {
-            fecharModal();
-        });
-
-        $('#search-form').on('submit', function (e) {
-            e.preventDefault();
-            searchDrinks($('#search-input').val());
-        });
-
-        $('#button_finalizar').on('click', function () {
-            var selectedDrinks = $('.drink-checkbox:checked');
-            var totalValue = 0;
-
-            selectedDrinks.each(function () {
-                var checkbox = $(this);
-                var row = checkbox.closest('tr');
-                var costCell = row.find('td:nth-child(3)');
-                var cost = parseFloat(costCell.text());
-
-                totalValue += cost;
-
-                console.log("totalValue: ", totalValue);
-            });
-
-            enviarValorTotal(totalValue);
-        });
-
-        //TODO: Adicionar loading enquanto carrega os drinks 
-        function abrirModal() {
-            $('#background-black').fadeIn();
-
-            $.get('/Drinks/ListarDrinks', function (data) {
-                var drinkContainer = $('.drink-container');
-                var table = drinkContainer.find('.drink-table');
-                var headerRow = table.find('.header-row');
-                table.empty();
-
-                var headerRow = $('<tr></tr>');
-                headerRow.append($('<th></th>').text('Selecionar').css('text-align', 'center'));
-                headerRow.append($('<th></th>').text('Nome'));
-                headerRow.append($('<th></th>').text('Custo'));
-                headerRow.append($('<th></th>').text('Descrição'));
-                table.append(headerRow);
-
-                if (data && data.length > 0) {
-                    for (var i = 0; i < data.length; i++) {
-                        var drink = data[i];
-
-                        var checkboxCell = $('<td></td>').css('text-align', 'center').append(
-                            $('<input>').attr('type', 'checkbox').attr('id', 'drink' + i).addClass('drink-checkbox')
-                        );
-                        var nameCell = $('<td></td>').text(drink.nomeDrink);
-                        var costCell = $('<td></td>').text(drink.custoTotalDosDrinks.toFixed(2));
-                        var descriptionCell = $('<td></td>').text(drink.ingredientesDoDrink);
-
-                        var row = $('<tr></tr>');
-                        row.append(checkboxCell);
-                        row.append(nameCell);
-                        row.append(costCell);
-                        row.append(descriptionCell);
-
-                        table.append(row);
-                    }
-                } else {
-                    table.append($('<tr></tr>').append($('<td></td>').attr('colspan', '4').text('Nenhum drink disponível.')));
-                }
-            }).fail(function () {
-                console.error('Ocorreu um erro ao buscar os dados dos drinks.');
-            });
-        }
-
-        function enviarValorTotal(valor_Drinks) {
-
-            var valorCorrigido = valor_Drinks.toString().replace('.', ',');
-
-            $.post({
-                url: '@Url.Action("ValorTotalDrinks", "Orcamento")',
-                data: { valorDrinksParameter: valorCorrigido },
-                success: function (result) {
-                    if (result) {
-                        console.log('Valor total dos drinks enviado com sucesso.');
-                        fecharModal();
-                    } else {
-                        console.error('Ocorreu um erro ao enviar o valor total dos drinks.');
-                    }
-                },
-                error: function () {
-                    console.error('Ocorreu um erro na requisição para enviar o valor total dos drinks.');
-                }
-            });
-        }
-
-        function fecharModal() {
+    <script>
+        $(document).ready(function () {
             $('#background-black').fadeOut();
-        }
 
-        function searchDrinks(keyword) {
-            var drinkContainer = $('.drink-container');
-            var table = drinkContainer.find('.drink-table');
-            var rows = table.find('tr');
+            $('#abrir_modal').on('click', function () {
+                abrirModal();
+            });
 
-            if (keyword) {
-                rows.each(function () {
-                    var row = $(this);
-                    var nameCell = row.find('td:nth-child(2)');
-                    var name = nameCell.text();
+            // TODO: Clicar fora do modal não fecha, necessita corrigir
+            $('#fechar-Modal-card').on('click', function () {
+                fecharModal();
+            });
 
-                    if (name.toLowerCase().indexOf(keyword.toLowerCase()) === -1) {
-                        row.hide();
+            $('#search-form').on('submit', function (e) {
+                e.preventDefault();
+                searchDrinks($('#search-input').val());
+            });
+
+            $('#button_finalizar').on('click', function () {
+                var selectedDrinks = $('.drink-checkbox:checked');
+                var totalValue = 0;
+
+                selectedDrinks.each(function () {
+                    var checkbox = $(this);
+                    var row = checkbox.closest('tr');
+                    var costCell = row.find('td:nth-child(3)');
+                    var cost = parseFloat(costCell.text());
+
+                    var quantityCell = row.find('td:nth-child(4)');
+                    var quantity = parseInt(quantityCell.find('input').val());
+
+                    totalValue += quantity * cost;
+                });
+
+                totalValue = totalValue.toFixed(2);
+
+                enviarValorTotal(totalValue);
+            });
+
+            $('#button_concluir_operacao').on('click', function () {
+                finalizarOrcamento();
+            });
+
+            function abrirModal() {
+                $('#background-black').fadeIn();
+
+                showLoading(true);
+
+                $.get('/Drinks/ListarDrinks', function (data) {
+                    var drinkContainer = $('.drink-container');
+                    var table = drinkContainer.find('.drink-table');
+                    var headerRow = table.find('.header-row');
+                    table.empty();
+
+                    var headerRow = $('<tr></tr>');
+                    headerRow.append($('<th></th>').text('Selecionar').css('text-align', 'center'));
+                    headerRow.append($('<th></th>').text('Nome'));
+                    headerRow.append($('<th></th>').text('Custo'));
+                    headerRow.append($('<th></th>').text('Quantidade'));
+                    table.append(headerRow);
+
+                    if (data && data.length > 0) {
+                        for (var i = 0; i < data.length; i++) {
+                            var drink = data[i];
+
+                            var checkboxCell = $('<td></td>').css('text-align', 'center').append(
+                                $('<input>').attr('type', 'checkbox').attr('id', 'drink' + i).addClass('drink-checkbox')
+                            );
+                            var nameCell = $('<td></td>').text(drink.nomeDrink);
+                            var costCell = $('<td></td>').text(drink.custoTotalDosDrinks.toFixed(2));
+                            var quantityCell = $('<td></td>').append(
+                                $('<input>').attr('type', 'number').addClass('drink-quantity').val(0)
+                            );
+
+                            var row = $('<tr></tr>');
+                            row.append(checkboxCell);
+                            row.append(nameCell);
+                            row.append(costCell);
+                            row.append(quantityCell);
+
+                            table.append(row);
+                        }
+                        showLoading(false);
                     } else {
-                        row.show();
+                        table.append($('<tr></tr>').append($('<td></td>').attr('colspan', '4').text('Nenhum drink disponível.')));
+                        showLoading(false);
+                    }
+                }).fail(function () {
+                    console.error('Ocorreu um erro ao buscar os dados dos drinks.');
+                    showLoading(false);
+                });
+            }
+
+            function enviarValorTotal(valor_Drinks) {
+                $.post({
+                    url: '@Url.Action("ValorTotalDrinks", "Orcamento")',
+                    data: { valorDrinksParameter: valor_Drinks },
+                    success: function (result) {
+                        if (result) {
+                            console.log('Valor total dos drinks enviado com sucesso.');
+                            fecharModal();
+                        } else {
+                            console.error('Ocorreu um erro ao enviar o valor total dos drinks.');
+                        }
+                    },
+                    error: function () {
+                        console.error('Ocorreu um erro na requisição para enviar o valor total dos drinks.');
                     }
                 });
-            } else {
-                rows.show();
             }
-        }
-    });
-</script>
+
+            function fecharModal() {
+                $('#background-black').fadeOut();
+            }
+
+            function searchDrinks(keyword) {
+                var drinkContainer = $('.drink-container');
+                var table = drinkContainer.find('.drink-table');
+                var rows = table.find('tr');
+
+                if (keyword) {
+                    rows.each(function () {
+                        var row = $(this);
+                        var nameCell = row.find('td:nth-child(2)');
+                        var name = nameCell.text();
+
+                        if (name.toLowerCase().indexOf(keyword.toLowerCase()) === -1) {
+                            row.hide();
+                        } else {
+                            row.show();
+                        }
+                    });
+                } else {
+                    rows.show();
+                }
+            }
+
+            function finalizarOrcamento() {
+                $.post({
+                    url: '@Url.Action("FinalizarOrcamento", "Orcamento")',
+                    success: function (result) {
+                        if (result) {
+                            console.log('Orcamento finalizado com sucesso.');
+                            window.location = '@Url.Action("Index", "Historico")';
+                        } else {
+                            console.error('Ocorreu um erro ao finalizar o orcamento.');
+                        }
+                    },
+                    error: function () {
+                        console.error('Ocorreu um erro na requisição para finalizar o orcamento.');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

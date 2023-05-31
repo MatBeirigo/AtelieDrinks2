@@ -270,35 +270,29 @@ namespace AtelieDrinks.Migrations
                     id_historico = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     numero_pessoas = table.Column<int>(type: "integer", nullable: false),
-                    custo_operacional = table.Column<decimal>(type: "numeric", nullable: false),
-                    custo_total_insumos = table.Column<decimal>(type: "numeric", nullable: false),
-                    custo_total_drinks = table.Column<decimal>(type: "numeric", nullable: false),
-                    custo_total_geral = table.Column<decimal>(type: "numeric", nullable: false),
-                    custo_total = table.Column<decimal>(type: "numeric", nullable: false),
-                    base_orcamento = table.Column<decimal>(type: "numeric", nullable: false),
-                    comisao_comercial = table.Column<decimal>(type: "numeric", nullable: false),
-                    comisao_gerencia = table.Column<decimal>(type: "numeric", nullable: false),
-                    valor_primario = table.Column<decimal>(type: "numeric", nullable: false),
-                    custo_por_pessoa = table.Column<decimal>(type: "numeric", nullable: false),
-                    valor_arredondado_pra_cima = table.Column<decimal>(type: "numeric", nullable: false),
-                    margem_negociacao = table.Column<decimal>(type: "numeric", nullable: false),
-                    valor_orcamento = table.Column<decimal>(type: "numeric", nullable: false),
-                    previsao_lucro = table.Column<decimal>(type: "numeric", nullable: false),
-                    taxa_de_lucro = table.Column<decimal>(type: "numeric", nullable: false),
-                    qtde_convidados = table.Column<int>(type: "integer", nullable: false),
-                    qtde_drinks = table.Column<int>(type: "integer", nullable: false),
-                    id_orcamento = table.Column<int>(type: "integer", nullable: false),
-                    id_insumo = table.Column<List<int>>(type: "integer[]", nullable: false)
+                    custo_operacional = table.Column<string>(type: "text", nullable: false),
+                    custo_total_insumos = table.Column<string>(type: "text", nullable: false),
+                    custo_total = table.Column<string>(type: "text", nullable: false),
+                    base_orcamento = table.Column<string>(type: "text", nullable: false),
+                    comissao_comercial = table.Column<string>(type: "text", nullable: false),
+                    comissao_gerencia = table.Column<string>(type: "text", nullable: false),
+                    valor_primario = table.Column<string>(type: "text", nullable: false),
+                    custo_por_pessoa = table.Column<string>(type: "text", nullable: false),
+                    valor_arredondado_pra_cima = table.Column<string>(type: "text", nullable: false),
+                    margem_negociacao = table.Column<string>(type: "text", nullable: false),
+                    valor_orcamento = table.Column<string>(type: "text", nullable: false),
+                    previsao_lucro = table.Column<string>(type: "text", nullable: false),
+                    taxa_de_lucro = table.Column<string>(type: "text", nullable: false),
+                    OrcamentoIdOrcamento = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Historico", x => x.id_historico);
                     table.ForeignKey(
-                        name: "FK_Historico_Orcamento_id_orcamento",
-                        column: x => x.id_orcamento,
+                        name: "FK_Historico_Orcamento_OrcamentoIdOrcamento",
+                        column: x => x.OrcamentoIdOrcamento,
                         principalTable: "Orcamento",
-                        principalColumn: "id_orcamento",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "id_orcamento");
                 });
 
             migrationBuilder.CreateIndex(
@@ -322,9 +316,9 @@ namespace AtelieDrinks.Migrations
                 column: "DeslocamentoIdTaxaDeslocamento");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Historico_id_orcamento",
+                name: "IX_Historico_OrcamentoIdOrcamento",
                 table: "Historico",
-                column: "id_orcamento");
+                column: "OrcamentoIdOrcamento");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Insumos_Ficha_tecnicaid_ficha",

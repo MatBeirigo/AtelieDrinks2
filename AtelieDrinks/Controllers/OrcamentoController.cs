@@ -65,96 +65,47 @@ namespace AtelieDrinks.Controllers
         }
 
         /// <summary>
-        /// Método da página Index 2 para guardar os valores da página em um cookie
+        /// Método da página Index 2 para guardar o custo operacional em um cookie
         /// </summary>
-        /// <param name="qtdCoordenador"></param>
-        /// <param name="valorCoordenador"></param>
-        /// <param name="totalCoordenador"></param>
-        /// <param name="qtdProfissionaisGerias"></param>
-        /// <param name="valorProfissionaisGerias"></param>
-        /// <param name="totalProfissionaisGerias"></param>
-        /// <param name="qtdBalcoes"></param>
-        /// <param name="valorBalcoes"></param>
-        /// <param name="totalBalcoes"></param>
-        /// <param name="qtdImpostosFederais"></param>
-        /// <param name="valorImpostosFederais"></param>
-        /// <param name="totalImpostosFederais"></param>
-        /// <param name="qtdSeguroReserva"></param>
-        /// <param name="valorSeguroReserva"></param>
-        /// <param name="totalSeguroReserva"></param>
-        /// <param name="qtdTaxaOp"></param>
-        /// <param name="valorTaxaOp"></param>
-        /// <param name="totalTaxaOp"></param>
+        /// <param name="qtdCoordenadorParameter"></param>
+        /// <param name="valorCoordenadorParameter"></param>
+        /// <param name="totalCoordenadorParameter"></param>
+        /// <param name="qtdProfissionaisGeriasParameter"></param>
+        /// <param name="valorProfissionaisGeriasParameter"></param>
+        /// <param name="totalProfissionaisGeriasParameter"></param>
+        /// <param name="qtdBalcoesParameter"></param>
+        /// <param name="valorBalcoesParameter"></param>
+        /// <param name="totalBalcoesParameter"></param>
+        /// <param name="qtdImpostosFederaisParameter"></param>
+        /// <param name="valorImpostosFederaisParameter"></param>
+        /// <param name="totalImpostosFederaisParameter"></param>
+        /// <param name="qtdSeguroReservaParameter"></param>
+        /// <param name="valorSeguroReservaParameter"></param>
+        /// <param name="totalSeguroReservaParameter"></param>
+        /// <param name="qtdTaxaOpParameter"></param>
+        /// <param name="valorTaxaOpParameter"></param>
+        /// <param name="totalTaxaOpParameter"></param>
         /// <returns></returns>
         [HttpPost, ActionName("CreateCustosOp")]
         public bool CreateCustosOp(string qtdCoordenadorParameter, string valorCoordenadorParameter, string totalCoordenadorParameter, string qtdProfissionaisGeriasParameter, string valorProfissionaisGeriasParameter, string totalProfissionaisGeriasParameter, string qtdBalcoesParameter, string valorBalcoesParameter, string totalBalcoesParameter, string qtdImpostosFederaisParameter, string valorImpostosFederaisParameter, string totalImpostosFederaisParameter, string qtdSeguroReservaParameter, string valorSeguroReservaParameter, string totalSeguroReservaParameter, string qtdTaxaOpParameter, string valorTaxaOpParameter, string totalTaxaOpParameter)
         {
             try
             {
-                decimal qtdCoordenadorDecimal;
-                decimal.TryParse(qtdCoordenadorParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdCoordenadorDecimal);
-                decimal valorCoordenadorDecimal;
-                decimal.TryParse(valorCoordenadorParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorCoordenadorDecimal);
-                decimal totalCoordenadorDecimal;
-                decimal.TryParse(totalCoordenadorParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalCoordenadorDecimal);
+                decimal totalCustoOperacional = 0;
 
-                decimal qtdProfissionaisGeraisDecimal;
-                decimal.TryParse(qtdProfissionaisGeriasParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdProfissionaisGeraisDecimal);
-                decimal valorProfissionaisGeraisDecimal;
-                decimal.TryParse(valorProfissionaisGeriasParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorProfissionaisGeraisDecimal);
-                decimal totalProfissionaisGeraisDecimal;
-                decimal.TryParse(totalProfissionaisGeriasParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalProfissionaisGeraisDecimal);
+                decimal.TryParse(totalCoordenadorParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalCoordenadorDecimal);
+                decimal.TryParse(totalProfissionaisGeriasParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalProfissionaisGeraisDecimal);
+                decimal.TryParse(totalBalcoesParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalBalcoesDecimal);
+                decimal.TryParse(totalImpostosFederaisParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalImpostosFederaisDecimal);
+                decimal.TryParse(totalSeguroReservaParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalSeguroReservaDecimal);
+                decimal.TryParse(totalTaxaOpParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalTaxaOpDecimal);
 
-                decimal qtdBalcoesDecimal;
-                decimal.TryParse(qtdBalcoesParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdBalcoesDecimal);
-                decimal valorBalcoesDecimal;
-                decimal.TryParse(valorBalcoesParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorBalcoesDecimal);
-                decimal totalBalcoesDecimal;
-                decimal.TryParse(totalBalcoesParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalBalcoesDecimal);
-
-                decimal qtdImpostosFederaisDecimal;
-                decimal.TryParse(qtdImpostosFederaisParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdImpostosFederaisDecimal);
-                decimal valorImpostosFederaisDecimal;
-                decimal.TryParse(valorImpostosFederaisParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorImpostosFederaisDecimal);
-                decimal totalImpostosFederaisDecimal;
-                decimal.TryParse(totalImpostosFederaisParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalImpostosFederaisDecimal);
-                
-                decimal qtdSeguroReservaDecimal;
-                decimal.TryParse(qtdSeguroReservaParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdSeguroReservaDecimal);
-                decimal valorSeguroReservaDecimal;
-                decimal.TryParse(valorSeguroReservaParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorSeguroReservaDecimal);
-                decimal totalSeguroReservaDecimal;
-                decimal.TryParse(totalSeguroReservaParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalSeguroReservaDecimal);
-
-                decimal qtdTaxaOpDecimal;
-                decimal.TryParse(qtdTaxaOpParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdTaxaOpDecimal);
-                decimal valorTaxaOpDecimal;
-                decimal.TryParse(valorTaxaOpParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorTaxaOpDecimal);
-                decimal totalTaxaOpDecimal;
-                decimal.TryParse(totalTaxaOpParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalTaxaOpDecimal);
-
+                totalCustoOperacional = totalCoordenadorDecimal + totalProfissionaisGeraisDecimal + totalBalcoesDecimal + totalImpostosFederaisDecimal + totalSeguroReservaDecimal + totalTaxaOpDecimal;
 
                 var options = new CookieOptions();
                 options.Expires = DateTime.Now.AddDays(1);
 
-                Response.Cookies.Append("qtdCoordenador", qtdCoordenadorParameter, options);
-                Response.Cookies.Append("valorCoordenador", valorCoordenadorParameter, options);
-                Response.Cookies.Append("totalCoordenador", totalCoordenadorParameter, options);
-                Response.Cookies.Append("qtdProfissionaisGerias", qtdProfissionaisGeriasParameter, options);
-                Response.Cookies.Append("valorProfissionaisGerias", valorProfissionaisGeriasParameter, options);
-                Response.Cookies.Append("totalProfissionaisGerias", totalProfissionaisGeriasParameter, options);
-                Response.Cookies.Append("qtdBalcoes", qtdBalcoesParameter, options);
-                Response.Cookies.Append("valorBalcoes", valorBalcoesParameter, options);
-                Response.Cookies.Append("totalBalcoes", totalBalcoesParameter, options);
-                Response.Cookies.Append("qtdImpostosFederais", qtdImpostosFederaisParameter, options);
-                Response.Cookies.Append("valorImpostosFederais", valorImpostosFederaisParameter, options);
-                Response.Cookies.Append("totalImpostosFederais", totalImpostosFederaisParameter, options);
-                Response.Cookies.Append("qtdSeguroReserva", qtdSeguroReservaParameter, options);
-                Response.Cookies.Append("valorSeguroReserva", valorSeguroReservaParameter, options);
-                Response.Cookies.Append("totalSeguroReserva", totalSeguroReservaParameter, options);
-                Response.Cookies.Append("qtdTaxaOp", qtdTaxaOpParameter, options);
-                Response.Cookies.Append("valorTaxaOp", valorTaxaOpParameter, options);
-                Response.Cookies.Append("totalTaxaOp", totalTaxaOpParameter, options);
+                Response.Cookies.Append("CustoOperacional", totalCustoOperacional.ToString(CultureInfo.InvariantCulture), options);
 
                 return true;
             }
@@ -166,7 +117,7 @@ namespace AtelieDrinks.Controllers
         }
 
         /// <summary>
-        /// Método da página Index 4 para guardar os valores da página em um cookie
+        /// Método da página Index 3 para guardar o custo de bebidas em um cookie
         /// </summary>
         /// <param name="qtdCarretoParameter"></param>
         /// <param name="valorCarretoParameter"></param>
@@ -192,69 +143,21 @@ namespace AtelieDrinks.Controllers
         {
             try
             {
-                decimal qtdCarretoDecimal;
-                decimal.TryParse(qtdCarretoParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdCarretoDecimal);
-                decimal valorCarretoDecimal;
-                decimal.TryParse(valorCarretoParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorCarretoDecimal);
-                decimal totalCarretoDecimal;
-                decimal.TryParse(totalCarretoParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalCarretoDecimal);
+                decimal totalCustoTaxaDeslocamento = 0;
 
-                decimal qtdPedagiosDecimal;
-                decimal.TryParse(qtdPedagiosParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdPedagiosDecimal);
-                decimal valorPedagiosDecimal;
-                decimal.TryParse(valorPedagiosParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorPedagiosDecimal);
-                decimal totalPedagiosDecimal;
-                decimal.TryParse(totalPedagiosParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalPedagiosDecimal);
+                decimal.TryParse(totalCarretoParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalCarretoDecimal);
+                decimal.TryParse(totalPedagiosParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalPedagiosDecimal);
+                decimal.TryParse(totalAlimentacaoParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalAlimentacaoDecimal);
+                decimal.TryParse(totalCarroColabParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalCarroColabDecimal);
+                decimal.TryParse(totalHospedagemParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalHospedagemDecimal);
+                decimal.TryParse(totalReservaParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal totalReservaDecimal);
 
-                decimal qtdAlimentacaoDecimal;
-                decimal.TryParse(qtdAlimentacaoParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdAlimentacaoDecimal);
-                decimal valorAlimentacaoDecimal;
-                decimal.TryParse(valorAlimentacaoParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorAlimentacaoDecimal);
-                decimal totalAlimentacaoDecimal;
-                decimal.TryParse(totalAlimentacaoParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalAlimentacaoDecimal);
-
-                decimal qtdCarroColabDecimal;
-                decimal.TryParse(qtdCarroColabParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdCarroColabDecimal);
-                decimal valorCarroColabDecimal;
-                decimal.TryParse(valorCarroColabParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorCarroColabDecimal);
-                decimal totalCarroColabDecimal;
-                decimal.TryParse(totalCarroColabParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalCarroColabDecimal);
-
-                decimal qtdHospedagemDecimal;
-                decimal.TryParse(qtdHospedagemParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdHospedagemDecimal);
-                decimal valorHospedagemDecimal;
-                decimal.TryParse(valorHospedagemParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorHospedagemDecimal);
-                decimal totalHospedagemDecimal;
-                decimal.TryParse(totalHospedagemParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalHospedagemDecimal);
-
-                decimal qtdReservaDecimal;
-                decimal.TryParse(qtdReservaParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out qtdReservaDecimal);
-                decimal valorReservaDecimal;
-                decimal.TryParse(valorReservaParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorReservaDecimal);
-                decimal totalReservaDecimal;
-                decimal.TryParse(totalReservaParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out totalReservaDecimal);
+                totalCustoTaxaDeslocamento = totalCarretoDecimal + totalPedagiosDecimal + totalAlimentacaoDecimal + totalCarroColabDecimal + totalHospedagemDecimal + totalReservaDecimal;
 
                 var options = new CookieOptions();
                 options.Expires = DateTime.Now.AddDays(1);
 
-                Response.Cookies.Append("qtdCarreto", qtdCarretoParameter, options);
-                Response.Cookies.Append("valorCarreto", valorCarretoParameter, options);
-                Response.Cookies.Append("totalCarreto", totalCarretoParameter, options);
-                Response.Cookies.Append("qtdPedagios", qtdPedagiosParameter, options);
-                Response.Cookies.Append("valorPedagios", valorPedagiosParameter, options);
-                Response.Cookies.Append("totalPedagios", totalPedagiosParameter, options);
-                Response.Cookies.Append("qtdAlimentacao", qtdAlimentacaoParameter, options);
-                Response.Cookies.Append("valorAlimentacao", valorAlimentacaoParameter, options);
-                Response.Cookies.Append("totalAlimentacao", totalAlimentacaoParameter, options);
-                Response.Cookies.Append("qtdCarroColab", qtdCarroColabParameter, options);
-                Response.Cookies.Append("valorCarroColab", valorCarroColabParameter, options);
-                Response.Cookies.Append("totalCarroColab", totalCarroColabParameter, options);
-                Response.Cookies.Append("qtdHospedagem", qtdHospedagemParameter, options);
-                Response.Cookies.Append("valorHospedagem", valorHospedagemParameter, options);
-                Response.Cookies.Append("totalHospedagem", totalHospedagemParameter, options);
-                Response.Cookies.Append("qtdReserva", qtdReservaParameter, options);
-                Response.Cookies.Append("valorReserva", valorReservaParameter, options);
-                Response.Cookies.Append("totalReserva", totalReservaParameter, options);
+                Response.Cookies.Append("CustoTaxaDeslocamento", totalCustoTaxaDeslocamento.ToString(CultureInfo.InvariantCulture), options);
 
                 return true;
             }
@@ -275,13 +178,15 @@ namespace AtelieDrinks.Controllers
         {
             try
             {
-                //TODO: número está errado no cookie
                 if (ModelState.IsValid)
                 {
                     decimal valorDrinks;
-                    decimal.TryParse(valorDrinksParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorDrinks); 
+                    decimal.TryParse(valorDrinksParameter, NumberStyles.Float, CultureInfo.InvariantCulture, out valorDrinks);
 
-                    Response.Cookies.Append("ValorTotalDrinks", valorDrinksParameter);
+                    var options = new CookieOptions();
+                    options.Expires = DateTime.Now.AddDays(1);
+
+                    Response.Cookies.Append("ValorTotalDrinks", valorDrinksParameter, options);
 
                     return true;
                 }
@@ -295,6 +200,73 @@ namespace AtelieDrinks.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para finalizar o orçamento
+        /// </summary>
+        [HttpPost, ActionName("FinalizarOrcamento")]
+        public bool FinalizarOrcamento()
+        {
+            try
+            {
+                int numeroPessoas = int.Parse(Request.Cookies["NumeroPessoas"]);
+                double custoOperacional = ConvertToDouble(Request.Cookies["CustoOperacional"]);
+                double custoTotalInsumos = ConvertToDouble(Request.Cookies["ValorTotalDrinks"]);
+
+                double custoTotal = (custoOperacional + custoTotalInsumos);
+                double baseOrcamento1 = (custoTotal * 1.48);
+                double comisaoComercial = (baseOrcamento1 * 0.0547);
+                double comisaoGerencia = ((baseOrcamento1 + comisaoComercial) * 0.01);
+                double valorPrimario = (baseOrcamento1 + comisaoComercial + comisaoGerencia);
+                double custoPorPessoa = (valorPrimario / numeroPessoas);
+                double valorArredondadoPraCima = (custoPorPessoa);
+                double margemNegociacao = ((custoPorPessoa - valorArredondadoPraCima) * numeroPessoas);
+                double valorOrcamento = (valorArredondadoPraCima * numeroPessoas);
+                double previsaoLucro = (valorOrcamento - margemNegociacao - comisaoGerencia - comisaoComercial - custoTotal);
+                double taxaDeLucro = (previsaoLucro * 100 / valorOrcamento);
+
+                var historico = new Historico
+                {
+                    IdHistorico = 0,
+                    NumeroPessoas = numeroPessoas,
+                    CustoOperacional = custoOperacional.ToString("0.00"),
+                    CustoTotalInsumos = custoTotalInsumos.ToString("0.00"),
+                    CustoTotal = custoTotal.ToString("0.00"),
+                    BaseOrcamento = baseOrcamento1.ToString("0.00"),
+                    ComissaoComercial = comisaoComercial.ToString("0.00"),
+                    ComissaoGerencia = comisaoGerencia.ToString("0.00"),
+                    ValorPrimario = valorPrimario.ToString("0.00"),
+                    CustoPorPessoa = custoPorPessoa.ToString("0.00"),
+                    ValorArredondadoPraCima = valorArredondadoPraCima.ToString("0.00"),
+                    MargemNegociacao = margemNegociacao.ToString("0.00"),
+                    ValorOrcamento = valorOrcamento.ToString("0.00"),
+                    PrevisaoLucro = previsaoLucro.ToString("0.00"),
+                    TaxaDeLucro = taxaDeLucro.ToString("0.00"),
+                };
+
+                _context.Historico.Add(historico);
+                _context.SaveChanges();
+
+                Response.Cookies.Delete("NumeroPessoas");
+                Response.Cookies.Delete("CustoOperacional");
+                Response.Cookies.Delete("CustoTaxaDeslocamento");
+                Response.Cookies.Delete("ValorTotalDrinks");
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocorreu uma exceção: {ex.Message}");
+                return false;
+            }
+        }
+
+        private double ConvertToDouble(string value)
+        {
+            string numericValue = new string(value.Where(char.IsDigit).ToArray());
+            double result = double.Parse(numericValue) / 100.0;
+
+            return result;
+        }
     }
 }
 

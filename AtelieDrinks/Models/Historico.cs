@@ -7,91 +7,67 @@ namespace AtelieDrinks.Models
     public class Historico
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id_historico")]
-        [Display(Name = "id_historico")]
+        [Display(Name = "ID do Histórico")]
         public int IdHistorico { get; set; }
 
         [Column("numero_pessoas")]
-        [Display(Name = "Numero_pessoas")]
+        [Display(Name = "Número de Pessoas")]
         public int NumeroPessoas { get; set; }
 
         [Column("custo_operacional")]
-        [Display(Name = "Custo operacional")]
-        public decimal CustoOperacional { get; set; }
+        [Display(Name = "Custo Operacional")]
+        public string CustoOperacional { get; set; }
 
         [Column("custo_total_insumos")]
-        [Display(Name = "Custo total insumos")]
-        public decimal CustoTotalInsumos { get; set; }
-
-        [Column("custo_total_drinks")]
-        [Display(Name = "Custo total drinks")]
-        public decimal CustoTotalDrinks { get; set; }
-
-        [Column("custo_total_geral")]
-        [Display(Name = "Custo total geral")]
-        public decimal CustoTotalGeral { get; set; }
+        [Display(Name = "Custo Total de Insumos")]
+        public string CustoTotalInsumos { get; set; }
 
         [Column("custo_total")]
-        [Display(Name = "Custo total")]
-        public decimal CustoTotal { get; set; }
+        [Display(Name = "Custo Total")]
+        public string CustoTotal { get; set; }
 
         [Column("base_orcamento")]
-        [Display(Name = "Base Orcamento")]
-        public decimal BaseOrcamento { get; set; }
+        [Display(Name = "Base de Orcamento")]
+        public string BaseOrcamento { get; set; }
 
-        [Column("comisao_comercial")]
+        [Column("comissao_comercial")]
         [Display(Name = "Comissao Comercial")]
-        public decimal ComissaoComercial { get; set; }
+        public string ComissaoComercial { get; set; }
 
-        [Column("comisao_gerencia")]
-        [Display(Name = "Comissao gerencia")]
-        public decimal ComissaoGerencia { get; set; }
+        [Column("comissao_gerencia")]
+        [Display(Name = "Comissao Gerencia")]
+        public string ComissaoGerencia { get; set; }
 
         [Column("valor_primario")]
-        [Display(Name = "Valor primario")]
-        public decimal ValorPrimario { get; set; }
+        [Display(Name = "Valor Primario")]
+        public string ValorPrimario { get; set; }
 
         [Column("custo_por_pessoa")]
-        [Display(Name = "Custo por pessoa")]
-        public decimal CustoPorPessoa { get; set; }
+        [Display(Name = "Custo por Pessoa")]
+        public string CustoPorPessoa { get; set; }
 
         [Column("valor_arredondado_pra_cima")]
-        [Display(Name = "valor arredondado")]
-        public decimal ValorArredondadoPraCima { get; set; }
+        [Display(Name = "Valor Arredondado pra Cima")]
+        public string ValorArredondadoPraCima { get; set; }
 
         [Column("margem_negociacao")]
-        [Display(Name = "Margem negociacao")]
-        public decimal MargemNegociacao { get; set; }
+        [Display(Name = "Margem Negociacao")]
+        public string MargemNegociacao { get; set; }
 
         [Column("valor_orcamento")]
         [Display(Name = "Valor Orcamento")]
-        public decimal ValorOrcamento { get; set; }
+        public string ValorOrcamento { get; set; }
 
         [Column("previsao_lucro")]
-        [Display(Name = "Previsao lucro")]
-        public decimal PrevisaoLucro { get; set; }
+        [Display(Name = "Precisao Lucro")]
+        public string PrevisaoLucro { get; set; }
 
         [Column("taxa_de_lucro")]
-        [Display(Name = "Taxa de lucro")]
-        public decimal TaxaDeLucro { get; set; }
+        [Display(Name = "Taxa de Lucro")]
+        public string TaxaDeLucro { get; set; }
 
-        [Column("qtde_convidados")]
-        [Display(Name = "qtde convidados")]
-        public int QtdeConvidados { get; set; }
-
-        [Column("qtde_drinks")]
-        [Display(Name = "qtde drinks")]
-        public int QtdeDrinks { get; set; }
-
-        [ForeignKey("Orcamento")]
-        [Column("id_orcamento")]
-        [Display(Name = "id_orcamento")]
-        public int IdOrcamento { get; set; }
-
-        public Orcamento Orcamento { get; set; }
-
-        [Column("id_insumo")]
-        [Display(Name = "id_insumo")]
-        public List<int> IdInsumo { get; set; }
+        //public Orcamento Orcamento { get; set; }
     }
 }

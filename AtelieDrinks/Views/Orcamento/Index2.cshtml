@@ -254,10 +254,6 @@
             var valorTaxaOp = parseFloat($('#valorTaxaOp').val().replace(',', '.')).toFixed(2);
             var totalTaxaOp = parseFloat($('#totalTaxaOp').val().replace(',', '.')).toFixed(2);
 
-            console.log("qtdProfissionaisGerais: ", qtdProfissionaisGerais);
-            console.log("valorProfissionaisGerais: ", valorProfissionaisGerais);
-            console.log("totalProfissionaisGerais: ", totalProfissionaisGerais);
-
             $.post({
                 url: '@Url.Action("CreateCustosOp", "Orcamento")',
                 data: {

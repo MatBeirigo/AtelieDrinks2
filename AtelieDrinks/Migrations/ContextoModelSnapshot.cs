@@ -340,90 +340,81 @@ namespace AtelieDrinks.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("IdHistorico"));
 
-                    b.Property<decimal>("BaseOrcamento")
-                        .HasColumnType("numeric")
+                    b.Property<string>("BaseOrcamento")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("base_orcamento");
 
-                    b.Property<decimal>("ComissaoComercial")
-                        .HasColumnType("numeric")
-                        .HasColumnName("comisao_comercial");
+                    b.Property<string>("ComissaoComercial")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("comissao_comercial");
 
-                    b.Property<decimal>("ComissaoGerencia")
-                        .HasColumnType("numeric")
-                        .HasColumnName("comisao_gerencia");
+                    b.Property<string>("ComissaoGerencia")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("comissao_gerencia");
 
-                    b.Property<decimal>("CustoOperacional")
-                        .HasColumnType("numeric")
+                    b.Property<string>("CustoOperacional")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("custo_operacional");
 
-                    b.Property<decimal>("CustoPorPessoa")
-                        .HasColumnType("numeric")
+                    b.Property<string>("CustoPorPessoa")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("custo_por_pessoa");
 
-                    b.Property<decimal>("CustoTotal")
-                        .HasColumnType("numeric")
+                    b.Property<string>("CustoTotal")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("custo_total");
 
-                    b.Property<decimal>("CustoTotalDrinks")
-                        .HasColumnType("numeric")
-                        .HasColumnName("custo_total_drinks");
-
-                    b.Property<decimal>("CustoTotalGeral")
-                        .HasColumnType("numeric")
-                        .HasColumnName("custo_total_geral");
-
-                    b.Property<decimal>("CustoTotalInsumos")
-                        .HasColumnType("numeric")
+                    b.Property<string>("CustoTotalInsumos")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("custo_total_insumos");
 
-                    b.Property<List<int>>("IdInsumo")
+                    b.Property<string>("MargemNegociacao")
                         .IsRequired()
-                        .HasColumnType("integer[]")
-                        .HasColumnName("id_insumo");
-
-                    b.Property<int>("IdOrcamento")
-                        .HasColumnType("integer")
-                        .HasColumnName("id_orcamento");
-
-                    b.Property<decimal>("MargemNegociacao")
-                        .HasColumnType("numeric")
+                        .HasColumnType("text")
                         .HasColumnName("margem_negociacao");
 
                     b.Property<int>("NumeroPessoas")
                         .HasColumnType("integer")
                         .HasColumnName("numero_pessoas");
 
-                    b.Property<decimal>("PrevisaoLucro")
-                        .HasColumnType("numeric")
+                    b.Property<int?>("OrcamentoIdOrcamento")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("PrevisaoLucro")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("previsao_lucro");
 
-                    b.Property<int>("QtdeConvidados")
-                        .HasColumnType("integer")
-                        .HasColumnName("qtde_convidados");
-
-                    b.Property<int>("QtdeDrinks")
-                        .HasColumnType("integer")
-                        .HasColumnName("qtde_drinks");
-
-                    b.Property<decimal>("TaxaDeLucro")
-                        .HasColumnType("numeric")
+                    b.Property<string>("TaxaDeLucro")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("taxa_de_lucro");
 
-                    b.Property<decimal>("ValorArredondadoPraCima")
-                        .HasColumnType("numeric")
+                    b.Property<string>("ValorArredondadoPraCima")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("valor_arredondado_pra_cima");
 
-                    b.Property<decimal>("ValorOrcamento")
-                        .HasColumnType("numeric")
+                    b.Property<string>("ValorOrcamento")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("valor_orcamento");
 
-                    b.Property<decimal>("ValorPrimario")
-                        .HasColumnType("numeric")
+                    b.Property<string>("ValorPrimario")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("valor_primario");
 
                     b.HasKey("IdHistorico");
 
-                    b.HasIndex("IdOrcamento");
+                    b.HasIndex("OrcamentoIdOrcamento");
 
                     b.ToTable("Historico");
                 });
@@ -638,13 +629,9 @@ namespace AtelieDrinks.Migrations
 
             modelBuilder.Entity("AtelieDrinks.Models.Historico", b =>
                 {
-                    b.HasOne("AtelieDrinks.Models.Orcamento", "Orcamento")
+                    b.HasOne("AtelieDrinks.Models.Orcamento", null)
                         .WithMany("Historicos")
-                        .HasForeignKey("IdOrcamento")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Orcamento");
+                        .HasForeignKey("OrcamentoIdOrcamento");
                 });
 
             modelBuilder.Entity("AtelieDrinks.Models.Insumos", b =>
