@@ -28,21 +28,33 @@
             <!--box-->
             <div class="content-box scroll" style="height:40vh;">
                 <div style="margin: 50px 0 50px 0;" class="margin-box">
-                    <h3>CONVIDADOS</h3>
-                    <p style="margin-top:5px">Insira o número de convidados:</p>
+                    <p style="margin-top:5px">Insira os dados do clinte</p>
 
-                    <div class="row-inputs">
+                    <div class="input-group">
                         <div class="list-inputs">
-                            <!--Lista COORDENADOR-->
-                            <div class="form-input" style="width:45px">
-                                <!--Input QTD-->
-                                <input asp-for="NumeroPessoas">
+                            <div class="form-input" style="width: 70%;">
+                                <input id="nomeClienteInput" type="text" pattern="[A-Za-zÀ-ÖØ-öø-ÿ ]*" maxlength="100">
+                                <label><span>NOME</span></label>
+                            </div>
+                        </div>
+
+                        <div class="list-inputs">
+                            <div class="form-input" style="width: 70%;">
+                                <input id="dataOrcamentoInput" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                                <label><span>DATA</span></label>
+                            </div>
+                        </div>
+
+                        <div class="list-inputs">
+                            <div class="form-input">
+                                <input id="numeroPessoasInput" type="number" min="1">
                                 <label><span>QTD</span></label>
                             </div>
-                        </div> <!--Fim lista COORDENADOR-->
-                    </div> <!--Fim row-inputs-->
-                </div> <!--Fim margin-box-->
-            </div> <!--fim content box-->
+                        </div>
+
+                    </div> 
+                </div> 
+            </div> 
 
             <div class="list-buttons">
                 <button class="button excluir" onclick="window.location='@Url.Action("Index", "Home")'">Voltar</button>
@@ -57,14 +69,12 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
-
 <script>
     $(document).ready(function () {
         $('#continuarButton').click(function () {
-            var numeroPessoas = $('input[name="NumeroPessoas"]').val().trim();
+            var numeroPessoas = $('#numeroPessoasInput').val().trim();
+            var nomeCliente = $('#nomeClienteInput').val().trim();
+            var dataOrcamento = $('#dataOrcamentoInput').val();
 
             if (numeroPessoas === '') {
                 swal("Erro", "Por favor, insira um número.", "error");
@@ -76,18 +86,30 @@
                 return;
             }
 
+            var dataValida = true;
+            if (dataOrcamento !== '') {
+                var dataAtual = new Date().toISOString().split('T')[0];
+                if (dataOrcamento >= dataAtual) {
+                    swal("Erro", "A data do orçamento deve ser igual ou posterior à data atual.", "error");
+                    dataValida = false;
+                }
+            }
+
+            if (!dataValida) {
+                return;
+            }
+
             $.post({
                 url: '@Url.Action("CreateNumeroPessoas", "Orcamento")',
-                data: { numeroPessoasParameter: numeroPessoas },
+                data: { numeroPessoasParameter: numeroPessoas, nomeClienteParameter: nomeCliente, dataOrcamentoParameter: dataOrcamento },
                 success: function () {
                     var url = '@Url.Action("Index", "Orcamento", new { numberPage = 2 })';
                     window.location.href = url;
                 },
                 error: function () {
-                    console.log('Ocorreu um erro ao enviar os dados para a model.');
+                    swal("Erro", "Ocorreu um erro ao enviar os dados para o modelo.", "error");
                 }
             });
         });
     });
 </script>
-

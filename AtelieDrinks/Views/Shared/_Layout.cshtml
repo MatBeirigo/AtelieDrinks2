@@ -13,30 +13,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Admin Dashboard</title>
 
-    <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
-    <!-- CSS -->
     <link href="@Url.Content("~/css/menulateral.css")" rel="stylesheet">
-    <!-- JS -->
     <script src="@Url.Content("~/js/menulateral.js")" defer></script>
 
 
 
-    <!-- CSS e JS -->
     <script src="@Url.Content("~/js/app.js")" defer></script>
     <link href="@Url.Content("~/css/app.css")" rel="stylesheet">
 
     <title>Atelier Drinks</title>
 
-    <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
     <link href="@Url.Content("~/css/sb-admin-2.css")" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="@Url.Content("~/imagens/logoad.png")">
@@ -60,7 +53,6 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/date-1.1.2/r-2.3.0/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <!-- Tela de carregamento -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="~/css/site.css" />
@@ -68,7 +60,6 @@
 
 
 <body>
-    <!-- ELEMENTOS DA TELA DE CARREGAMENTO -->
     <div class="back-main">
         <div class="pane-row">
             <div class="back-pane al-top"></div>
@@ -76,8 +67,7 @@
     </div>
 
     <div class="back-container">
-        <div id="description">Desenvolvido por CONSELT</div>
-
+        <div id="description">Desenvolvido por CONSELT &copy;</div>
         <div id="animation">
             <div class="rumandcoke">
                 <div class="glass"></div>
@@ -135,16 +125,13 @@
         </div>
 
     </div>
-    <!-- FIM DOS ELEMENTOS DA TELA DE CARREGAMENTO -->
 
     <div class="grid-container">
-        <!-- Header -->
         <header class="header">
             <div class="menu-icon" onclick="openSidebar()">
                 <span class="material-icons-outlined">menu</span>
             </div>
             <div class="header-left">
-                <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Content("~/home")">
                     <div class="sidebar-brand-icon">
                         <img height="75px" src="@Url.Content("~/imagens/logoad.png")" />
@@ -156,17 +143,14 @@
                 <span class=" fas fa-sign-out-alt"></span>
             </div>
         </header>
-        <!-- End Header -->
-        <!-- Sidebar -->
         <aside id="sidebar">
            
-            <!-- <span class="material-icons-outlined menu-icon" onclick="closeSidebar()">close</span> -->
             <div class="sidebar-title">
                 
                 <center>
                     <a href="User" class="menu-bar-text">
                         <img height="150px" src="/imagens/user.png" class="imageuser" alt="" />
-                        <h4>Bruno</h4>
+                        <h4>Usuário</h4>
                     </a>
 
                 </center>
@@ -174,33 +158,27 @@
                 
             </div>
             
-            @*TODO: Adicionar a página de montagem de drinks*@
-            <!-- Nav Item - Página de Dashboard -->
             <ul class="sidebar-list">
                 <li class="sidebar-list-item">
                     <a class="menu-bar-text" href="@Url.Content("~/home")" target="_self">
-                        <span class="material-icons-outlined">dashboard</span> Dashboard
+                        <span class="material-icons-outlined">dashboard</span> Página Inicial
                     </a>
                 </li>
-                <!-- Nav Item - Página de Orcamento -->
                 <li class="sidebar-list-item">
                     <a class="menu-bar-text" href="@Url.Content("~/Orcamento/1")" target="_self">
                         <span class="material-icons-outlined">inventory_2</span> Orçamento
                     </a>
                 </li>
-                <!-- Nav Item - Página de Historico -->
                 <li class="sidebar-list-item">
                     <a href="@Url.Content("~/Historico")" target="_self">
-                        <span class="material-icons-outlined">add_shopping_cart</span> Historico
+                        <span class="material-icons-outlined">add_shopping_cart</span> Histórico
                     </a>
                 </li>
-                <!-- Nav Item - Página de Fichas Técnicas -->
                 <li class="sidebar-list-item">
                     <a class="menu-bar-text" href="@Url.Content("~/fichaTecnica")" target="_self">
-                        <span class="material-icons-outlined">shopping_cart</span> Ficha Técnicas
+                        <span class="material-icons-outlined">shopping_cart</span> Montar Drinks
                     </a>
                 </li>
-                <!-- Nav Item - Página de Insumos -->
                 <li class="sidebar-list-item">
                     <a class="menu-bar-text" href="@Url.Content("~/Insumos")" target="_self">
                         <span class="material-icons-outlined">poll</span> Insumos
@@ -208,17 +186,15 @@
                 </li>
                 <li class="sidebar-list-item">
                     <a class="menu-bar-text" href="#" target="_blank">
-                        <span class="material-icons-outlined">settings</span> Settings
+                        <span class="material-icons-outlined">settings</span> Configurações
                     </a>
                 </li>
             </ul>
         </aside>
         <div class="overlay"></div>
         
-        <!-- End Sidebar -->
 
         
-        <!-- Main -->
         <main class="main-container fundo_body">
              @RenderBody()
              @RenderSection("Scripts", required: false)
@@ -226,14 +202,10 @@
          
 
     </main>
-        <!-- End Main -->
         
     </div>
 
-    <!-- Scripts -->
-    <!-- ApexCharts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
-    <!-- Custom JS -->
     <script src="js/scripts.js"></script>
 </body>
 </html>
@@ -242,11 +214,11 @@
 <script>
     $(window).bind("load", function () {
 
-        var tempo = setTimeout(function () {   // remova esta linha para hospedar
+        var tempo = setTimeout(function () {   
             $('.back-container').fadeOut();
             setTimeout(function () { $('.back-pane').addClass('pane-hidden'); },);
             setTimeout(function () { $('.back-main').hide(); },);
-        }, 650);  // remova esta linha para hospedar
+        }, 650);  
     });
 
     function showLoading(show) {

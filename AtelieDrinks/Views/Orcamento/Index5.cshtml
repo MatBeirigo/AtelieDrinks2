@@ -90,6 +90,14 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+
     <script>
         $(document).ready(function () {
             $('#background-black').fadeOut();
@@ -189,10 +197,9 @@
                     data: { valorDrinksParameter: valor_Drinks },
                     success: function (result) {
                         if (result) {
-                            console.log('Valor total dos drinks enviado com sucesso.');
                             fecharModal();
                         } else {
-                            console.error('Ocorreu um erro ao enviar o valor total dos drinks.');
+                            swal("Erro", "Ocorreu um erro ao enviar o valor total dos drinks.", "error");
                         }
                     },
                     error: function () {
@@ -232,10 +239,9 @@
                     url: '@Url.Action("FinalizarOrcamento", "Orcamento")',
                     success: function (result) {
                         if (result) {
-                            console.log('Orcamento finalizado com sucesso.');
                             window.location = '@Url.Action("Index", "Historico")';
                         } else {
-                            console.error('Ocorreu um erro ao finalizar o orcamento.');
+                            swal("Erro", "Ocorreu um erro ao finalizar o orcamento.", "error");
                         }
                     },
                     error: function () {

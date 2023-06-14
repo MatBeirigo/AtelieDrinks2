@@ -6,6 +6,7 @@ using Azure;
 using System.Globalization;
 using Microsoft.Extensions.Options;
 using System.Web;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AtelieDrinks.Controllers
 {
@@ -42,20 +43,25 @@ namespace AtelieDrinks.Controllers
         /// <param name="numero_pessoas"></param>
         /// <returns></returns>
         [HttpPost, ActionName("CreateNumeroPessoas")]
-        public bool CreateNumeroPessoas(int numeroPessoasParameter)
+        public bool CreateNumeroPessoas(int numeroPessoasParameter, string nomeClienteParameter, DateTime? dataOrcamentoParameter)
         {
             try
             {
-                Orcamento orcamento = new Orcamento();
-                orcamento.SetNumeroPessoas(numeroPessoasParameter);
-
-                if (ModelState.IsValid)
+                if (nomeClienteParameter.IsNullOrEmpty())
                 {
-                    Response.Cookies.Append("NumeroPessoas", numeroPessoasParameter.ToString());
-                    return true;
+                    nomeClienteParameter = "";
                 }
 
-                return false;
+                if (!dataOrcamentoParameter.HasValue)
+                {
+                    dataOrcamentoParameter = DateTime.Now.Date;
+                }
+
+                Response.Cookies.Append("NumeroPessoas", numeroPessoasParameter.ToString());
+                Response.Cookies.Append("NomeCliente", nomeClienteParameter.ToString());
+                Response.Cookies.Append("DataEvento", dataOrcamentoParameter.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture));
+
+                return true;
             }
             catch (Exception ex)
             {

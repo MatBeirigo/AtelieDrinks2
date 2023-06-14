@@ -13,7 +13,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AtelieDrinks.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230531014106_InitialMigration")]
+    [Migration("20230613204128_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
