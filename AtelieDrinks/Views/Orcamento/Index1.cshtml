@@ -89,7 +89,7 @@
             var dataValida = true;
             if (dataOrcamento !== '') {
                 var dataAtual = new Date().toISOString().split('T')[0];
-                if (dataOrcamento >= dataAtual) {
+                if (dataOrcamento < dataAtual) {
                     swal("Erro", "A data do orçamento deve ser igual ou posterior à data atual.", "error");
                     dataValida = false;
                 }

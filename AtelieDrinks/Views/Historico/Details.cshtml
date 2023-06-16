@@ -1,7 +1,4 @@
-﻿
-@model AtelieDrinks.Models.Historico
-
-
+﻿@model AtelieDrinks.Models.Historico
 @{
     ViewData["Title"] = "Details";
 }
@@ -15,6 +12,13 @@
 
     <link rel="stylesheet" href="/css/orcamento.css">
 
+    <style>
+        .scrollable-content {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    </style>
+
     <title>Historico_Detalhes</title>
 </head>
 <body>
@@ -25,77 +29,102 @@
     </div>
 
     <!--content-->
-    <div class="black-box">
+    <div class="black-box ">
         <div class="content">
             <!--box-->
-            
-            <div class="content-box">
-                <div style="margin: 350px 0 50px 0;" class="margin-box">
-                    <h3>Detalhes do Orçamento</h3>
-                    <p style="margin-top:5px">Tabela detalhada do orçamento</p>
-                    
-                    <table class="container">
-                        <thead>
-                            <tr>
-                                <th>Cliente</th>
-                                <th>Data</th>
-                                <th>Numero de Pessoas</th>
-                                <th>Custo operacional</th>
-                                <th>Custo total de insumos</th>
-                                <th>Custo total</th>
-                                <th>Base orçamento</th>
-                                <th>Comissão Comercial</th>
-                                <th>Comissão Gerencia</th>
-                                <th>Valor primário</th>
-                                <th>Custo por pessoa</th>
-                                <th>Valor arredondado</th>
-                                <th>margem da negociação</th>
-                                <th>Valor orçamento</th>
-                                <th>Previsão de lucro</th>
-                                <th>Qtd Convidados</th>
-                                <th>Qtd Drinks</th>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-            
-                            <tr>
-                                    <td>XXX</td>
-                                    <td>XXX</td>
-                                <td>@Html.DisplayFor(model => model.NumeroPessoas)</td>
-                                    <td>@Html.DisplayFor(model => model.CustoOperacional)</td>
-                                <td>@Html.DisplayFor(model => model.CustoTotalInsumos)</td>
-                                <td>@Html.DisplayFor(model => model.BaseOrcamento)</td>
-                                <td>@Html.DisplayFor(model => model.ComissaoComercial)</td>
-                                <td>@Html.DisplayFor(model => model.ComissaoGerencia)</td>
-                                <td>@Html.DisplayFor(model => model.ValorPrimario)</td>
-                                <td>@Html.DisplayFor(model => model.CustoPorPessoa))</td>
-                                <td>@Html.DisplayFor(model => model.ValorArredondadoPraCima)</td>
-                                <td>@Html.DisplayFor(model => model.ValorArredondadoPraCima)</td>
-                                <td>@Html.DisplayFor(model => model.MargemNegociacao)</td>
-                                <td>@Html.DisplayFor(model => model.ValorOrcamento)</td>
-                                <td>@Html.DisplayFor(model => model.PrevisaoLucro)</td>
 
-                            </tr>
-                               
-                        </tbody>
-                    </table>
+            <div class="content-box scrollable-content">
+                <div style="margin: 200px 0 50px 0;" class="margin-box">
+                    <h3>Detalhes do Orçamento</h3>
+                    <p style="margin-top:5px">Detalhes do orçamento:</p>
+
+                    <div>
+                        <div class="field-grid">
+                            <div class="field">
+                                <label>Numero de Pessoas:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.NumeroPessoas)</span>
+                            </div>
+                            <div class="field">
+                                <label>Custo operacional:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.CustoOperacional)</span>
+                            </div>
+                            <div class="field">
+                                <label>Custo total de insumos:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.CustoTotalInsumos)</span>
+                            </div>
+                            <div class="field">
+                                <label>Custo total:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.CustoTotal)</span>
+                            </div>
+                            <div class="field">
+                                <label>Base orçamento:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.BaseOrcamento)</span>
+                            </div>
+                            <div class="field">
+                                <label>Comissão Comercial:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.ComissaoComercial)</span>
+                            </div>
+                            <div class="field">
+                                <label>Comissão Gerencia:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.ComissaoGerencia)</span>
+                            </div>
+                            <div class="field">
+                                <label>Valor primário:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.ValorPrimario)</span>
+                            </div>
+                            <div class="field">
+                                <label>Custo por pessoa:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.CustoPorPessoa)</span>
+                            </div>
+                            <div class="field">
+                                <label>Valor arredondado:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.ValorArredondadoPraCima)</span>
+                            </div>
+                            <div class="field">
+                                <label>Margem da negociação:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.MargemNegociacao)</span>
+                            </div>
+                            <div class="field">
+                                <label>Valor orçamento:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.ValorOrcamento)</span>
+                            </div>
+                            <div class="field">
+                                <label>Previsão de lucro:</label>
+                                <span class="currency">@Html.DisplayFor(model => model.PrevisaoLucro)</span>
+                            </div>
+                        </div>
+                    </div>
 
                 </div> <!--Fim margin-box-->
 
             </div> <!--fim content box-->
 
-            <div class="list-buttons">
-                <button class="button excluir" onclick="window.location='@Url.Action("Index", "Historico")'">Voltar</button>
-                <a asp-action="Edit" asp-route-id="@Model.IdHistorico"><button class="button continuar">Editar</button></a>
-             
-            </div>
-            
-
         </div> <!--fim CONTENT-->
+
+        <div class="list-buttons">
+            <button class="button excluir" onclick="window.location='@Url.Action("Index", "Historico")'">Voltar</button>
+            <a asp-action="Edit" asp-route-id="@Model.IdHistorico"><button class="button continuar">Editar</button></a>
+        </div>
     </div>  <!--fim BLACKBOX-->
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-numbers-with-separator@1.0.3/dist/intl-numbers-with-separator.js"></script>
+    <script>
+        function formatCurrency(value) {
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+
+            return formatter.format(value);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var currencyElements = document.getElementsByClassName('currency');
+            for (var i = 0; i < currencyElements.length; i++) {
+                var value = parseFloat(currencyElements[i].textContent.replace(',', '.'));
+                currencyElements[i].textContent = formatCurrency(value);
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-

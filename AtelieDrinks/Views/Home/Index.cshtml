@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model AtelieDrinks.Models.Historico
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,8 +27,8 @@
 
     <!--Content-->
     <div class="black-box">
-        <div class="content" href="@Url.Action("Index", "Orcamento", new { numberPage = 1 })">
-            <div class="content-box criar-orcamento" >
+        <div class="content" onclick="window.location.href = '@Url.Action("Index", "Orcamento", new { numberPage = 1 })'">
+            <div class="content-box criar-orcamento">
                 <a class="botao-dashboard" href="@Url.Content("~/Orcamento/1")" target="_self">
                     <h4> Crie o seu <br><span class="text-dashboard-content">ORÇAMENTO</span> </h4>
                 </a>
@@ -34,20 +36,16 @@
 
             <div class="row-content">
                 <div class="content-box dashboard-penultimo">
-                    <p>penúltimo<br /><span class="text-dashboard-content">ORÇAMENTO</span><br />R$ 4.355,00</p>
-
+                    <p>penúltimo<br /><span class="text-dashboard-content">ORÇAMENTO</span><br />R$ @Html.DisplayFor(model => model.ValorOrcamento)</p>
                 </div>
                 <div class="content-box dashboard-ultimo">
-                    <p>último<br /><span class="text-dashboard-content">ORÇAMENTO</span><br />R$ 4.355,00</p>
+                    <p>último<br /><span class="text-dashboard-content">ORÇAMENTO</span><br class="currency" />R$ @Html.DisplayFor(model => model.ValorOrcamento)</p>
                 </div>
                 <a class="content-box dashboard-historico a-dashboard" href="Historico">
                     <p class="text-dashboard-content">HIS<br />TÓ<br />RI<br />CO<br /></p>
                 </a>
             </div>
-
         </div>
-
     </div>
-
 </body>
 </html>

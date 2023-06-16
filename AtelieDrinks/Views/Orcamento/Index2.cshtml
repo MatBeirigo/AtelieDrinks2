@@ -185,8 +185,12 @@
         });
 
         $('#button_continuar').click(function () {
-            formatValues();
-            sendDataToController();
+            if (validateInputs()) {
+                formatValues();
+                sendDataToController();
+            } else {
+                swal("Campos obrigatórios", "Por favor, preencha todos os campos obrigatórios.", "warning");
+            }
         });
 
         function formatValues() {
@@ -296,6 +300,16 @@
                     swal("Erro", "Ocorreu um erro ao enviar os dados para a controller.", "error");
                 }
             });
+        }
+
+        function validateInputs() {
+            var inputs = document.getElementsByTagName('input');
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].hasAttribute('required') && inputs[i].value === '') {
+                    return false;
+                }
+            }
+            return true;
         }
 
         function formatMoney(value) {
