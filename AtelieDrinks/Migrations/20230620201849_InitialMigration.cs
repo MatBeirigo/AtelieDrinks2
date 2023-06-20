@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -79,6 +78,34 @@ namespace AtelieDrinks.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ficha Tecnica", x => x.id_ficha);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Historico",
+                columns: table => new
+                {
+                    id_historico = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nome_cliente = table.Column<int>(type: "integer", nullable: false),
+                    data_evento = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    numero_pessoas = table.Column<int>(type: "integer", nullable: false),
+                    custo_operacional = table.Column<string>(type: "text", nullable: false),
+                    custo_total_insumos = table.Column<string>(type: "text", nullable: false),
+                    custo_total = table.Column<string>(type: "text", nullable: false),
+                    base_orcamento = table.Column<string>(type: "text", nullable: false),
+                    comissao_comercial = table.Column<string>(type: "text", nullable: false),
+                    comissao_gerencia = table.Column<string>(type: "text", nullable: false),
+                    valor_primario = table.Column<string>(type: "text", nullable: false),
+                    custo_por_pessoa = table.Column<string>(type: "text", nullable: false),
+                    valor_arredondado_pra_cima = table.Column<string>(type: "text", nullable: false),
+                    margem_negociacao = table.Column<string>(type: "text", nullable: false),
+                    valor_orcamento = table.Column<string>(type: "text", nullable: false),
+                    previsao_lucro = table.Column<string>(type: "text", nullable: false),
+                    taxa_de_lucro = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Historico", x => x.id_historico);
                 });
 
             migrationBuilder.CreateTable(
@@ -214,6 +241,8 @@ namespace AtelieDrinks.Migrations
                 {
                     id_orcamento = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nome_cliente = table.Column<int>(type: "integer", nullable: false),
+                    data_evento = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     numero_pessoas = table.Column<int>(type: "integer", nullable: false),
                     custo_operacional = table.Column<int>(type: "integer", nullable: false),
                     RespostaInsumosIdInsumo = table.Column<int>(type: "integer", nullable: false),
@@ -231,8 +260,7 @@ namespace AtelieDrinks.Migrations
                     previsao_lucro = table.Column<decimal>(type: "numeric", nullable: false),
                     taxa_de_lucro = table.Column<decimal>(type: "numeric", nullable: false),
                     qtde_convidados = table.Column<int>(type: "integer", nullable: false),
-                    qtde_drinks = table.Column<int>(type: "integer", nullable: false),
-                    IdInsumo1 = table.Column<int>(type: "integer", nullable: false)
+                    qtde_drinks = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -250,49 +278,11 @@ namespace AtelieDrinks.Migrations
                         principalColumn: "id_drink",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Orcamento_Insumos_IdInsumo1",
-                        column: x => x.IdInsumo1,
-                        principalTable: "Insumos",
-                        principalColumn: "id_insumo",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Orcamento_Insumos_RespostaInsumosIdInsumo",
                         column: x => x.RespostaInsumosIdInsumo,
                         principalTable: "Insumos",
                         principalColumn: "id_insumo",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Historico",
-                columns: table => new
-                {
-                    id_historico = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    numero_pessoas = table.Column<int>(type: "integer", nullable: false),
-                    custo_operacional = table.Column<string>(type: "text", nullable: false),
-                    custo_total_insumos = table.Column<string>(type: "text", nullable: false),
-                    custo_total = table.Column<string>(type: "text", nullable: false),
-                    base_orcamento = table.Column<string>(type: "text", nullable: false),
-                    comissao_comercial = table.Column<string>(type: "text", nullable: false),
-                    comissao_gerencia = table.Column<string>(type: "text", nullable: false),
-                    valor_primario = table.Column<string>(type: "text", nullable: false),
-                    custo_por_pessoa = table.Column<string>(type: "text", nullable: false),
-                    valor_arredondado_pra_cima = table.Column<string>(type: "text", nullable: false),
-                    margem_negociacao = table.Column<string>(type: "text", nullable: false),
-                    valor_orcamento = table.Column<string>(type: "text", nullable: false),
-                    previsao_lucro = table.Column<string>(type: "text", nullable: false),
-                    taxa_de_lucro = table.Column<string>(type: "text", nullable: false),
-                    OrcamentoIdOrcamento = table.Column<int>(type: "integer", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Historico", x => x.id_historico);
-                    table.ForeignKey(
-                        name: "FK_Historico_Orcamento_OrcamentoIdOrcamento",
-                        column: x => x.OrcamentoIdOrcamento,
-                        principalTable: "Orcamento",
-                        principalColumn: "id_orcamento");
                 });
 
             migrationBuilder.CreateIndex(
@@ -316,11 +306,6 @@ namespace AtelieDrinks.Migrations
                 column: "DeslocamentoIdTaxaDeslocamento");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Historico_OrcamentoIdOrcamento",
-                table: "Historico",
-                column: "OrcamentoIdOrcamento");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Insumos_Ficha_tecnicaid_ficha",
                 table: "Insumos",
                 column: "Ficha_tecnicaid_ficha");
@@ -329,11 +314,6 @@ namespace AtelieDrinks.Migrations
                 name: "IX_Orcamento_CustoTotalInsumosIdDrink",
                 table: "Orcamento",
                 column: "CustoTotalInsumosIdDrink");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orcamento_IdInsumo1",
-                table: "Orcamento",
-                column: "IdInsumo1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orcamento_RespostaDrinksIdDrink",
@@ -365,13 +345,13 @@ namespace AtelieDrinks.Migrations
                 name: "Numero_convidados");
 
             migrationBuilder.DropTable(
+                name: "Orcamento");
+
+            migrationBuilder.DropTable(
                 name: "Marca");
 
             migrationBuilder.DropTable(
                 name: "Custo_deslocamento");
-
-            migrationBuilder.DropTable(
-                name: "Orcamento");
 
             migrationBuilder.DropTable(
                 name: "Drinks");

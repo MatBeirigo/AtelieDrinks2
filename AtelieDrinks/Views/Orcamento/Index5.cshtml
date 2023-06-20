@@ -107,12 +107,9 @@
                 abrirModal();
             });
 
-            // TODO: Clicar fora do modal não fecha, necessita corrigir
             $('#fechar-Modal-card').on('click', function () {
                 fecharModal();
             });
-
-           
 
             $('#search-form').on('submit', function (e) {
                 e.preventDefault();
@@ -248,44 +245,11 @@
                 });
             }
 
-            function enviarValorTotal(totalValue) {
-                $.ajax({
-                    url: '/Orcamento/EnviarValorTotal',
-                    type: 'POST',
-                    data: { totalValue: totalValue },
-                    success: function (data) {
-                        if (data.success) {
-                            swal({
-                                title: 'Sucesso!',
-                                text: 'Valor total enviado com sucesso!',
-                                icon: 'success',
-                                button: 'Ok'
-                            }).then(function () {
-                                window.location.href = data.redirectUrl;
-                            });
-                        } else {
-                            swal({
-                                title: 'Erro!',
-                                text: data.message,
-                                icon: 'error',
-                                button: 'Ok'
-                            });
-                        }
-                    },
-                    error: function () {
-                        swal({
-                            title: 'Erro!',
-                            text: 'Ocorreu um erro ao enviar o valor total.',
-                            icon: 'error',
-                            button: 'Ok'
-                        });
-                    }
-                });
-            }
+            ValorTotalDrinks
 
             function finalizarOrcamento() {
                 $.ajax({
-                    url: '/Orcamento/FinalizarOrcamento',
+                    url: '/Orcamento/ValorTotalDrinks',
                     type: 'POST',
                     success: function (data) {
                         if (data.success) {

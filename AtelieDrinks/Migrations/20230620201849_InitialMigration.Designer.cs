@@ -13,7 +13,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AtelieDrinks.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230613204128_InitialMigration")]
+    [Migration("20230620201849_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -378,17 +378,22 @@ namespace AtelieDrinks.Migrations
                         .HasColumnType("text")
                         .HasColumnName("custo_total_insumos");
 
+                    b.Property<DateTime>("DataEvento")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_evento");
+
                     b.Property<string>("MargemNegociacao")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("margem_negociacao");
 
+                    b.Property<int>("NomeCliente")
+                        .HasColumnType("integer")
+                        .HasColumnName("nome_cliente");
+
                     b.Property<int>("NumeroPessoas")
                         .HasColumnType("integer")
                         .HasColumnName("numero_pessoas");
-
-                    b.Property<int?>("OrcamentoIdOrcamento")
-                        .HasColumnType("integer");
 
                     b.Property<string>("PrevisaoLucro")
                         .IsRequired()
@@ -416,8 +421,6 @@ namespace AtelieDrinks.Migrations
                         .HasColumnName("valor_primario");
 
                     b.HasKey("IdHistorico");
-
-                    b.HasIndex("OrcamentoIdOrcamento");
 
                     b.ToTable("Historico");
                 });
@@ -542,12 +545,17 @@ namespace AtelieDrinks.Migrations
                     b.Property<int>("CustoTotalInsumosIdDrink")
                         .HasColumnType("integer");
 
-                    b.Property<int>("IdInsumo1")
-                        .HasColumnType("integer");
+                    b.Property<DateTime>("DataEvento")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_evento");
 
                     b.Property<decimal>("MargemNegociacao")
                         .HasColumnType("numeric")
                         .HasColumnName("margem_negociacao");
+
+                    b.Property<int>("NomeCliente")
+                        .HasColumnType("integer")
+                        .HasColumnName("nome_cliente");
 
                     b.Property<int>("NumeroPessoas")
                         .HasColumnType("integer")
@@ -591,8 +599,6 @@ namespace AtelieDrinks.Migrations
 
                     b.HasIndex("CustoTotalInsumosIdDrink");
 
-                    b.HasIndex("IdInsumo1");
-
                     b.HasIndex("RespostaDrinksIdDrink");
 
                     b.HasIndex("RespostaInsumosIdInsumo");
@@ -630,13 +636,6 @@ namespace AtelieDrinks.Migrations
                     b.Navigation("Deslocamento");
                 });
 
-            modelBuilder.Entity("AtelieDrinks.Models.Historico", b =>
-                {
-                    b.HasOne("AtelieDrinks.Models.Orcamento", null)
-                        .WithMany("Historicos")
-                        .HasForeignKey("OrcamentoIdOrcamento");
-                });
-
             modelBuilder.Entity("AtelieDrinks.Models.Insumos", b =>
                 {
                     b.HasOne("AtelieDrinks.Models.Ficha_tecnica", null)
@@ -649,12 +648,6 @@ namespace AtelieDrinks.Migrations
                     b.HasOne("AtelieDrinks.Models.Drinks", "CustoTotalInsumos")
                         .WithMany()
                         .HasForeignKey("CustoTotalInsumosIdDrink")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AtelieDrinks.Models.Insumos", "IdInsumo")
-                        .WithMany()
-                        .HasForeignKey("IdInsumo1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -672,8 +665,6 @@ namespace AtelieDrinks.Migrations
 
                     b.Navigation("CustoTotalInsumos");
 
-                    b.Navigation("IdInsumo");
-
                     b.Navigation("RespostaDrinks");
 
                     b.Navigation("RespostaInsumos");
@@ -684,11 +675,6 @@ namespace AtelieDrinks.Migrations
                     b.Navigation("id_base_alcoolica");
 
                     b.Navigation("id_insumo");
-                });
-
-            modelBuilder.Entity("AtelieDrinks.Models.Orcamento", b =>
-                {
-                    b.Navigation("Historicos");
                 });
 #pragma warning restore 612, 618
         }

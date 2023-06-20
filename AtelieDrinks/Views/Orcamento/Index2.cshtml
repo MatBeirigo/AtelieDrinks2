@@ -235,7 +235,7 @@
             if (isNaN(total)) {
                 total = 0;
             }
-            var totalFormattedString = 'R$' + formatMoney(total);
+            var totalFormattedString = formatMoney(total);
             $listInputs.find('input[id^="total"]').val(totalFormattedString);
             $listInputs.find('label[id^="total-label"]').text(totalFormattedString);
         }

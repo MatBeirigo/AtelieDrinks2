@@ -12,6 +12,14 @@ namespace AtelieDrinks.Models
         [Display(Name = "ID do Histórico")]
         public int IdHistorico { get; set; }
 
+        [Column("nome_cliente")]
+        [Display(Name = "Nome_cliente")]
+        public string NomeCliente { get; set; }
+
+        [Column("data_evento")]
+        [Display(Name = "Data_evento")]
+        public string DataEvento { get; set; }
+
         [Column("numero_pessoas")]
         [Display(Name = "Número de Pessoas")]
         public int NumeroPessoas { get; set; }

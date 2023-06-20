@@ -100,7 +100,7 @@
             }
 
             $.post({
-                url: '@Url.Action("CreateNumeroPessoas", "Orcamento")',
+                url: '@Url.Action("SalvarInformacoesCliente", "Orcamento")',
                 data: { numeroPessoasParameter: numeroPessoas, nomeClienteParameter: nomeCliente, dataOrcamentoParameter: dataOrcamento },
                 success: function () {
                     var url = '@Url.Action("Index", "Orcamento", new { numberPage = 2 })';

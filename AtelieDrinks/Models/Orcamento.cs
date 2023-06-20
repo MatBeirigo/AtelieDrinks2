@@ -12,6 +12,14 @@ namespace AtelieDrinks.Models
         [Display(Name = "id_orcamento")]
         public int IdOrcamento { get; set; }
 
+        [Column("nome_cliente")]
+        [Display(Name = "Nome_cliente")]
+        public string NomeCliente { get; set; }
+
+        [Column("data_evento")]
+        [Display(Name = "Data_evento")]
+        public string DataEvento{ get; set; }
+
         [Column("numero_pessoas")]
         [Display(Name = "Numero_pessoas")]
         public int NumeroPessoas { get; set; }
@@ -84,62 +92,5 @@ namespace AtelieDrinks.Models
         [Column("qtde_drinks")]
         [Display(Name = "qtde drinks")]
         public int QtdeDrinks { get; set; }
-
-        [Column("id_insumo")]
-        [Display(Name = "id_insumo")]
-        public Insumos IdInsumo { get; set; }
-
-        public List<Historico> Historicos { get; set; }
-
-        public void PersistirDadosTemporarios(TemporaryOrcamento temporaryOrcamento)
-        {
-            NumeroPessoas = temporaryOrcamento.NumeroPessoas;
-            CustoOperacional = temporaryOrcamento.CustoOperacional;
-            RespostaInsumos = temporaryOrcamento.RespostaInsumos;
-            RespostaDrinks = temporaryOrcamento.RespostaDrinks;
-            CustoTotalInsumos = temporaryOrcamento.CustoTotalInsumos;
-            CustoTotal = temporaryOrcamento.CustoTotal;
-            BaseOrcamento = temporaryOrcamento.BaseOrcamento;
-            ComissaoComercial = temporaryOrcamento.ComissaoComercial;
-            ComissaoGerencia = temporaryOrcamento.ComissaoGerencia;
-            ValorPrimario = temporaryOrcamento.ValorPrimario;
-            CustoPorPessoa = temporaryOrcamento.CustoPorPessoa;
-            ValorArredondadoPraCima = temporaryOrcamento.ValorArredondadoPraCima;
-            MargemNegociacao = temporaryOrcamento.MargemNegociacao;
-            ValorOrcamento = temporaryOrcamento.ValorOrcamento;
-            PrevisaoLucro = temporaryOrcamento.PrevisaoLucro;
-            TaxaDeLucro = temporaryOrcamento.TaxaDeLucro;
-            QtdeConvidados = temporaryOrcamento.QtdeConvidados;
-            QtdeDrinks = temporaryOrcamento.QtdeDrinks;
-            IdInsumo = temporaryOrcamento.IdInsumo;
-        }
-
-        public void AtualizarDados(Orcamento updatedOrcamento)
-        {
-            NumeroPessoas = updatedOrcamento.NumeroPessoas;
-            CustoOperacional = updatedOrcamento.CustoOperacional;
-            RespostaInsumos = updatedOrcamento.RespostaInsumos;
-            RespostaDrinks = updatedOrcamento.RespostaDrinks;
-            CustoTotalInsumos = updatedOrcamento.CustoTotalInsumos;
-            CustoTotal = updatedOrcamento.CustoTotal;
-            BaseOrcamento = updatedOrcamento.BaseOrcamento;
-            ComissaoComercial = updatedOrcamento.ComissaoComercial;
-            ComissaoGerencia = updatedOrcamento.ComissaoGerencia;
-            ValorPrimario = updatedOrcamento.ValorPrimario;
-            CustoPorPessoa = updatedOrcamento.CustoPorPessoa;
-            ValorArredondadoPraCima = updatedOrcamento.ValorArredondadoPraCima;
-            MargemNegociacao = updatedOrcamento.MargemNegociacao;
-            ValorOrcamento = updatedOrcamento.ValorOrcamento;
-            PrevisaoLucro = updatedOrcamento.PrevisaoLucro;
-            TaxaDeLucro = updatedOrcamento.TaxaDeLucro;
-            QtdeConvidados = updatedOrcamento.QtdeConvidados;
-            QtdeDrinks = updatedOrcamento.QtdeDrinks;
-            IdInsumo = updatedOrcamento.IdInsumo;
-        }
-
-        public void SetNumeroPessoas(int numeroPessoas)
-        {
-            NumeroPessoas = numeroPessoas;
-        }
     }
 }

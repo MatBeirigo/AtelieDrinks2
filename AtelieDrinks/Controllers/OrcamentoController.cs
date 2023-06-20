@@ -42,14 +42,14 @@ namespace AtelieDrinks.Controllers
         /// </summary>
         /// <param name="numero_pessoas"></param>
         /// <returns></returns>
-        [HttpPost, ActionName("CreateNumeroPessoas")]
-        public bool CreateNumeroPessoas(int numeroPessoasParameter, string nomeClienteParameter, DateTime? dataOrcamentoParameter)
+        [HttpPost, ActionName("SalvarInformacoesCliente")]
+        public bool SalvarInformacoesCliente(int numeroPessoasParameter, string nomeClienteParameter, DateTime? dataOrcamentoParameter)
         {
             try
             {
                 if (nomeClienteParameter.IsNullOrEmpty())
                 {
-                    nomeClienteParameter = "";
+                    nomeClienteParameter = "Não informado";
                 }
 
                 if (!dataOrcamentoParameter.HasValue)
@@ -58,8 +58,8 @@ namespace AtelieDrinks.Controllers
                 }
 
                 Response.Cookies.Append("NumeroPessoas", numeroPessoasParameter.ToString());
-                Response.Cookies.Append("NomeCliente", nomeClienteParameter.ToString());
-                Response.Cookies.Append("DataEvento", dataOrcamentoParameter.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture));
+                Response.Cookies.Append("NomeCliente", nomeClienteParameter.Replace(" ", "-").ToUpper());
+                Response.Cookies.Append("DataEvento", dataOrcamentoParameter.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
 
                 return true;
             }
@@ -214,6 +214,9 @@ namespace AtelieDrinks.Controllers
         {
             try
             {
+                string nomeCliente = Request.Cookies["NomeCliente"].Replace("-", " ");
+                string dataEvento = Request.Cookies["DataEvento"];
+
                 int numeroPessoas = int.Parse(Request.Cookies["NumeroPessoas"]);
                 double custoOperacional = ConvertToDouble(Request.Cookies["CustoOperacional"]);
                 double custoTotalInsumos = ConvertToDouble(Request.Cookies["ValorTotalDrinks"]);
@@ -233,6 +236,8 @@ namespace AtelieDrinks.Controllers
                 var historico = new Historico
                 {
                     IdHistorico = 0,
+                    NomeCliente = nomeCliente,
+                    DataEvento = dataEvento,
                     NumeroPessoas = numeroPessoas,
                     CustoOperacional = custoOperacional.ToString("0.00"),
                     CustoTotalInsumos = custoTotalInsumos.ToString("0.00"),
@@ -252,6 +257,8 @@ namespace AtelieDrinks.Controllers
                 _context.Historico.Add(historico);
                 _context.SaveChanges();
 
+                Response.Cookies.Delete("NomeCliente");
+                Response.Cookies.Delete("DataEvento");
                 Response.Cookies.Delete("NumeroPessoas");
                 Response.Cookies.Delete("CustoOperacional");
                 Response.Cookies.Delete("CustoTaxaDeslocamento");
