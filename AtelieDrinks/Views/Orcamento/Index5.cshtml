@@ -107,6 +107,7 @@
                 abrirModal();
             });
 
+            // TODO: Clicar fora do modal não fecha, necessita corrigir
             $('#fechar-Modal-card').on('click', function () {
                 fecharModal();
             });
@@ -143,7 +144,6 @@
 
             function abrirModal() {
                 $('#background-black').fadeIn();
-                $('.content').addClass('blur');
 
                 showLoading(true);
 
@@ -182,113 +182,73 @@
                             table.append(row);
                         }
                         showLoading(false);
-                    }
-                    else {
+                    } else {
+                        table.append($('<tr></tr>').append($('<td></td>').attr('colspan', '4').text('Nenhum drink disponível.')));
                         showLoading(false);
-                        swal({
-                            title: 'Erro!',
-                            text: 'Nenhum drink encontrado.',
-                            icon: 'error',
-                            button: 'Ok'
-                        });
+                    }
+                }).fail(function () {
+                    console.error('Ocorreu um erro ao buscar os dados dos drinks.');
+                    showLoading(false);
+                });
+            }
+
+            function enviarValorTotal(valor_Drinks) {
+                $.post({
+                    url: '@Url.Action("ValorTotalDrinks", "Orcamento")',
+                    data: { valorDrinksParameter: valor_Drinks },
+                    success: function (result) {
+                        if (result) {
+                            fecharModal();
+                        } else {
+                            swal("Erro", "Ocorreu um erro ao enviar o valor total dos drinks.", "error");
+                        }
+                    },
+                    error: function () {
+                        console.error('Ocorreu um erro na requisição para enviar o valor total dos drinks.');
                     }
                 });
             }
 
             function fecharModal() {
                 $('#background-black').fadeOut();
-                $('.content').removeClass('blur');
             }
 
-            function searchDrinks(searchText) {
-                showLoading(true);
+            function searchDrinks(keyword) {
+                var drinkContainer = $('.drink-container');
+                var table = drinkContainer.find('.drink-table');
+                var rows = table.find('tr');
 
-                $.get('/Drinks/PesquisarDrinks', { searchText: searchText }, function (data) {
-                    var drinkContainer = $('.drink-container');
-                    var table = drinkContainer.find('.drink-table');
-                    var headerRow = table.find('.header-row');
-                    table.empty();
-                    table.append(headerRow);
+                if (keyword) {
+                    rows.each(function () {
+                        var row = $(this);
+                        var nameCell = row.find('td:nth-child(2)');
+                        var name = nameCell.text();
 
-                    if (data && data.length > 0) {
-                        for (var i = 0; i < data.length; i++) {
-                            var drink = data[i];
-
-                            var checkboxCell = $('<td></td>').css('text-align', 'center').append(
-                                $('<input>').attr('type', 'checkbox').attr('id', 'drink' + i).addClass('drink-checkbox')
-                            );
-                            var nameCell = $('<td></td>').text(drink.nomeDrink);
-                            var costCell = $('<td></td>').text(drink.custoTotalDosDrinks.toFixed(2));
-                            var quantityCell = $('<td></td>').append(
-                                $('<input>').attr('type', 'number').addClass('drink-quantity').val(0)
-                            );
-
-                            var row = $('<tr></tr>');
-                            row.append(checkboxCell);
-                            row.append(nameCell);
-                            row.append(costCell);
-                            row.append(quantityCell);
-
-                            table.append(row);
+                        if (name.toLowerCase().indexOf(keyword.toLowerCase()) === -1) {
+                            row.hide();
+                        } else {
+                            row.show();
                         }
-                        showLoading(false);
-                    }
-                    else {
-                        showLoading(false);
-                        swal({
-                            title: 'Erro!',
-                            text: 'Nenhum drink encontrado.',
-                            icon: 'error',
-                            button: 'Ok'
-                        });
-                    }
-                });
+                    });
+                } else {
+                    rows.show();
+                }
             }
 
             function finalizarOrcamento() {
-                $.ajax({
-                    url: '/Orcamento/FinalizarOrcamento',
-                    type: 'POST',
-                    success: function (data) {
-                        if (data.success) {
-                            swal({
-                                title: 'Sucesso!',
-                                text: 'Orçamento finalizado com sucesso!',
-                                icon: 'success',
-                                button: 'Ok'
-                            }).then(function () {
-                                window.location.href = data.redirectUrl;
-                            });
+                $.post({
+                    url: '@Url.Action("FinalizarOrcamento", "Orcamento")',
+                    success: function (result) {
+                        if (result) {
+                            window.location = '@Url.Action("Index", "Historico")';
                         } else {
-                            swal({
-                                title: 'Erro!',
-                                text: data.message,
-                                icon: 'error',
-                                button: 'Ok'
-                            });
+                            swal("Erro", "Ocorreu um erro ao finalizar o orcamento.", "error");
                         }
                     },
                     error: function () {
-                        swal({
-                            title: 'Erro!',
-                            text: 'Ocorreu um erro ao finalizar o orçamento.',
-                            icon: 'error',
-                            button: 'Ok'
-                        });
+                        console.error('Ocorreu um erro na requisição para finalizar o orcamento.');
                     }
                 });
-            }
-
-            function showLoading(show) {
-                if (show) {
-                    $('.content-box').addClass('blur');
-                    $('.background-black').addClass('blur');
-                    $('.hero-banner').addClass('blur');
-                } else {
-                    $('.content-box').removeClass('blur');
-                    $('.background-black').removeClass('blur');
-                    $('.hero-banner').removeClass('blur');
-                }
             }
         });
     </script>

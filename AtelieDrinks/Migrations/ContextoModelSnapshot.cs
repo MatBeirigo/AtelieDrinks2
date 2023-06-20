@@ -375,8 +375,9 @@ namespace AtelieDrinks.Migrations
                         .HasColumnType("text")
                         .HasColumnName("custo_total_insumos");
 
-                    b.Property<DateTime>("DataEvento")
-                        .HasColumnType("timestamp with time zone")
+                    b.Property<string>("DataEvento")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("data_evento");
 
                     b.Property<string>("MargemNegociacao")
@@ -384,8 +385,9 @@ namespace AtelieDrinks.Migrations
                         .HasColumnType("text")
                         .HasColumnName("margem_negociacao");
 
-                    b.Property<int>("NomeCliente")
-                        .HasColumnType("integer")
+                    b.Property<string>("NomeCliente")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("nome_cliente");
 
                     b.Property<int>("NumeroPessoas")
@@ -542,16 +544,18 @@ namespace AtelieDrinks.Migrations
                     b.Property<int>("CustoTotalInsumosIdDrink")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("DataEvento")
-                        .HasColumnType("timestamp with time zone")
+                    b.Property<string>("DataEvento")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("data_evento");
 
                     b.Property<decimal>("MargemNegociacao")
                         .HasColumnType("numeric")
                         .HasColumnName("margem_negociacao");
 
-                    b.Property<int>("NomeCliente")
-                        .HasColumnType("integer")
+                    b.Property<string>("NomeCliente")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("nome_cliente");
 
                     b.Property<int>("NumeroPessoas")

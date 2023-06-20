@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -86,8 +87,8 @@ namespace AtelieDrinks.Migrations
                 {
                     id_historico = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    nome_cliente = table.Column<int>(type: "integer", nullable: false),
-                    data_evento = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    nome_cliente = table.Column<string>(type: "text", nullable: false),
+                    data_evento = table.Column<string>(type: "text", nullable: false),
                     numero_pessoas = table.Column<int>(type: "integer", nullable: false),
                     custo_operacional = table.Column<string>(type: "text", nullable: false),
                     custo_total_insumos = table.Column<string>(type: "text", nullable: false),
@@ -241,8 +242,8 @@ namespace AtelieDrinks.Migrations
                 {
                     id_orcamento = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    nome_cliente = table.Column<int>(type: "integer", nullable: false),
-                    data_evento = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    nome_cliente = table.Column<string>(type: "text", nullable: false),
+                    data_evento = table.Column<string>(type: "text", nullable: false),
                     numero_pessoas = table.Column<int>(type: "integer", nullable: false),
                     custo_operacional = table.Column<int>(type: "integer", nullable: false),
                     RespostaInsumosIdInsumo = table.Column<int>(type: "integer", nullable: false),

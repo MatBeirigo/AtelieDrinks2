@@ -42,7 +42,7 @@
                         <tr>
 
                             <th>
-                                Cliente
+                                @Html.DisplayNameFor(model => model.NomeCliente)
                             </th>
 
                             <th>
@@ -61,7 +61,7 @@
                                 @Html.DisplayNameFor(model => model.PrevisaoLucro)
                             </th>
                             <th>
-                                Data
+                                @Html.DisplayNameFor(model => model.DataEvento)
                             </th>
 
                             <th>
@@ -76,7 +76,7 @@
                             <tr>
 
                                 <td>
-                                    XXX
+                                    @Html.DisplayFor(modelItem => item.NomeCliente)
                                 </td>
 
                                 <td>
@@ -94,7 +94,7 @@
                                     @Html.DisplayFor(modelItem => item.PrevisaoLucro)
                                 </td>
                                 <td>
-                                    XXX
+                                    @Html.DisplayFor(modelItem => item.DataEvento)
                                 </td>
 
                                 <td>
