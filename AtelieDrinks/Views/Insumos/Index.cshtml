@@ -4,36 +4,52 @@
     ViewData["Title"] = "Index";
 }
 
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Insumos</title>
 
-    <!-- CSS -->
-    <link href="@Url.Content("~/css/menulateral.css")" rel="stylesheet">
-    <!-- JS -->
-    <script src="@Url.Content("~/js/menulateral.js")" defer></script>
+    <style>
+        .edit-box {
+            position: relative;
+            left: 100%;
+            background: none;
+            height: 28px;
+            padding: 10px;
+            border: 1px solid green;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5%;
+        }
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    </style>
+
+
 </head>
 <body>
-   <div class="cabecalho">
+    <div class="cabecalho">
         <div class="container">
-            <img src="~/images/coqueteis.png" alt="drinks" class="img-cabecalho"> 
+            <img src="~/images/coqueteis.png" alt="drinks" class="img-cabecalho">
             <div class="texto">
                 <h1>INSUMOS</h1>
             </div>
-        </div>       
+        </div>
     </div>
     <div class="meio">
+        <h2>Insumos Gerais</h2>
+
         <a href="@Url.Action("Create")" class="add-btn">
-            <div  class="add-box">
+            <div class="add-box" style="margin-left:13px">
                 <img src="~/images/icon-mais.svg" alt="mais" height="15px" width="15px">
                 <p style="color:green" class="add-txt">Adicionar</p>
             </div>
         </a>
+
+
         <div class="search-box">
             <input type="text" class="search-txt" id="search-input" placeholder="">
             <a href="#" class="search-btn">
@@ -56,57 +72,32 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                            <tr>
-                                <td>
-                                A @Html.DisplayFor(modelItem => item.NomeInsumo)
-                                </td>
-                                <td>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NomeInsumo)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.QuantidadeInsumo)
-                                </td>
-                                <td>
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.ValorInsumo)
-                                </td>
-                                <td>
+                            </td>
+                            <td>
                                 <a asp-action="Edit" asp-route-id="@item.IdInsumo"><i class="fas fa-edit"></i></a> |
                                 <a asp-action="Details" asp-route-id="@item.IdInsumo"><i class="fas fa-info-circle"></i></a> |
                                 <a asp-action="Delete" asp-route-id="@item.IdInsumo"><i class="fas fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
+                            </td>
+                        </tr>
                     }
                 </tbody>
-            </table>
+            </table><a href="@Url.Action("Index", "Insumos", new { numberPage = 2 })" class="add-btn">
+              
+            </a>
         </div>
+
     </div>
 
-    <!-- Initialize DataTable and add custom JavaScript code -->
-    <script>
-        $(document).ready(function () {
-            $("#search-input").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#tabela-insumos tbody tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
 
-            $('#tabela-insumos').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    {
-                        extend: 'excel',
-                        exportOptions: {
-                            columns: [0, 1, 2] // Specify the columns to include in the Excel export
-                        }
-                    },
-                    {
-                        extend: 'pdf',
-                        exportOptions: {
-                            columns: [0, 1, 2] // Specify the columns to include in the PDF export
-                        }
-                    },
-                    'print'
-                ]
-            });
-        });
-    </script>
+
 </body>
 </html>

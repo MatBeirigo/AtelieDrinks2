@@ -4,101 +4,141 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h4>Orcamento</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdOrcamento" />
-            <div class="form-group">
-                <label asp-for="NumeroPessoas" class="control-label"></label>
-                <input asp-for="NumeroPessoas" class="form-control" />
-                <span asp-validation-for="NumeroPessoas" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustoOperacional" class="control-label"></label>
-                <input asp-for="CustoOperacional" class="form-control" />
-                <span asp-validation-for="CustoOperacional" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustoTotalInsumos" class="control-label"></label>
-                <input asp-for="CustoTotalInsumos" class="form-control" />
-                <span asp-validation-for="CustoTotalInsumos" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustoTotal" class="control-label"></label>
-                <input asp-for="CustoTotal" class="form-control" />
-                <span asp-validation-for="CustoTotal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BaseOrcamento" class="control-label"></label>
-                <input asp-for="BaseOrcamento" class="form-control" />
-                <span asp-validation-for="BaseOrcamento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ComissaoComercial" class="control-label"></label>
-                <input asp-for="ComissaoComercial" class="form-control" />
-                <span asp-validation-for="ComissaoComercial" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ComissaoGerencia" class="control-label"></label>
-                <input asp-for="ComissaoGerencia" class="form-control" />
-                <span asp-validation-for="ComissaoGerencia" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ValorPrimario" class="control-label"></label>
-                <input asp-for="ValorPrimario" class="form-control" />
-                <span asp-validation-for="ValorPrimario" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustoPorPessoa" class="control-label"></label>
-                <input asp-for="CustoPorPessoa" class="form-control" />
-                <span asp-validation-for="CustoPorPessoa" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ValorArredondadoPraCima" class="control-label"></label>
-                <input asp-for="ValorArredondadoPraCima" class="form-control" />
-                <span asp-validation-for="ValorArredondadoPraCima" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MargemNegociacao" class="control-label"></label>
-                <input asp-for="MargemNegociacao" class="form-control" />
-                <span asp-validation-for="MargemNegociacao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ValorOrcamento" class="control-label"></label>
-                <input asp-for="ValorOrcamento" class="form-control" />
-                <span asp-validation-for="ValorOrcamento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PrevisaoLucro" class="control-label"></label>
-                <input asp-for="PrevisaoLucro" class="form-control" />
-                <span asp-validation-for="PrevisaoLucro" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="QtdeConvidados" class="control-label"></label>
-                <input asp-for="QtdeConvidados" class="form-control" />
-                <span asp-validation-for="QtdeConvidados" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="QtdeDrinks" class="control-label"></label>
-                <input asp-for="QtdeDrinks" class="form-control" />
-                <span asp-validation-for="QtdeDrinks" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <link rel="stylesheet" href="/css/orcamento.css">
+
+    <style>
+        .scrollable-content {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    </style>
+
+    <title>Historico_Editar</title>
+</head>
+<body>
+    <!--hero-banner-->
+    <div class="hero-banner">
+        <h1 class="title-banner">Historico</h1>
+        <h3>Editar Orçamento</h3>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <!--content-->
+    <div class="black-box ">
+        <div class="content">
+            <!--box-->
+            <form asp-action="Edit">
+                <div class="content-box scrollable-content">
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+                    <div style="margin: 750px 0 50px 0;" class="margin-box">
+                        <h3>Informações do Orçamento</h3>
+                        <p style="margin-top:5px">Detalhes do orçamento:</p>
+                        <div>
+
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="IdOrcamento" />
+                            <div class="form-group">
+                                <label asp-for="NumeroPessoas" class="control-label"></label>
+                                <input asp-for="NumeroPessoas" class="form-control" />
+                                <span asp-validation-for="NumeroPessoas" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CustoOperacional" class="control-label"></label>
+                                <input asp-for="CustoOperacional" class="form-control" />
+                                <span asp-validation-for="CustoOperacional" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CustoTotalInsumos" class="control-label"></label>
+                                <input asp-for="CustoTotalInsumos" class="form-control" />
+                                <span asp-validation-for="CustoTotalInsumos" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="BaseOrcamento" class="control-label"></label>
+                                <input asp-for="BaseOrcamento" class="form-control" />
+                                <span asp-validation-for="BaseOrcamento" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ComissaoComercial" class="control-label"></label>
+                                <input asp-for="ComissaoComercial" class="form-control" />
+                                <span asp-validation-for="ComissaoComercial" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ComissaoGerencia" class="control-label"></label>
+                                <input asp-for="ComissaoGerencia" class="form-control" />
+                                <span asp-validation-for="ComissaoGerencia" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ValorPrimario" class="control-label"></label>
+                                <input asp-for="ValorPrimario" class="form-control" />
+                                <span asp-validation-for="ValorPrimario" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CustoPorPessoa" class="control-label"></label>
+                                <input asp-for="CustoPorPessoa" class="form-control" />
+                                <span asp-validation-for="CustoPorPessoa" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ValorArredondadoPraCima" class="control-label"></label>
+                                <input asp-for="ValorArredondadoPraCima" class="form-control" />
+                                <span asp-validation-for="ValorArredondadoPraCima" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MargemNegociacao" class="control-label"></label>
+                                <input asp-for="MargemNegociacao" class="form-control" />
+                                <span asp-validation-for="MargemNegociacao" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ValorOrcamento" class="control-label"></label>
+                                <input asp-for="ValorOrcamento" class="form-control" />
+                                <span asp-validation-for="ValorOrcamento" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PrevisaoLucro" class="control-label"></label>
+                                <input asp-for="PrevisaoLucro" class="form-control" />
+                                <span asp-validation-for="PrevisaoLucro" class="text-danger"></span>
+                            </div>
+
+
+
+                        </div> <!--Fim margin-box-->
+
+                    </div> <!--fim content box-->
+
+
+
+                </div> <!--fim CONTENT-->
+                <div class="list-buttons" style="justify-content:center">
+                    <button class="button excluir" onclick="window.location='@Url.Action("Index", "Historico")'">Voltar</button>
+                    <input class="button continuar btn btn-primary" type="submit" value="Save" />
+                </div>
+            </form>
+
+        </div>  <!--fim BLACKBOX-->
+
+        <script src="https://cdn.jsdelivr.net/npm/intl-numbers-with-separator@1.0.3/dist/intl-numbers-with-separator.js"></script>
+        <script>
+            function formatCurrency(value) {
+                var formatter = new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                });
+
+                return formatter.format(value);
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var currencyElements = document.getElementsByClassName('currency');
+                for (var i = 0; i < currencyElements.length; i++) {
+                    var value = parseFloat(currencyElements[i].textContent.replace(',', '.'));
+                    currencyElements[i].textContent = formatCurrency(value);
+                }
+            });
+        </script>
+</body>
+</html>

@@ -21,14 +21,13 @@ namespace AtelieDrinks.Controllers
 
         public async Task<IActionResult> Index()
         {
-              return _context.Historico != null ? 
-                          View(await _context.Historico.ToListAsync()) :
-                          Problem("Entity set 'Contexto.Historico'  is null.");
+            var historicos = await _context.Historico.ToListAsync();
+            return View(historicos);
         }
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Historico == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -48,10 +47,9 @@ namespace AtelieDrinks.Controllers
             return View();
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_historico,numero_pessoas,CustoOperacional,custo_total_insumos,custo_total,base_orcamento,comissao_comercial,comissao_gerencia,valor_primario,custo_por_pessoa,valor_arredondado_pra_cima,margem_negociacao,valor_orcamento,previsao_lucro,qtde_convidados,qtde_drinks")] Historico historico)
+        public async Task<IActionResult> Create([Bind("IdHistorico,NumeroPessoas,CustoOperacional,CustoTotalInsumos,CustoTotal,BaseOrcamento,ComissaoComercial,ComissaoGerencia,ValorPrimario,CustoPorPessoa,ValorArredondadoPraCima,MargemNegociacao,ValorOrcamento,PrevisaoLucro")] Historico historico)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +62,7 @@ namespace AtelieDrinks.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Historico == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -77,10 +75,9 @@ namespace AtelieDrinks.Controllers
             return View(historico);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_historico,numero_pessoas,CustoOperacional,custo_total_insumos,custo_total,base_orcamento,comissao_comercial,comissao_gerencia,valor_primario,custo_por_pessoa,valor_arredondado_pra_cima,margem_negociacao,valor_orcamento,previsao_lucro,qtde_convidados,qtde_drinks")] Historico historico)
+        public async Task<IActionResult> Edit(int id, [Bind("IdHistorico,NumeroPessoas,CustoOperacional,CustoTotalInsumos,CustoTotal,BaseOrcamento,ComissaoComercial,ComissaoGerencia,ValorPrimario,CustoPorPessoa,ValorArredondadoPraCima,MargemNegociacao,ValorOrcamento,PrevisaoLucro")] Historico historico)
         {
             if (id != historico.IdHistorico)
             {
@@ -112,7 +109,7 @@ namespace AtelieDrinks.Controllers
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Historico == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -131,23 +128,20 @@ namespace AtelieDrinks.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Historico == null)
-            {
-                return Problem("Entity set 'Contexto.Historico'  is null.");
-            }
             var historico = await _context.Historico.FindAsync(id);
-            if (historico != null)
+            if (historico == null)
             {
-                _context.Historico.Remove(historico);
+                return NotFound();
             }
-            
+
+            _context.Historico.Remove(historico);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool HistoricoExists(int id)
         {
-          return (_context.Historico?.Any(e => e.IdHistorico == id)).GetValueOrDefault();
+            return _context.Historico.Any(e => e.IdHistorico == id);
         }
     }
 }

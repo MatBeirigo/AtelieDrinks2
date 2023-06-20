@@ -104,24 +104,19 @@
                                 <span asp-validation-for="PrevisaoLucro" class="text-danger"></span>
                             </div>
 
-
-
                         </div> <!--Fim margin-box-->
 
                     </div> <!--fim content box-->
 
-
-
                 </div> <!--fim CONTENT-->
                 <div class="list-buttons" style="justify-content:center">
-                    <button class="button excluir" onclick="window.location='@Url.Action("Index", "Historico")'">Voltar</button>
-                    <input class="button continuar btn btn-primary" type="submit" value="Save"/>
+                    <a href="@Url.Action("Index", "Historico")" class="button excluir">Voltar</a>
+                    <input class="button continuar btn btn-primary" type="submit" value="Save" />
                 </div>
             </form>
 
         </div>  <!--fim BLACKBOX-->
 
-        <script src="https://cdn.jsdelivr.net/npm/intl-numbers-with-separator@1.0.3/dist/intl-numbers-with-separator.js"></script>
         <script>
             function formatCurrency(value) {
                 var formatter = new Intl.NumberFormat('pt-BR', {
