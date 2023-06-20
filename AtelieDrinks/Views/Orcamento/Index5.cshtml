@@ -245,11 +245,9 @@
                 });
             }
 
-            ValorTotalDrinks
-
             function finalizarOrcamento() {
                 $.ajax({
-                    url: '/Orcamento/ValorTotalDrinks',
+                    url: '/Orcamento/FinalizarOrcamento',
                     type: 'POST',
                     success: function (data) {
                         if (data.success) {
