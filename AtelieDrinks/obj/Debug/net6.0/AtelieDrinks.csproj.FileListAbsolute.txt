@@ -2696,3 +2696,4 @@ C:\Users\Matheus Beirigo\source\repos\AtelieDrinks2\AtelieDrinks\obj\Debug\net6.
 C:\Users\Matheus Beirigo\source\repos\AtelieDrinks2\AtelieDrinks\obj\Debug\net6.0\AtelieDrinks.pdb
 C:\Users\Matheus Beirigo\source\repos\AtelieDrinks2\AtelieDrinks\obj\Debug\net6.0\AtelieDrinks.genruntimeconfig.cache
 C:\Users\Matheus Beirigo\source\repos\AtelieDrinks2\AtelieDrinks\obj\Debug\net6.0\ref\AtelieDrinks.dll
+C:\Users\bruno\Source\Repos\AtelieDrinks\AtelieDrinks\bin\Debug\net6.0\RestSharp.dll

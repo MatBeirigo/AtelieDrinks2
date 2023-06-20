@@ -77,6 +77,8 @@ body {
 
 /* ---------- SIDEBAR ---------- */
 
+
+
 #sidebar {
     grid-area: sidebar;
     height: 100%;

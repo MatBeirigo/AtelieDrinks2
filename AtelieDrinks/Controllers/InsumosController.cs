@@ -72,7 +72,7 @@ namespace AtelieDrinks.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_insumo,nome_insumo,quantidade,custo_insumo")] Insumos insumos)
+        public async Task<IActionResult> Create([Bind("IdInsumo,NomeInsumo,QuantidadeInsumo,ValorInsumo")] Insumos insumos)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +104,7 @@ namespace AtelieDrinks.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_insumo,nome_insumo,quantidade,custo_insumo")] Insumos insumos)
+        public async Task<IActionResult> Edit(int id, [Bind("IdInsumo,NomeInsumo,QuantidadeInsumo,ValorInsumo")] Insumos insumos)
         {
             if (id != insumos.IdInsumo)
             {

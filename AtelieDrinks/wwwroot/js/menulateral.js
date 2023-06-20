@@ -3,21 +3,6 @@
 var sidebarOpen = false;
 var sidebar = document.getElementById("sidebar");
 
-/*
-function openSidebar() {
-    if (!sidebarOpen) {
-        sidebar.classList.add("sidebar-responsive");
-        sidebarOpen = true;
-    }
-}
-
-function closeSidebar() {
-    if (sidebarOpen) {
-        sidebar.classList.remove("sidebar-responsive");
-        sidebarOpen = false;
-    }
-}
-*/
 
 
 function openSidebar() {
@@ -137,23 +122,5 @@ var areaChartOptions = {
 var areaChart = new ApexCharts(document.querySelector("#area-chart"), areaChartOptions);
 areaChart.render();
 
-/* ---------- Data table ---------- */
-
-$(document).ready(function () {
-    $("#search-input").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        $("#tabela-insumos tbody tr").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-    });
-    $('#tabela-insumos').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'excel',
-            'pdf',
-            'print'
-        ]
-    });
-});
 
 
