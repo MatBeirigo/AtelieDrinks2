@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AtelieDrinks.Data;
 using AtelieDrinks.Models;
@@ -19,7 +14,6 @@ namespace AtelieDrinks.Controllers
             _context = context;
         }
 
-        // GET: Insumos
         public async Task<IActionResult> Index()
         {
               return _context.Insumos != null ? 
@@ -27,7 +21,6 @@ namespace AtelieDrinks.Controllers
                           Problem("Entity set 'Contexto.Insumos'  is null.");
         }
 
-        // GET: Insumos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Insumos == null)
@@ -45,31 +38,12 @@ namespace AtelieDrinks.Controllers
             return View(insumos);
         }
 
-        //private readonly Data.Contexto _context;
-        /*[Route("Insumos/{numberPage:int?}")]
-        public ActionResult Index(int? numberPage)
-        {
-            switch (numberPage)
-            {
-                case 1:
-                    return View("~/Views/Insumos/Index.cshtml");
-                case 2:
-                    return View("~/Views/Insumos/Index2.cshtml");
-                default:
-                    return NotFound(); // Retorna um erro 404 se o número da página não for válido
-            }
-        }*/
-
-        // GET: Insumos/Create
         public IActionResult Create()
         {
             return View();
         }
         
 
-        // POST: Insumos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdInsumo,NomeInsumo,QuantidadeInsumo,ValorInsumo")] Insumos insumos)
@@ -83,7 +57,6 @@ namespace AtelieDrinks.Controllers
             return View(insumos);
         }
 
-        // GET: Insumos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Insumos == null)
@@ -99,9 +72,6 @@ namespace AtelieDrinks.Controllers
             return View(insumos);
         }
 
-        // POST: Insumos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdInsumo,NomeInsumo,QuantidadeInsumo,ValorInsumo")] Insumos insumos)
@@ -134,7 +104,6 @@ namespace AtelieDrinks.Controllers
             return View(insumos);
         }
 
-        // GET: Insumos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Insumos == null)
@@ -152,7 +121,6 @@ namespace AtelieDrinks.Controllers
             return View(insumos);
         }
 
-        // POST: Insumos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

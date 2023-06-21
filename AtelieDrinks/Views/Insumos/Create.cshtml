@@ -28,63 +28,56 @@
                 <div class="margin-box" style="margin: 50px 0 50px 0;">
                     <h3>Adicionar Insumos</h3>
                     <p style="margin-top:5px">Nome, Quantidade, Custo...</p>
-                 <form asp-action="Create">
+                    <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="row-inputs">
                             <div class="list-inputs">
                                 <!--Lista Nome do insumo-->
                                 <div class="form-input" style="width:470px">
-                                <!--Input NOME-->
-                                    <input asp-for="NomeInsumo" type="value" required="">
+                                    <!--Input NOME-->
+                                    <input asp-for="NomeInsumo" type="text" required="">
                                     <label><span asp-validation-for="NomeInsumo">Nome</span></label>
                                 </div>
                             </div> <!--Fim lista Nome do insumo-->
 
-                            
                             <div class="list-inputs">
                                 <!--Lista Quantidade-->
                                 <div class="form-input" style="width:470px">
-                                <!--Input QUANTIDADE-->
-                                    <input asp-for="QuantidadeInsumo" type="value" required="">
+                                    <!--Input QUANTIDADE-->
+                                    <input asp-for="QuantidadeInsumo" type="number" required="">
                                     <label><span asp-validation-for="QuantidadeInsumo">Quantidade</span></label>
                                 </div>
                             </div> <!--Fim lista Quantidade-->
 
-
                             <div class="list-inputs">
-                                <!--Lista Nome do insumo-->
+                                <!--Lista Custo-->
                                 <div class="form-input" style="width:470px">
-                                    <!--Input Nome do Insumo-->
-                                    <input asp-for="ValorInsumo" type="value" required="">
+                                    <!--Input Custo-->
+                                    <input asp-for="ValorInsumo" type="text" required="">
                                     <label><span asp-validation-for="ValorInsumo">Custo</span></label>
                                 </div>
-                            </div> <!--Fim lista Nome do insumo-->
-
-
+                            </div> <!--Fim lista Custo-->
                         </div> <!--Fim row-inputs-->
-                        <div class="list-buttonsinsu">
 
+                        <div class="list-buttonsinsu">
                             <button class="button excluir" onclick="window.location='@Url.Action("Index")'">Voltar</button>
-                            <button type="submit" class="button continuar" type="submit">Adicionar</button>
+                            <button type="submit" class="button continuar">Adicionar</button>
                         </div> <!--fim lista-buttons-->
                     </form>
-                   
                 </div> <!--Fim margin-box-->
-
             </div> <!--fim content box-->
-         
-              
-         
         </div>
     </div>
 </body>
 
 <style>
-    .list-buttonsinsu{
-     padding-top:20px;
+    .list-buttonsinsu {
+        padding-top: 20px;
     }
 </style>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

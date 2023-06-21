@@ -1,9 +1,11 @@
 ﻿@model AtelieDrinks.Models.Insumos
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Details";
 }
 
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,87 +13,75 @@
 
     <link rel="stylesheet" href="/css/orcamento.css">
 
-    <title>Detalhes</title>
-</head>
+    <style>
+        .scrollable-content {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    </style>
 
+    <title>Insumos_detalhe</title>
+</head>
 <body>
-    <!--hero-banner-->
     <div class="hero-banner">
-        <h1 class="title-banner">DETALHES DOS INSUMOS</h1>
+        <h1 class="title-banner">Insumos</h1>
+        <h3>Detalhes</h3>
     </div>
 
-    <!--content-->
-    <div class="black-box">
+    <div class="black-box ">
         <div class="content">
-            <!--box-->
-            <div class="content-box">
-                <div class="margin-box" style="margin: 50px 0 50px 0;">
-                    <h3>Detalhes dos Insumos</h3>
-                    <p style="margin-top:5px">Nome, Quantidade, Custo...</p>
-                 <form asp-action="Create">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input type="hidden" asp-for="IdInsumo" />
-                        <div class="row-inputs">
-                            <div class="list-inputs">
-                                <!--Lista Nome do insumo-->
-                                <div class="form-input" style="width:470px">
-                                <!--Input NOME-->
-                                    <input asp-for="NomeInsumo" type="value" required="" disabled>
-                                    <label>
-                                        <span asp-validation-for="NomeInsumo" style="color: var(--azul-input);
-transform: translateY(-25px)">Nome</span></label>
-                                </div>
-                            </div> <!--Fim lista Nome do insumo-->
+            <div class="content-box scrollable-content">
+                <div style="margin: 50px 0 50px 0;" class="margin-box">
+                    <h3>Detalhes do insumo</h3>
+                    <p style="margin-top:5px">@Html.DisplayFor(model => model.NomeInsumo)</p>
 
-                            
-                            <div class="list-inputs">
-                                <!--Lista Quantidade-->
-                                <div class="form-input" style="width:470px">
-                                <!--Input QUANTIDADE-->
-                                    <input asp-for="QuantidadeInsumo" type="value" required="" disabled>
-                                    <label>
-                                        <span asp-validation-for="QuantidadeInsumo" style="color: var(--azul-input);
-transform: translateY(-25px)">Quantidade</span></label>
-                                </div>
-                            </div> <!--Fim lista Quantidade-->
+                    <div>
+                        <div class="field-grid">
+                            <div class="field">
+                                <label>Nome do Insumo: </label>
+                                <span>@Html.DisplayFor(model => model.NomeInsumo)</span>
+                            </div>
+                            <div class="field">
+                                <label>Valor do Insumo: </label>
+                                <span class="currency">@Html.DisplayFor(model => model.ValorInsumo)</span>
+                            </div>
+                            <div class="field">
+                                <label>Quantidade: </label>
+                                <span>@Html.DisplayFor(model => model.QuantidadeInsumo)</span>
+                            </div>
+                        </div>
+                    </div>
 
-
-                            <div class="list-inputs">
-                                <!--Lista Nome do insumo-->
-                                <div class="form-input" style="width:470px">
-                                    <!--Input Nome do Insumo-->
-                                    <input asp-for="ValorInsumo" type="value" required="" disabled>
-                                    <label>
-                                        <span asp-validation-for="ValorInsumo" style="color: var(--azul-input);
-transform: translateY(-25px)">Custo</span></label>
-                                </div>
-                            </div> <!--Fim lista Nome do insumo-->
-
-
-                        </div> <!--Fim row-inputs-->
-                        <div class="list-buttonsinsu">
-
-                            <button class="button excluir" onclick="window.location='@Url.Action("Index")'">Voltar</button>
-                            <button class="button continuar" onclick="window.location='@Url.Action("Edit")'" >Editar</button>
-                        </div> <!--fim lista-buttons-->
-                    </form>
-                   
                 </div> <!--Fim margin-box-->
 
             </div> <!--fim content box-->
-         
-              
-         
+
+        </div> <!--fim CONTENT-->
+
+        <div class="list-buttons">
+            <button class="button excluir" onclick="window.location='@Url.Action("Index", "Insumos")'">Voltar</button>
+            <a asp-action="Edit" asp-route-id="@Model.IdInsumo"><button class="button continuar">Editar</button></a>
         </div>
-    </div>
+    </div>  <!--fim BLACKBOX-->
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-numbers-with-separator@1.0.3/dist/intl-numbers-with-separator.js"></script>
+    <script>
+        function formatCurrency(value) {
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+
+            return formatter.format(value);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var currencyElements = document.getElementsByClassName('currency');
+            for (var i = 0; i < currencyElements.length; i++) {
+                var value = parseFloat(currencyElements[i].textContent.replace(',', '.'));
+                currencyElements[i].textContent = formatCurrency(value);
+            }
+        });
+    </script>
 </body>
-
-<style>
-    .list-buttonsinsu{
-     padding-top:20px;
-    }
-</style>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+</html>
