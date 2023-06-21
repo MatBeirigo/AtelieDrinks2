@@ -4,50 +4,112 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NomeDrink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustoDoDrink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IngredientesDoDrink)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                    @Html.DisplayFor(modelItem => item.NomeDrink)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.CustoDoDrink)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.Quantidade)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.IngredientesDoDrink)
-            </td>
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.IdDrink">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.IdDrink">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.IdDrink">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Historico</title>
+    <link rel="stylesheet" type="text/css" href="/css/menulateral.css" />
+
+
+</head>
+<body>
+    <div class="cabecalho">
+        <div class="container">
+            <img src="~/images/coqueteis.png" alt="drinks" class="img-cabecalho">
+            <div class="texto">
+                <h1>Ficha tecnica</h1>
+            </div>
+        </div>
+    </div>
+    <div class="meio">
+        <h2>Montar Drinks</h2>
+
+        <a href="@Url.Action("Create")" class="add-btn">
+            <div class="add-box" style="margin-left:13px">
+                <img src="~/images/icon-mais.svg" alt="mais" height="15px" width="15px">
+                <p style="color:green" class="add-txt">Adicionar</p>
+            </div>
+        </a>
+
+        <div class="search-box">
+            <input type="text" class="search-txt" id="search-input" placeholder="">
+            <a href="#" class="search-btn">
+                <img src="~/images/lupa.svg" alt="lupa" height="20px" width="20px">
+            </a>
+        </div>
+    </div>
+    <div class="separa">
+        <div class="table-container">
+            <h1 class="heading">Tabela de Drinks</h1>
+            <div class="tabela-overflow">
+                <table class="tabela" id="tabela-insumos">
+                    <thead>
+                        <tr>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.NomeDrink)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustoDoDrink)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.IngredientesDoDrink)
+                            </th>
+                            <th>
+                                Detalhes
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="table-content">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NomeDrink)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustoDoDrink)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IngredientesDoDrink)
+                                </td>
+
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.IdDrink"><i class="fas fa-info-circle"></i></a>
+                                </td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+<style>
+
+    .tabela-overflow {
+        overflow: auto;
+    }
+
+    thead {
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+    }
+</style>
+
