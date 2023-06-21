@@ -4,39 +4,94 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>Drinks</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NomeDrink)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NomeDrink)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustoDoDrink)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustoDoDrink)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Quantidade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Quantidade)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IngredientesDoDrink)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IngredientesDoDrink)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdDrink">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/orcamento.css">
+
+    <style>
+        .scrollable-content {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    </style>
+
+    <title>Historico_Detalhes</title>
+</head>
+<body>
+    <!--hero-banner-->
+    <div class="hero-banner">
+        <h1 class="title-banner">Ficha tecnica</h1>
+        <h3>Detalhes</h3>
+    </div>
+
+    <!--content-->
+    <div class="black-box ">
+        <div class="content">
+            <!--box-->
+
+            <div class="content-box scrollable-content">
+                <div style="margin: 50px 0 50px 0;" class="margin-box">
+                    <h3>Detalhes do drinks</h3>
+                    <p style="margin-top:5px">@Html.DisplayFor(model => model.NomeDrink)</p>
+
+                    <div>
+                        <div class="field-grid">
+                            <div class="field">
+                                <label>Nome do Drinks: </label>
+                                <span>@Html.DisplayFor(model => model.NomeDrink)</span>
+                            </div>
+                            <div class="field">
+                                <label>Custo do Drink: </label>
+                                <span class="currency">@Html.DisplayFor(model => model.CustoDoDrink)</span>
+                            </div>
+                            <div class="field">
+                                <label>Quantidade: </label>
+                                <span class="currency">@Html.DisplayFor(model => model.Quantidade)</span>
+                            </div>
+                            <div class="field">
+                                <label>Ingredientes do drinks:</label>
+                                <span>@Html.DisplayFor(model => model.IngredientesDoDrink)</span>
+                            </div>
+                           
+                        </div>
+                    </div>
+
+                </div> <!--Fim margin-box-->
+
+            </div> <!--fim content box-->
+
+        </div> <!--fim CONTENT-->
+
+        <div class="list-buttons">
+            <button class="button excluir" onclick="window.location='@Url.Action("Index", "Drinks")'">Voltar</button>
+            <a asp-action="Edit" asp-route-id="@Model.IdDrink"><button class="button continuar">Editar</button></a>
+        </div>
+    </div>  <!--fim BLACKBOX-->
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-numbers-with-separator@1.0.3/dist/intl-numbers-with-separator.js"></script>
+    <script>
+        function formatCurrency(value) {
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+
+            return formatter.format(value);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var currencyElements = document.getElementsByClassName('currency');
+            for (var i = 0; i < currencyElements.length; i++) {
+                var value = parseFloat(currencyElements[i].textContent.replace(',', '.'));
+                currencyElements[i].textContent = formatCurrency(value);
+            }
+        });
+    </script>
+</body>
+</html>

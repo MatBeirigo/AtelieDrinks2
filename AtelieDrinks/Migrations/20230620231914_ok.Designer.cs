@@ -13,8 +13,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AtelieDrinks.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230620222917_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20230620231914_ok")]
+    partial class ok
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

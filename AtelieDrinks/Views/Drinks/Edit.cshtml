@@ -1,49 +1,191 @@
-﻿@model AtelieDrinks.Models.Drinks
+﻿
+
+@model AtelieDrinks.Models.Drinks
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h4>Drinks</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdDrink" />
-            <div class="form-group">
-                <label asp-for="NomeDrink" class="control-label"></label>
-                <input asp-for="NomeDrink" class="form-control" />
-                <span asp-validation-for="NomeDrink" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CustoDoDrink" class="control-label"></label>
-                <input asp-for="CustoDoDrink" class="form-control" />
-                <span asp-validation-for="CustoDoDrink" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Quantidade" class="control-label"></label>
-                <input asp-for="Quantidade" class="form-control" />
-                <span asp-validation-for="Quantidade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IngredientesDoDrink" class="control-label"></label>
-                <input asp-for="IngredientesDoDrink" class="form-control" />
-                <span asp-validation-for="IngredientesDoDrink" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <link rel="stylesheet" href="/css/orcamento.css">
+    <!-- Adicione os arquivos CSS do Bootstrap aqui -->
+
+
+    <style>
+        .scrollable-content {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        /* Estilos para o modal */
+        .modal-content-dark {
+            background-color: #4c000b;
+            color: #ffffff;
+        }
+
+        .modal-header-dark {
+            background-color: #4c000b;
+            color: #ffffff;
+            border-bottom: none;
+        }
+
+        .modal-title-dark {
+            color: #ffffff;
+        }
+
+        .modal-body-dark {
+            background-color: #4c000b;
+            color: #ffffff;
+        }
+
+        .modal-footer-dark {
+            background-color: #4c000b;
+            color: #ffffff;
+            border-top: none;
+        }
+
+        /* Estilos para os botões do modal */
+
+
+        .btn-primary:hover {
+            background-color: #a8001f;
+            border-color: #a8001f;
+        }
+
+        .btn-secondary {
+            background-color: #2f2f2f;
+            border-color: #2f2f2f;
+        }
+
+            .btn-secondary:hover {
+                background-color: #4f4f4f;
+                border-color: #4f4f4f;
+            }
+    </style>
+
+    <title>Ficha Tecnica_Editar</title>
+</head>
+<body>
+    <!--hero-banner-->
+    <div class="hero-banner">
+        <h1 class="title-banner">Ficha Tecnica</h1>
+        <h3>Criar Drinks</h3>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <!--content-->
+    <div class="black-box">
+        <div class="content">
+            <!--box-->
+            <form asp-action="Edit">
+                <div class="content-box scrollable-content">
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+                    <div style="margin: 80px 0 60px 0;" class="margin-box">
+                        <h3>Informações do Drink</h3>
+                        <p style="margin-top:5px"></p>
+                        <div>
+
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="IdDrink" />
+                            <div class="form-group">
+                                <label asp-for="NomeDrink" class="control-label"></label>
+                                <input asp-for="NomeDrink" class="form-control" />
+                                <span asp-validation-for="NomeDrink" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CustoDoDrink" class="control-label"></label>
+                                <input asp-for="CustoDoDrink" class="form-control" />
+                                <span asp-validation-for="CustoDoDrink" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Quantidade" class="control-label"></label>
+                                <input asp-for="Quantidade" class="form-control" />
+                                <span asp-validation-for="Quantidade" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="IngredientesDoDrink" class="control-label"></label>
+                                <input asp-for="IngredientesDoDrink" class="form-control" />
+                                <span asp-validation-for="IngredientesDoDrink" class="text-danger"></span>
+                            </div>
+
+                            <!-- Botão para abrir o modal -->
+                            <button type="button" class="button adicionar" data-toggle="modal" data-target="#ingredientModal">
+                                Selecionar Ingredientes
+                            </button>
+
+                        </div> <!-- Fim margin-box -->
+
+                    </div> <!-- Fim content box -->
+
+                </div> <!-- Fim CONTENT -->
+                <div class="list-buttons" style="justify-content:center">
+                    <a href="@Url.Action("Index", "Historico")" class="button excluir">Voltar</a>
+                    <input class="button continuar btn btn-primary" type="submit" value="Create" />
+                </div>
+            </form>
+
+        </div>  <!-- Fim BLACKBOX -->
+        <!-- Modal -->
+        <div class="modal fade" id="ingredientModal" tabindex="-1" role="dialog" aria-labelledby="ingredientModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-dark" role="document">
+                <div class="modal-content modal-content-dark">
+                    <div class="modal-header modal-header-dark">
+                        <h5 class="modal-title modal-title-dark" id="ingredientModalLabel">Selecionar Ingredientes</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-body-dark">
+                        <!-- Adicione as caixas de seleção dos ingredientes aqui -->
+                        <div class="form-check">
+                            <input class="form-check-input checkbox-ingredientes" type="checkbox" value="ingrediente1" id="ingrediente1">
+                            <label class="form-check-label" for="ingrediente1">
+                                Ingrediente 1
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox-ingredientes" type="checkbox" value="ingrediente2" id="ingrediente2">
+                            <label class="form-check-label" for="ingrediente2">
+                                Ingrediente 2
+                            </label>
+                        </div>
+                        <!-- Adicione mais caixas de seleção para os outros ingredientes -->
+                    </div>
+                    <div class="modal-footer modal-footer-dark">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>  <!-- Fim BLACKBOX -->
+    <!-- Adicione os arquivos JavaScript do Bootstrap e jQuery aqui -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.btn-primary').click(function () {
+                var ingredientesSelecionados = [];
+                $('.checkbox-ingredientes:checked').each(function () {
+                    ingredientesSelecionados.push($(this).val());
+                });
+                var ingredientesSelecionadosTexto = ingredientesSelecionados.join(', ');
+                $('#IngredientesDoDrink').val(ingredientesSelecionadosTexto);
+                $('#ingredientModal').modal('hide');
+            });
+
+            $('#ingredientModal').on('hidden.bs.modal', function () {
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+            });
+        });
+    </script>
+</body>
+</html>
