@@ -68,7 +68,7 @@ namespace AtelieDrinks.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("id_drink,nome_drink,custo_tecnico,quantidade,ingredientes")] Drinks drinks)
+        public async Task<IActionResult> Create([Bind("IdDrink,NomeDrink,CustoDoDrink,Quantidade,IngredientesDoDrink")] Drinks drinks)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace AtelieDrinks.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("id_drink,nome_drink,custo_tecnico,quantidade,ingredientes")] Drinks drinks)
+        public async Task<IActionResult> Edit(int id, [Bind("IdDrink,NomeDrink,CustoDoDrink,Quantidade,IngredientesDoDrink")] Drinks drinks)
         {
             if (id != drinks.IdDrink)
             {

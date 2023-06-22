@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -186,9 +185,9 @@ namespace AtelieDrinks.Migrations
                 {
                     id_insumo = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    nome_insumo = table.Column<List<string>>(type: "text[]", nullable: false),
-                    quantidade = table.Column<List<int>>(type: "integer[]", nullable: false),
-                    valor = table.Column<List<decimal>>(type: "numeric[]", nullable: false),
+                    nome_insumo = table.Column<string>(type: "text", nullable: false),
+                    quantidade = table.Column<int>(type: "integer", nullable: false),
+                    valor = table.Column<decimal>(type: "numeric", nullable: false),
                     Ficha_tecnicaid_ficha = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
