@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using AtelieDrinks.Data;
 using AtelieDrinks.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AtelieDrinks.Controllers
 {
@@ -16,20 +18,20 @@ namespace AtelieDrinks.Controllers
 
         public async Task<IActionResult> Index()
         {
-              return _context.Insumos != null ? 
-                          View(await _context.Insumos.ToListAsync()) :
-                          Problem("Entity set 'Contexto.Insumos'  is null.");
+            var insumos = await _context.Insumos.ToListAsync();
+            return View(insumos);
         }
 
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Insumos == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
             var insumos = await _context.Insumos
                 .FirstOrDefaultAsync(m => m.IdInsumo == id);
+
             if (insumos == null)
             {
                 return NotFound();
@@ -42,7 +44,6 @@ namespace AtelieDrinks.Controllers
         {
             return View();
         }
-        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -59,7 +60,7 @@ namespace AtelieDrinks.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Insumos == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -106,13 +107,14 @@ namespace AtelieDrinks.Controllers
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Insumos == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
             var insumos = await _context.Insumos
                 .FirstOrDefaultAsync(m => m.IdInsumo == id);
+
             if (insumos == null)
             {
                 return NotFound();
@@ -125,25 +127,20 @@ namespace AtelieDrinks.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Insumos == null)
-            {
-                return Problem("Entity set 'Contexto.Insumos'  is null.");
-            }
             var insumos = await _context.Insumos.FindAsync(id);
-            if (insumos != null)
+            if (insumos == null)
             {
-                _context.Insumos.Remove(insumos);
+                return NotFound();
             }
-            
+
+            _context.Insumos.Remove(insumos);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool InsumosExists(int id)
         {
-          return (_context.Insumos?.Any(e => e.IdInsumo == id)).GetValueOrDefault();
+            return _context.Insumos.Any(e => e.IdInsumo == id);
         }
-
-
     }
 }
