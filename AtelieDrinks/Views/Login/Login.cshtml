@@ -40,6 +40,10 @@
             </form>
             <form id="register" asp-action="Register" method="post" tabindex="502">
                 <h3>Cadastrar</h3>
+                <div class="user">
+                    <input type="text" asp-for="Usuario" name="Usuario" required>
+                    <label>Usuário</label>
+                </div>
                 <div class="mail">
                     <input type="email" asp-for="Email" name="Email" required>
                     <label>Email</label>
@@ -90,10 +94,8 @@
         });
 
         $("#login").submit(function (event) {
-            // Limpa a mensagem de erro
             Swal.close();
 
-            // Validação de preenchimento obrigatório
             var email = $("#login input[name='Email']").val();
             var password = $("#login input[name='Password']").val();
 
@@ -106,7 +108,6 @@
                 });
             }
 
-            // Validação da senha
             var password = $("#login input[name='Password']").val();
             if (password.length < 6) {
                 event.preventDefault();
@@ -119,10 +120,8 @@
         });
 
         $("#register").submit(function (event) {
-            // Limpa a mensagem de erro
             Swal.close();
 
-            // Validação de preenchimento obrigatório
             var email = $("#register input[name='Email']").val();
             var password = $("#register input[name='Password']").val();
 

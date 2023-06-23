@@ -93,10 +93,11 @@ body {
 
 .sidebar-title {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 20px 20px 20px 20px;
-    margin-bottom: 30px;
+    margin-top: 5%;
+    margin-bottom: auto;
+    height: 12%;
 }
 
     .sidebar-title > span {
@@ -678,4 +679,11 @@ h2 {
 .menu-bar-text{
     color: gray;
     text-decoration: none;
+}
+
+.sidebar-divider {
+    width: 80%;
+    height: 2px;
+    background-color: gray;
+    margin: 10px auto;
 }

@@ -25,6 +25,8 @@ namespace AtelieDrinks.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Login model)
         {
+            ModelState.Remove("Usuario");
+
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByEmailAsync(model.Email);
@@ -47,7 +49,7 @@ namespace AtelieDrinks.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = loginModel.Email, Email = loginModel.Email };
+                var user = new IdentityUser { UserName = loginModel.Usuario, Email = loginModel.Email };
                 user.EmailConfirmed = true;
                 var result = await _userManager.CreateAsync(user, loginModel.Password);
                 if (result.Succeeded)

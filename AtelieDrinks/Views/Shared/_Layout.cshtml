@@ -1,4 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var controllerName = ViewContext.RouteData.Values["controller"] as string;
+    var defaultController = "HomeController"; 
+
+    if (string.IsNullOrEmpty(controllerName))
+    {
+        ViewContext.RouteData.Values["controller"] = defaultController;
+    }
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <style>
@@ -145,20 +155,16 @@
             </div>
         </header>
         <aside id="sidebar">
-           
             <div class="sidebar-title">
-                
                 <center>
                     <a href="User" class="menu-bar-text">
-                        <img height="150px" src="/imagens/user.png" class="imageuser" alt="" />
-                        <h4>Usuário</h4>
+                        <h4 class="sidebar-brand">@ViewData["UserName"]</h4>
                     </a>
-
                 </center>
-
-                
             </div>
             
+            <div class="sidebar-divider"></div>
+
             <ul class="sidebar-list">
                 <li class="sidebar-list-item">
                     <a class="menu-bar-text" href="@Url.Content("~/home")" target="_self">
@@ -234,9 +240,3 @@
         }
     }
 </script>
-
-
-
-
-
-
