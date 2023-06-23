@@ -14,6 +14,11 @@ namespace AtelieDrinks.Models
         [Display(Name = "Senha")]
         public string Password { get; set; }
 
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Usuario")]
+        public string Usuario { get; set; }
+
         [Display(Name = "Lembrar-me")]
         public bool RememberMe { get; set; }
     }
