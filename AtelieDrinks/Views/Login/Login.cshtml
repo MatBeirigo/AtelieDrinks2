@@ -5,6 +5,9 @@
     Layout = null;
 }
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -24,11 +27,11 @@
             <form id="login" asp-action="Login" method="post" tabindex="500">
                 <h3>Login</h3>
                 <div class="mail">
-                    <input type="email" asp-for="Email" name="Email">
+                    <input type="email" asp-for="Email" name="Email" required>
                     <label>Email</label>
                 </div>
                 <div class="passwd">
-                    <input type="password" asp-for="Password" name="Password">
+                    <input type="password" asp-for="Password" name="Password" required>
                     <label>Senha</label>
                 </div>
                 <div class="submit">
@@ -38,11 +41,11 @@
             <form id="register" asp-action="Register" method="post" tabindex="502">
                 <h3>Cadastrar</h3>
                 <div class="mail">
-                    <input type="email" asp-for="Email" name="Email">
+                    <input type="email" asp-for="Email" name="Email" required>
                     <label>Email</label>
                 </div>
                 <div class="passwd">
-                    <input type="password" asp-for="Password" name="Password">
+                    <input type="password" asp-for="Password" name="Password" required>
                     <label>Senha</label>
                 </div>
                 <div class="submit">
@@ -78,13 +81,70 @@
             $('.body').css('background', '#e0b722');
             $(".veen .login-btn button").removeClass('active');
             $(this).addClass('active');
-
         });
         $(".veen .login-btn button").click(function () {
             $('.veen .wrapper').removeClass('move');
             $('.body').css('background', '#ff4931');
             $(".veen .rgstr-btn button").removeClass('active');
             $(this).addClass('active');
+        });
+
+        $("#login").submit(function (event) {
+            // Limpa a mensagem de erro
+            Swal.close();
+
+            // Validação de preenchimento obrigatório
+            var email = $("#login input[name='Email']").val();
+            var password = $("#login input[name='Password']").val();
+
+            if (!email || !password) {
+                event.preventDefault();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'Por favor, preencha todos os campos obrigatórios.'
+                });
+            }
+
+            // Validação da senha
+            var password = $("#login input[name='Password']").val();
+            if (password.length < 6) {
+                event.preventDefault();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'Senha incorreta.'
+                });
+            }
+        });
+
+        $("#register").submit(function (event) {
+            // Limpa a mensagem de erro
+            Swal.close();
+
+            // Validação de preenchimento obrigatório
+            var email = $("#register input[name='Email']").val();
+            var password = $("#register input[name='Password']").val();
+
+            if (!email || !password) {
+                event.preventDefault();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'Por favor, preencha todos os campos obrigatórios.'
+                });
+            }
+
+            // Validação da senha
+            var password = $("#register input[name='Password']").val();
+            if (!/[A-Z]/.test(password)) {
+                event.preventDefault();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'A senha deve conter pelo menos uma letra maiúscula.'
+                });
+            }
         });
     });
 </script>
